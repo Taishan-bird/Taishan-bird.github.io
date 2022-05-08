@@ -1,0 +1,1456 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+
+/* CodeMirror Dracula theme */
+:root {
+  --bg-color: #fbfbfb;
+  --text-color: #333;
+  --md-char-color: #b4b4b4;
+  --meta-content-color: #757575;
+  --table-border-color: #b4b4b4;
+  --select-text-bg-color: #fbb6b7;
+  --primary-color: #db4d52;
+  --primary-btn-border-color: #be2f34;
+  --primary-btn-text-color: #333;
+  --window-border: 1px solid #16161a;
+  --active-file-bg-color: #16161a;
+  --active-file-text-color: inherit;
+  --active-file-border-color: #757575;
+  --active-search-item-bg-color: #23242b;
+  --side-bar-bg-color: #2e3235;
+  --item-hover-bg-color: #ececec;
+  --item-hover-text-color: inherit;
+  --search-select-text-color: #333;
+  --search-select-bg-color: #db4d5270;
+  --rawblock-edit-panel-bd: #ddd;
+  --monospace: 'Fira Mono', 'Cousine', 'Consolas', monospace;
+  --node-fill: #fbfbfb;
+  --node-border: #0000001a;
+}
+
+html, body {
+  font-family: 'Avenir Next LT Pro', 'Lato', sans-serif;
+}
+
+body {
+  font-size: 1.3em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Adelle', 'Times New Roman', serif;
+}
+
+p {
+  margin: .5rem 0;
+}
+
+a {
+  color: #db4d52;
+}
+
+del {
+  color: #b4b4b4;
+}
+
+mark {
+  padding: 0 2px 2px;
+  background: #c7f661d3;
+  color: inherit;
+}
+
+blockquote {
+  position: relative;
+  margin: 1rem 0 1rem 2rem;
+  font-family: 'Adelle', 'Times New Roman', serif;
+  color: #827676;
+}
+
+blockquote::before {
+  content: '';
+  position: absolute;
+  left: -2rem;
+  height: 100%;
+  width: .25rem;
+  background: #db4d52;
+}
+
+code,
+.md-fences,
+tt {
+  font-family: 'Fira Mono', 'Cousine', 'Consolas', monospace;
+  font-size: 1rem;
+}
+
+code {
+  font-size: .9em;
+  border: 1px solid #0000001a;
+  border-radius: .25rem;
+  padding: 1px .25rem;
+  background: #fafafa;
+}
+
+kbd {
+  font-family: 'Fira Mono', 'Cousine', 'Consolas', monospace;
+  font-size: .875rem;
+  border: 2px solid #0000001a;
+  background: #f7f7f7;
+  color: #333;
+  box-shadow: none;
+}
+
+hr {
+  border-color: #b4b4b4;
+}
+
+table {
+  border: 1px solid #b4b4b4;
+  margin: 1rem 0;
+}
+
+table tr:nth-child(2n) {
+  background: #ddd;
+}
+
+thead {
+  background: #ddd;
+}
+
+td, th {
+  padding: .35rem .7rem;
+  border: 1px solid #b4b4b4;
+}
+
+#write {
+  position: static;
+  width: 90%;
+  max-width: 700px;
+  line-height: 1.6;
+  transform: none;
+}
+
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre {
+  width: auto;
+}
+
+#write h1::before, #write h2::before, #write h3::before, #write h4::before, #write h5::before, #write h6::before {
+  position: absolute;
+  left: auto;
+  right: calc(100% + .75em);
+  top: 0;
+  color: #b4b4b4;
+  font-size: 1rem;
+  font-weight: bold;
+  font-variant: 'small-caps';
+}
+
+#write h1 {
+  font-size: 1.8rem;
+  margin: 1rem 0;
+}
+
+#write h1::before {
+  content: 'H1';
+  top: .87rem;
+}
+
+#write h2 {
+  font-size: 1.4rem;
+  margin: .7rem 0;
+}
+
+#write h2::before {
+  content: 'H2';
+  top: .43rem;
+}
+
+#write h3 {
+  font-size: 1.2rem;
+  margin: .5rem 0;
+}
+
+#write h3::before {
+  content: 'H3';
+  top: .2rem;
+}
+
+#write h4 {
+  font-size: 1.1rem;
+  margin: .2rem 0;
+}
+
+#write h4::before {
+  content: 'H4';
+  top: .07rem;
+}
+
+#write h5, #write h6 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+#write h5::before {
+  content: 'H5';
+}
+
+#write h6::before {
+  content: 'H6';
+}
+
+#write > h1.md-focus::before,
+#write > h2.md-focus::before,
+#write > h3.md-focus::before,
+#write > h4.md-focus::before,
+#write > h5.md-focus::before,
+#write > h6.md-focus::before {
+  color: #757575;
+  padding: 0;
+  border: 0;
+  line-height: inherit;
+}
+
+#write ol, #write ul {
+  padding-left: 2rem;
+  margin: .5rem 0;
+}
+
+#write ol > li, #write ul > li {
+  color: #db4d52;
+  font-weight: bold;
+}
+
+#write ol > li > *, #write ul > li > * {
+  color: #333;
+  font-weight: normal;
+}
+
+#write ol > li > *:not(ol):not(ul), #write ul > li > *:not(ol):not(ul) {
+  padding-left: .25rem;
+}
+
+#write ul {
+  list-style-type: disc;
+}
+
+#write .md-task-list-item > input {
+  -webkit-appearance: initial;
+  display: block;
+  position: absolute;
+  border: 1px solid #b4b4b4;
+  border-radius: .25rem;
+  margin-top: .1rem;
+  margin-left: -1.8rem;
+  height: 1.2rem;
+  width: 1.2rem;
+  transition: background 0.3s;
+}
+
+#write .md-task-list-item > input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+#write .md-task-list-item > input:hover {
+  background: #ddd;
+}
+
+#write .md-task-list-item > input[checked]::before {
+  content: '';
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  height: 60%;
+  width: 2px;
+  transform: rotate(40deg);
+  background: #333;
+}
+
+#write .md-task-list-item > input[checked]::after {
+  content: '';
+  position: absolute;
+  top: 46%;
+  left: 25%;
+  height: 30%;
+  width: 2px;
+  transform: rotate(-40deg);
+  background: #333;
+}
+
+#write .md-task-list-item > p {
+  transition: color 0.3s, opacity 0.3s;
+}
+
+#write .md-task-list-item.task-list-done > p {
+  color: #b4b4b4;
+  text-decoration: line-through;
+}
+
+#write .md-task-list-item.task-list-done > p > .md-emoji {
+  opacity: .5;
+}
+
+#write .md-task-list-item.task-list-done > p > .md-link > a {
+  opacity: .6;
+}
+
+#write .md-meta-block {
+  background-color: transparent;
+  border-bottom: 1px solid #b4b4b4;
+  padding-bottom: 1rem;
+  opacity: .8;
+}
+
+#write .md-table-edit {
+  border-top: 1px solid #b4b4b4;
+  margin-top: -29px !important;
+  padding: 3px 0;
+}
+
+#write .md-grid-board a.md-active, #write .md-grid-board a:hover {
+  background: #db4d52;
+  color: #b4b4b4;
+}
+
+#write .md-grid-board tr[row='1'] a.md-active, #write .md-grid-board tr[row='1'] a:hover {
+  background: #be2f34;
+  color: #b4b4b4;
+}
+
+#write .btn-group .btn + .btn {
+  margin-left: 0;
+}
+
+#write .btn-default.active, #write .btn-default.focus, #write .btn-default:active, #write .btn-default:focus, #write .btn-default:hover,
+.open > #write .btn-default.dropdown-toggle {
+  background: transparent;
+  color: inherit;
+}
+
+#write .typora-table-drag-area::after {
+  content: '';
+  position: absolute;
+  border: 2px solid #333;
+  opacity: 0;
+  transition: opacity .4s;
+}
+
+#typora-table-row-tracker #write .typora-table-drag-area::after,
+#typora-table-col-tracker #write .typora-table-drag-area::after {
+  opacity: 1;
+}
+
+#typora-table-row-tracker #write .typora-table-drag-area::after {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 100%;
+}
+
+#typora-table-col-tracker #write .typora-table-drag-area::after {
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 0;
+}
+
+#write .md-toc-tooltip {
+  z-index: 10;
+}
+
+#write .md-toc-item {
+  font-size: 1.1rem;
+  color: var(--primary-btn-border-color);
+}
+
+#write .md-toc-h1 {
+  font-family: 'Adelle', 'Times New Roman', serif;
+  font-size: 1.3rem;
+}
+
+#write .md-toc-h2 {
+  font-size: 1.2rem;
+}
+
+#write .md-footnote {
+  font-family: 'Adelle', 'Times New Roman', serif;
+  font-size: .8em;
+  border: 1px solid #ddd;
+  padding: 0 4px;
+  background: #f0f0f0;
+  color: #333;
+}
+
+#write .md-def-split {
+  min-width: 1ch;
+}
+
+#write .md-def-name::before, #write .md-def-name::after {
+  color: #757575;
+}
+
+#write .md-image > .md-meta {
+  color: #757575;
+}
+
+#write .md-rawblock-tooltip {
+  top: -1.5rem;
+  height: 1.5rem;
+  padding: .25rem;
+}
+
+#write .md-search-hit {
+  background: #db4d5230;
+  border-radius: .125rem;
+}
+
+#write .md-search-select {
+  background: #db4d5270;
+  border: 1px solid #9292928f;
+  padding: 0 1px;
+}
+
+#write pre[lang="mermaid"] .md-diagram-panel {
+  border-color: #0000001a;
+}
+
+#write pre[lang="mermaid"] tspan {
+  fill: #333;
+}
+
+#write pre[lang="mermaid"][mermaid-type="graph"] path.path ~ defs marker {
+  fill: #333;
+}
+
+#write pre[lang="mermaid"][mermaid-type="graph"] .cluster rect {
+  fill: transparent !important;
+  stroke: #0000001a !important;
+}
+
+#write pre[lang="mermaid"][mermaid-type="gantt"] .section1 {
+  fill: transparent;
+}
+
+#write pre[lang="mermaid"][mermaid-type="gantt"] .section2 {
+  fill: #ddd;
+}
+
+#write pre[lang="mermaid"][mermaid-type="gantt"] .section3 {
+  fill: transparent;
+}
+
+#write pre[lang="mermaid"][mermaid-type="gantt"] .section4 {
+  fill: #ddd;
+}
+
+#write pre[lang="mermaid"][mermaid-type="gantt"] .section5 {
+  fill: transparent;
+}
+
+#write pre[lang="mermaid"][mermaid-type="gantt"] .section6 {
+  fill: #ddd;
+}
+
+#write pre[lang="mermaid"][mermaid-type="gantt"] .section7 {
+  fill: transparent;
+}
+
+#write pre[lang="mermaid"][mermaid-type="gantt"] .section8 {
+  fill: #ddd;
+}
+
+#write pre[lang="mermaid"][mermaid-type="gantt"] .section9 {
+  fill: transparent;
+}
+
+#write pre[lang="mermaid"][mermaid-type="gantt"] .section10 {
+  fill: #ddd;
+}
+
+#write pre[lang="mermaid"][mermaid-type="gantt"] .section11 {
+  fill: transparent;
+}
+
+#write pre[lang="mermaid"][mermaid-type="gantt"] .section12 {
+  fill: #ddd;
+}
+
+#write pre[lang="mermaid"][mermaid-type="gantt"] .section13 {
+  fill: transparent;
+}
+
+#write pre[lang="mermaid"][mermaid-type="gantt"] .section14 {
+  fill: #ddd;
+}
+
+#write pre[lang="mermaid"][mermaid-type="gantt"] .section15 {
+  fill: transparent;
+}
+
+#write pre[lang="mermaid"][mermaid-type="gantt"] .section16 {
+  fill: #ddd;
+}
+
+#write pre[lang="mermaid"][mermaid-type="gantt"] .section17 {
+  fill: transparent;
+}
+
+#write pre[lang="mermaid"][mermaid-type="gantt"] .section18 {
+  fill: #ddd;
+}
+
+#write pre[lang="mermaid"][mermaid-type="gantt"] .section19 {
+  fill: transparent;
+}
+
+#write pre[lang="mermaid"][mermaid-type="gantt"] .task {
+  fill: #bfbee2;
+  stroke: #9d9bce;
+}
+
+#write pre[lang="mermaid"][mermaid-type="gantt"] .task[class*="done"] {
+  fill: #d5d5d5;
+  stroke: #929292;
+}
+
+#write pre[lang="mermaid"][mermaid-type="gantt"] .task[class*="active"] {
+  fill: #bcc0ff;
+  stroke: #7f7ccd;
+}
+
+#write pre[lang="mermaid"][mermaid-type="gantt"] .task[class*="crit"] {
+  fill: #ebb5bd;
+  stroke: #d45c62;
+}
+
+#write pre[lang="mermaid"][mermaid-type="gantt"] .task[class*="Crit"] {
+  stroke: #d45c62;
+}
+
+#write pre[lang="mermaid"][mermaid-type="gantt"] text {
+  fill: #333;
+}
+
+#write pre[lang="mermaid"][mermaid-type="gantt"] text[class*="activeText"], #write pre[lang="mermaid"][mermaid-type="gantt"] text[class*="activeCritText"] {
+  fill: #333 !important;
+  font-weight: bold;
+}
+
+#write pre[lang="mermaid"][mermaid-type="gantt"] text[class*="doneText"], #write pre[lang="mermaid"][mermaid-type="gantt"] text[class*="doneCritText"] {
+  fill: #b4b4b4 !important;
+}
+
+#write pre[lang="mermaid"][mermaid-type="gantt"] .grid .tick line {
+  stroke: #333;
+}
+
+.modal-content .modal-header, .modal-content .modal-footer {
+  border-color: #b4b4b4;
+}
+
+.modal-content input, .modal-content button.btn-default {
+  border-color: #b4b4b4;
+}
+
+.modal-content input {
+  background: transparent;
+}
+
+#typora-quick-open {
+  top: 32px;
+  width: 40%;
+  min-width: 420px;
+  transform: translateX(-50%);
+  margin-left: 0;
+}
+
+.mac-seamless-mode #typora-quick-open {
+  top: 50px;
+}
+
+#typora-quick-open #typora-quick-open-input input {
+  border-color: #db4d52;
+}
+
+#typora-quick-open .ty-quick-open-category-list-inner {
+  position: relative;
+}
+
+#typora-quick-open .ty-quick-open-category-title {
+  height: auto;
+  padding-top: 4px;
+  padding-left: 12px;
+}
+
+#typora-quick-open .typora-quick-open-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-bottom: 2px;
+  cursor: pointer;
+}
+
+#typora-quick-open .typora-quick-open-item:not(.active):hover {
+  background: #23242b;
+}
+
+#typora-quick-open .typora-quick-open-item.active:before {
+  content: '⟩';
+  position: absolute;
+  left: 8px;
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+
+#typora-quick-open .typora-quick-open-item-path {
+  margin-top: -2px;
+}
+
+#toc-dropmenu {
+  padding: .25em 0;
+  background: #fbfbfb;
+}
+
+#toc-dropmenu .outline-title-divider {
+  display: none;
+}
+
+.outline-label:hover {
+  text-decoration: none;
+}
+
+.ty-tooltip {
+  background: #fbfbfb;
+  color: #333;
+  border-color: #00000040;
+}
+
+.code-tooltip.md-f-tooltip, .code-tooltip.md-f-tooltip .md-arrow::after {
+  background: #222 !important;
+  color: #f0f0f0 !important;
+}
+
+.code-tooltip.md-f-tooltip a {
+  color: #db4d52;
+}
+
+.on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container), .on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) *, .on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) ol, .on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) ul {
+  color: #b4b4b4 !important;
+}
+
+.on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) img, .on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) .md-footnote, .on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) .md-emoji {
+  opacity: .5;
+}
+
+.on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) mark {
+  background: #ddd;
+}
+
+.on-focus-mode blockquote .md-end-block:not(.md-focus):not(.md-focus-container)::before {
+  opacity: .5;
+}
+
+.on-focus-mode li:not(.md-focus-container)::before {
+  opacity: .5;
+}
+
+#typora-sidebar {
+  border-right: 1px solid #19191c;
+}
+
+#typora-sidebar .sidebar-tabs {
+  font-family: 'Adelle', 'Times New Roman', serif;
+  border-bottom: 1px solid #19191c;
+}
+
+#typora-sidebar .file-list-item-file-name {
+  font-family: 'Adelle', 'Times New Roman', serif;
+  font-size: 1.2em;
+}
+
+#typora-sidebar #file-library-search-input {
+  background: #2e3235;
+}
+
+#typora-sidebar #file-library-search .file-list-item-file-name {
+  font-size: 1.1rem;
+}
+
+#typora-sidebar #file-library-search .ty-search-item.active {
+  background: #23242b;
+}
+
+#typora-sidebar .file-list-item-summary,
+#typora-sidebar .ty-search-item-line {
+  font-family: 'Avenir Next LT Pro', 'Lato', sans-serif;
+}
+
+#typora-sidebar .ty-file-search-match-text,
+#typora-sidebar .ty-outline-hit {
+  font-weight: bold;
+  background: transparent;
+}
+
+#typora-sidebar #outline-content {
+  line-height: 1.4em;
+}
+
+#typora-sidebar #outline-content .outline-h1 > .outline-item {
+  font-family: 'Adelle', 'Times New Roman', serif;
+}
+
+#typora-sidebar #outline-content .outline-h1 > .outline-item {
+  padding-left: 0em;
+}
+
+#typora-sidebar #outline-content .outline-h2 > .outline-item {
+  padding-left: 0.75em;
+}
+
+#typora-sidebar #outline-content .outline-h3 > .outline-item {
+  padding-left: 1.5em;
+}
+
+#typora-sidebar #outline-content .outline-h4 > .outline-item {
+  padding-left: 2.25em;
+}
+
+#typora-sidebar #outline-content .outline-h5 > .outline-item {
+  padding-left: 3em;
+}
+
+#typora-sidebar #outline-content .outline-h6 > .outline-item {
+  padding-left: 3.75em;
+}
+
+#typora-sidebar #outline-content .outline-item:hover {
+  background: #202020;
+}
+
+#typora-sidebar .outline-title-wrapper,
+#typora-sidebar .outline-item-wrapper.outline-h1 > .outline-item {
+  font-family: 'Adelle', 'Times New Roman', serif;
+}
+
+#typora-sidebar .file-library-node,
+#typora-sidebar .file-library-node .file-node-background {
+  transition: background .4s;
+}
+
+#typora-sidebar .file-tree-node {
+  padding-left: .75em;
+}
+
+#typora-sidebar .file-tree-node i, #typora-sidebar .file-tree-node span {
+  vertical-align: middle;
+}
+
+#typora-sidebar .file-tree-node .file-node-icon, #typora-sidebar .file-tree-node .file-node-title {
+  margin-left: 2px;
+}
+
+#typora-sidebar .file-tree-node .file-tree-node:not(.file-library-file-node) > .file-node-content {
+  font-style: italic;
+}
+
+#typora-sidebar .file-tree-node.file-node-root > .file-node-content {
+  font-weight: bold;
+  font-style: italic;
+}
+
+#typora-sidebar .file-tree-node.file-library-file-node:not(.active):hover .file-node-background,
+#typora-sidebar .file-list-item.file-library-node:not(.active):hover {
+  background: #202020;
+}
+
+#typora-sidebar .file-tree-node.file-library-file-node.active .file-node-background,
+#typora-sidebar .file-list-item.file-library-file-node.active {
+  border-left: 5px solid #db4d52;
+}
+
+#typora-sidebar .blink-area {
+  animation: none;
+}
+
+#typora-sidebar #ty-sidebar-footer {
+  border-top: 1px solid #19191c;
+}
+
+#typora-sidebar #ty-sidebar-footer .sidebar-footer-item {
+  transition: background .3s;
+}
+
+#typora-sidebar #ty-sidebar-footer .sidebar-footer-item:hover {
+  background: #202020;
+}
+
+#typora-sidebar #ty-sidebar-footer #sidebar-files-menu .menuitem-group-label {
+  font-style: italic;
+}
+
+#typora-sidebar #ty-sidebar-footer #sidebar-files-menu .show + .menuitem-group-label.show {
+  border-color: #202020;
+}
+
+#typora-sidebar #ty-sidebar-footer #sidebar-files-menu li > a:hover {
+  background: #202020;
+}
+
+#typora-sidebar #ty-sidebar-footer #sidebar-files-menu .ty-side-sort-btn {
+  cursor: pointer;
+}
+
+#typora-sidebar #ty-sidebar-footer #sidebar-files-menu .ty-side-sort-btn.active, #typora-sidebar #ty-sidebar-footer #sidebar-files-menu .ty-side-sort-btn:hover {
+  color: #db4d52;
+}
+
+#typora-sidebar #ty-sidebar-footer #sidebar-files-menu .ty-side-sort-btn.active {
+  background: #16161a;
+}
+
+.dropdown-menu:not(.megamenu-menu-list):not(#sidebar-files-menu) {
+  background: #fbfbfb;
+  color: #333;
+}
+
+.dropdown-menu:not(.megamenu-menu-list):not(#sidebar-files-menu) .divider {
+  border-color: #e6e6e6;
+}
+
+.dropdown-menu:not(.megamenu-menu-list):not(#sidebar-files-menu) .active a,
+.dropdown-menu:not(.megamenu-menu-list):not(#sidebar-files-menu) .has-extra-menu.active a {
+  background: #e6e6e6 !important;
+}
+
+.dropdown-menu:not(.megamenu-menu-list):not(#sidebar-files-menu) .has-btn-submenu .menu-style-btn.active {
+  background: #333;
+  color: #fbfbfb;
+  cursor: pointer;
+}
+
+#footer-word-count-info .ty-footer-word-count-all tr:hover,
+#ty-spell-check-dict-missing-menu li:hover {
+  background: #e6e6e6 !important;
+}
+
+.ty-spell-check-panel-item.ty-active, .ty-spell-check-panel-item:hover {
+  background: #e6e6e6 !important;
+}
+
+.btn-default:hover {
+  background: #ddd;
+}
+
+footer.ty-footer {
+  border-top: 0;
+}
+
+.typora-sourceview-on #toggle-sourceview-btn {
+  background: #fbfbfb;
+}
+
+.footer-item:hover {
+  background: #e6e6e6 !important;
+}
+
+#outline-btn:hover {
+  color: inherit;
+}
+
+.form-control:focus {
+  border-color: #db4d52;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 2px #db4d52;
+}
+
+.megamenu-opened header {
+  background-image: none;
+}
+
+#top-titlebar, #top-titlebar * {
+  color: inherit;
+}
+
+#megamenu-content {
+  padding-top: 28px;
+  background: #fbfbfb;
+  color: #333;
+}
+
+#megamenu-content .long-btn {
+  border-color: #9292928f;
+  transition: border-color .4s;
+}
+
+#megamenu-content .long-btn:hover {
+  border-color: #db4d52;
+  background: #eee;
+  color: inherit !important;
+}
+
+#megamenu-menu-panel:not(:first-of-type) {
+  margin-top: 48px;
+}
+
+#recent-file-panel-action-btn {
+  background: inherit;
+  border-color: #9292928f;
+  transition: all .4s;
+}
+
+#recent-file-panel-action-btn:hover {
+  border-color: #db4d52;
+  background: #eee;
+  color: inherit;
+}
+
+#recent-document-table {
+  background-color: inherit;
+}
+
+#recent-file-panel tbody tr:nth-child(2n-1) {
+  background-color: inherit;
+}
+
+#recent-file-panel tbody tr:hover {
+  background-color: #eee !important;
+}
+
+#recent-file-panel tbody tr:hover td:nth-child(1) {
+  color: inherit;
+}
+
+#megamenu-menu-sidebar {
+  background-color: #2e3235;
+  color: #333;
+}
+
+.megamenu-menu-header,
+.megamenu-menu-list li:not(.saved) a {
+  transition: all .4s;
+}
+
+.megamenu-menu-header {
+  border-bottom: 1px solid #16161a;
+}
+
+.megamenu-menu-header:hover {
+  background: #161819;
+}
+
+.megamenu-menu-list li:not(.saved) a:not(.active):hover,
+.megamenu-menu-list li a.active {
+  background: #101010 !important;
+}
+
+#m-saved {
+  background: inherit;
+  color: inherit;
+}
+
+#megamenu-menu-list {
+  margin: 0;
+}
+
+.theme-preview-div {
+  transition: all .4s;
+}
+
+.theme-preview-div:hover {
+  border: 4px solid #be2f34;
+}
+
+.theme-preview-div.active, .theme-preview-div.active:hover {
+  border: 4px solid #db4d52;
+}
+
+.theme-preview-div.active i {
+  color: #db4d52;
+}
+
+.ty-preferences .window {
+  background: #fbfbfb;
+}
+
+.ty-preferences .nav-group-item {
+  background: transparent;
+  color: #333;
+  cursor: pointer;
+}
+
+.ty-preferences .nav-group-item:not(.active):hover {
+  background: #eee;
+  color: inherit;
+}
+
+.ty-preferences .nav-group-item:active, .ty-preferences .nav-group-item.active {
+  background: #ddd;
+  color: inherit;
+}
+
+.ty-preferences .btn-default {
+  background: transparent;
+  color: inherit;
+  border-color: #9292928f;
+  cursor: pointer;
+}
+
+.ty-preferences .btn-default:hover {
+  border-color: #db4d52;
+  background: #eee !important;
+  color: inherit;
+}
+
+.ty-preferences .btn-default:active, .ty-preferences .btn-default.active {
+  background: #ddd;
+}
+
+.ty-preferences select,
+.ty-preferences ul.dropdown-menu {
+  border-color: #9292928f;
+  background: #fbfbfb;
+}
+
+.ty-preferences ul.dropdown-menu li {
+  background: #fbfbfb;
+}
+
+.ty-preferences ul.dropdown-menu li:hover {
+  background: #eee;
+}
+
+.cm-s-typora-default .cm-s-inner.CodeMirror-line {
+  border: 0 !important;
+}
+
+#write > p:first-child:empty {
+  position: static;
+}
+
+#write > p:only-child:empty::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("file:///C://Users//tangk//AppData//Roaming//Typora/themes/ursine/night.png") no-repeat 45% 90% transparent;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+@media print {
+  #write ol > li,
+  #write ul > li {
+    color: #333;
+  }
+  #write ol > li, #write ul > li {
+    color: #333;
+  }
+  #write ol > li > strong > *, #write ol > li > b > *, #write ul > li > strong > *, #write ul > li > b > * {
+    font-weight: bold;
+  }
+}
+
+/* CodeMirror 3024 Day theme */
+.cm-s-inner {
+  padding: .25rem;
+  border: 1px solid #0000001a !important;
+  border-radius: .25rem;
+}
+
+.cm-s-inner.CodeMirror, .cm-s-inner .CodeMirror-gutters {
+  background-color: #fafafa !important;
+  color: #3a3432 !important;
+  border: none;
+}
+
+.cm-s-inner .CodeMirror-gutters {
+  width: 5ch;
+  color: #6d8a88;
+}
+
+.cm-s-inner .CodeMirror-cursor {
+  border-left: solid thin #5c5855 !important;
+}
+
+.cm-s-inner .CodeMirror-linenumber {
+  width: 4ch !important;
+  color: #807d7c;
+}
+
+.cm-s-inner .CodeMirror-line::selection, .cm-s-inner .CodeMirror-line::-moz-selection,
+.cm-s-inner .CodeMirror-line > span::selection,
+.cm-s-inner .CodeMirror-line > span::-moz-selection,
+.cm-s-inner .CodeMirror-line > span > span::selection,
+.cm-s-inner .CodeMirror-line > span > span::-moz-selection {
+  background: #d6d5d4;
+}
+
+.cm-s-inner span.cm-comment {
+  color: #cdab53;
+}
+
+.cm-s-inner span.cm-string, .cm-s-inner span.cm-string-2 {
+  color: #f2b01d;
+}
+
+.cm-s-inner span.cm-number {
+  color: #a16a94;
+}
+
+.cm-s-inner span.cm-variable {
+  color: #01a252;
+}
+
+.cm-s-inner span.cm-variable-2 {
+  color: #01a0e4;
+}
+
+.cm-s-inner span.cm-def {
+  color: #e8bbd0;
+}
+
+.cm-s-inner span.cm-operator {
+  color: #ff79c6;
+}
+
+.cm-s-inner span.cm-keyword {
+  color: #db2d20;
+}
+
+.cm-s-inner span.cm-atom {
+  color: #a16a94;
+}
+
+.cm-s-inner span.cm-meta {
+  color: inherit;
+}
+
+.cm-s-inner span.cm-tag {
+  color: #db2d20;
+}
+
+.cm-s-inner span.cm-attribute {
+  color: #01a252;
+}
+
+.cm-s-inner span.cm-qualifier {
+  color: #50fa7b;
+}
+
+.cm-s-inner span.cm-property {
+  color: #01a252;
+}
+
+.cm-s-inner span.cm-builtin {
+  color: #50fa7b;
+}
+
+.cm-s-inner span.cm-variable-3, .cm-s-inner span.cm-type {
+  color: #ffb86c;
+}
+
+.cm-s-inner span.cm-bracket {
+  color: #3a3432;
+}
+
+.cm-s-inner span.cm-link {
+  color: #a16a94;
+}
+
+.cm-s-inner span.cm-error {
+  background: #db2d20;
+  color: #5c5855;
+}
+
+.md-fences.md-focus .cm-s-inner .CodeMirror-activeline-background {
+  background: #e8f2ff;
+}
+
+.cm-s-inner .CodeMirror-matchingbracket {
+  text-decoration: underline;
+  color: #a16a94 !important;
+}
+
+.cm-s-inner .CodeMirror-selected, .cm-s-inner .CodeMirror-selectedtext {
+  background: #d5e2f4 !important;
+  color: inherit;
+  text-shadow: none;
+}
+
+#fences-auto-suggest .active {
+  background: #ddd;
+}
+
+#write .code-tooltip {
+  bottom: initial;
+  top: calc(100% - 1px);
+  background: #f7f7f7;
+  border: 1px solid #ddd;
+  border-top: 0;
+}
+
+.auto-suggest-container {
+  border-color: #b4b4b4;
+}
+
+.auto-suggest-container .autoComplt-hint.active {
+  background: #b4b4b4;
+  color: inherit;
+}
+
+table tr:nth-child(2n) {
+  background: #e6e6e6;
+}
+
+sup.md-footnote {
+  background: #ddd;
+}
+
+#typora-sidebar * {
+  color: #f0f0f0;
+}
+
+#typora-sidebar * .file-tree-rename-input {
+  color: #333;
+}
+
+#typora-sidebar * code {
+  background: #0000001a;
+  border-color: #ffffff26;
+}
+
+#typora-quick-open * {
+  color: #f0f0f0;
+}
+
+#typora-quick-open input {
+  color: #333;
+}
+
+#megamenu-menu-sidebar {
+  color: #f0f0f0 !important;
+}
+
+.megamenu-menu-list li:not(.saved) a:not(.active):hover,
+.megamenu-menu-list li a.active {
+  color: #f0f0f0 !important;
+}
+
+#write > p:first-child:not(:only-child)::before, #write > p:only-child::before {
+  background: url("file:///C://Users//tangk//AppData//Roaming//Typora/themes/ursine/day.png") no-repeat 55% 90% transparent;
+  background-size: cover;
+}
+
+
+
+</style><title>重塑幸福</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n59"><a class="md-toc-inner" href="#前言"><strong>前言</strong></a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n68"><a class="md-toc-inner" href="#第一章-生活的真相人生就是一场修行">第一章 生活的真相：人生就是一场修行</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n70"><a class="md-toc-inner" href="#11--人生就是一场修行">1.1  人生就是一场修行 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n89"><a class="md-toc-inner" href="#12--生活就是一个问题接着一个问题">1.2  生活就是一个问题接着一个问题 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n108"><a class="md-toc-inner" href="#13--解决问题才是快乐的本源">1.3  解决问题才是快乐的本源</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n122"><a class="md-toc-inner" href="#14--别让情绪毁了你">1.4  别让情绪毁了你 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n137"><a class="md-toc-inner" href="#15--选择奋斗目标">1.5  选择奋斗目标 </a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n162"><a class="md-toc-inner" href="#第二章-焦虑的本质切开忧郁的洋葱">第二章 焦虑的本质：切开忧郁的洋葱 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n165"><a class="md-toc-inner" href="#21--切开忧郁的洋葱">2.1  切开忧郁的洋葱 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n210"><a class="md-toc-inner" href="#22--如何活成自己想要的模样">2.2  如何活成自己想要的模样 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n240"><a class="md-toc-inner" href="#23--不良价值观夺走了你的幸福人生">2.3  不良价值观夺走了你的幸福人生 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n264"><a class="md-toc-inner" href="#24--区分好的价值观和不良的价值观">2.4  区分好的价值观和不良的价值观 </a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n280"><a class="md-toc-inner" href="#第三章-主动式思维永远别说你没有选择">第三章 主动式思维：永远别说你没有选择</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n282"><a class="md-toc-inner" href="#31--永远别说你没有选择">3.1  永远别说你没有选择 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n292"><a class="md-toc-inner" href="#32--每个人都要做人生的选择题">3.2  每个人都要做人生的选择题 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n315"><a class="md-toc-inner" href="#33--伟大伴随着责任">3.3  伟大伴随着责任 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n352"><a class="md-toc-inner" href="#34--面对悲剧你的选择是">3.4  面对悲剧，你的选择是...... </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n366"><a class="md-toc-inner" href="#35--打好命运给你的烂牌">3.5  打好命运给你的烂牌 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n384"><a class="md-toc-inner" href="#36--带来焦虑的受害者心态">3.6  带来焦虑的"受害者心态" </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n395"><a class="md-toc-inner" href="#37--只有做或不做的问题">3.7  只有"做"或"不做"的问题 </a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n407"><a class="md-toc-inner" href="#第四章-曼森规避法人生就是不断在犯错">第四章 曼森规避法：人生就是不断在犯错</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n409"><a class="md-toc-inner" href="#41--在犯错中寻找答案">4.1  在犯错中寻找答案 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n435"><a class="md-toc-inner" href="#42--我们的大脑有时是不可靠的">4.2  我们的大脑有时是不可靠的 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n448"><a class="md-toc-inner" href="#43--为什么跟着感觉走不一定靠谱">4.3  为什么"跟着感觉走"不一定靠谱 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n473"><a class="md-toc-inner" href="#44--危险的确定性">4.4  危险的"确定性"</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n508"><a class="md-toc-inner" href="#45--曼森规避法">4.5  曼森规避法</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n526"><a class="md-toc-inner" href="#46--放下的美丽">4.6  放下的美丽</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n538"><a class="md-toc-inner" href="#47--如何减少确定性">4.7  如何减少"确定性"</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n567"><a class="md-toc-inner" href="#第五章-媒体陷阱过度积极带来的自尊危机">第五章 媒体陷阱：过度积极带来的"自尊危机"</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n569"><a class="md-toc-inner" href="#51--过度积极带来的自尊危机">5.1  过度积极带来的"自尊危机"</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n594"><a class="md-toc-inner" href="#52--特权意识与过度补偿">5.2  "特权意识"与"过度补偿" </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n655"><a class="md-toc-inner" href="#53--你我皆凡人">5.3  你我皆凡人 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n671"><a class="md-toc-inner" href="#54--平凡的意义">5.4  平凡的意义 </a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n684"><a class="md-toc-inner" href="#第六章-重塑幸福不纠结的人生态度">第六章 重塑幸福：不纠结的人生态度 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n686"><a class="md-toc-inner" href="#61--不纠结的人生态度">6.1  不纠结的人生态度</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n707"><a class="md-toc-inner" href="#62--不在乎的生活艺术">6.2  不在乎的生活艺术 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n747"><a class="md-toc-inner" href="#63--不在乎-不代表冷漠与消极">6.3  "不在乎" 不代表冷漠与消极</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n777"><a class="md-toc-inner" href="#第七章-重塑自我尊敬一事无成的自己">第七章 重塑自我：尊敬"一事无成"的自己 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n779"><a class="md-toc-inner" href="#71--尊敬一事无成的自己">7.1  尊敬"一事无成"的自己</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n791"><a class="md-toc-inner" href="#72--没有任何人能轻易成功">7.2  没有任何人能轻易成功 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n812"><a class="md-toc-inner" href="#73--苦痛是旅程中的风景">7.3  苦痛是旅程中的风景 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n844"><a class="md-toc-inner" href="#74--从零到一才是最难的一步">7.4  "从零到一"才是最难的一步 </a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n869"><a class="md-toc-inner" href="#第八章-告别焦虑说不的重要性">第八章 告别焦虑：说"不"的重要性 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n872"><a class="md-toc-inner" href="#81--说-不-的重要性">8.1  说 "不" 的重要性</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n892"><a class="md-toc-inner" href="#82--有舍必有得">8.2  有舍必有得 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n905"><a class="md-toc-inner" href="#83--爱情的悲剧在于界限不清">8.3  爱情的悲剧在于界限不清 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n950"><a class="md-toc-inner" href="#84--如何建立信任">8.4  如何建立信任 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n970"><a class="md-toc-inner" href="#85--拒绝让你更自由">8.5  拒绝，让你更自由</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n986"><a class="md-toc-inner" href="#第九章-向死而生最好的告别">第九章 向死而生：最好的告别 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n987"><a class="md-toc-inner" href="#91--最好的告别">9.1  最好的告别 </a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n1014"><a class="md-toc-inner" href="#92--死亡的不朽工程">9.2  死亡的不朽工程</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n1036"><a class="md-toc-inner" href="#93--人生只有一次你选择怎样活">9.3  人生只有一次，你选择怎样活 </a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n1088"><a class="md-toc-inner" href="#鸣谢">鸣谢 </a></span></p></div><p>&nbsp;</p><hr /><p>&nbsp;</p><h1 id='前言'><strong><span>前言</span></strong></h1><p><span>本书将帮助你更理性地思考和选择哪些是你生命中重要的事情，以及哪些是非重要的事情。</span></p><p><span>今天我们其中的一些人面临一种心理流行病------他们不再认为那些痛苦的经历有时反而是有益的。表面上看来，这只是智力惰性的表现。但我向你保证，这是一个生死攸关的问题。</span></p><p><span>因为一旦我们这样认为，我们便会无意识地责备自己。我们会觉得好像那本来就是我们的错，以至于我们会做出各种各样的过度补偿。比如：一次性购买四十双鞋子，某个周二晚上猛灌伏特加酒或在高速公路上超速驾驶。</span></p><p><span>认为不适当便是不好的理念，有时会成为我们那不断壮大的反馈回路的源泉。它将会主导我们的情绪。</span></p><p><span>不在乎是一种简单的方法，它可以帮助我们调整生活预期，帮助我们选择什么是重要的，什么是非重要的。拥有了这种能力就相当于获得了某种&quot;现实启示&quot;。</span></p><p><span>不， 我不是指那种虚无缥缈、永久快乐和毫无痛苦的启示。相反，我所指的现实启示是承认痛苦总是不可避免的。不管你做什么，生活中总是存在着失败、损失、遗憾，以及死亡。因为一旦你对生活抛给你的污物（它会这样做的，相信我）置之不理，那么你便会让自己处于一种较平和的精神状态，这会使你成为一个更加坚强的人。毕竟，打败痛苦的唯一方法是首先学会忍受它。</span></p><p><span>本书旨在将你的痛苦变成利器，将你的创伤转化为力量，并让你的问题得以改善，这是实实在在的进步，本书旨在教会你如何在痛苦面前活得更好、更有意义、更有同情心，以及更加谦卑。本书将教你如何在重压之下轻装前行，如何在巨大的恐惧面前一边哭泣，一边嘲笑自己的眼泪。</span></p><p><span>本书不会教你如何获得世俗眼光中的&quot;成功&quot;，而是教你如何面对失败并重新振作。它将教你如何罗列你的生活清单，如何在繁杂的事项中去芜存菁、优中选优，最后只保留最重要的项目。它将教你如何闭上眼睛，相信自己可以逆向思维且一切尚好。它会教你不要事事挂心、自寻烦恼，它会教你无所畏惧。</span></p><h1 id='第一章-生活的真相人生就是一场修行'><span>第一章 生活的真相：人生就是一场修行</span></h1><p><span>幸福不是一道可解的方程式。不满足和焦虑既是人性中固有的部分，也是创造恒久幸福不可或缺的成分。</span></p><h2 id='11--人生就是一场修行'><span>1.1  人生就是一场修行 </span></h2><p><span>很多的假设和信仰通常都有个前提条件，即幸福是可以计算的。人们会认为，幸福是可以通过努力工作和赚钱来获得的。</span></p><p><span>大约二千五百年前，在现今尼泊尔境内的喜马拉雅山南麓上有一座宏伟的宫殿。宫殿里住着一位国王，他的儿子就要降生了。为了迎接儿子的降临，这位国王许下了一个宏愿：他要让王子一生完美无缺，不让王子遭受任何形式的痛苦，他将每时每刻满足王子的任何要求和愿望。</span></p><p><span>国王环绕宫殿筑起高高的城墙，以防王子知晓外面的世界。他对王子娇宠溺爱，食物任其挥霍，礼物任其赏玩，绕着他打转的仆人们也都曲意逢迎王子的每一个怪诞念头。不出所料，王子长大后对人世间惯常的残酷无情一无所知。</span></p><p><span>王子童年的所有生活都大抵如此。尽管生活极尽奢华、富贵，但这位王子却变得有些怨天尤人了。他很快感到空虚、无聊，觉得做任何事情都毫无价值和意义。问题在于不管父亲给予他什么，他都没有满足感，不知道那究竟意味着什么。</span></p><p><span>后来在某一天深夜，王子偷偷溜出了皇宫。他想看看高墙外面的世界到底是什么样子。他让仆人用马车把他送到了附近的村庄。于是他被他所看到的一切惊呆了。</span></p><p><span>王子平生第一次目睹了人类的痛苦。他看到了病人、老人、无家可归的人、痛苦不堪的人，甚至濒临死亡的人。</span></p><p><span>王子回到皇宫后，发现自己出现了严重的生存危机。他不知该如何对待他所看见的一切。他看哪里都不顺眼，整天牢骚满腹，抱怨成堆。王子开始抱怨起父亲曾试图给予他的一切。王子认为，正是财富让他过得如此悲惨，让他的生活变得毫无意义。于是他决定离家出走。</span></p><p><span>然而，就像他的父亲一样，王子也有他自己的宏愿。他不只是离家出走那么简单，他还要放弃王位，放弃家庭及所有的财产，然后到大街上去住，像动物一样睡在污垢之间。他要让自己忍饥挨饿，经受折磨，每日向陌生人乞讨残羹剩饭，并打算以此度过余生。</span></p><p><span>次日夜晚，王子再次偷偷溜出了皇宫。但这次他再也没有回来。多年来，他活得像个流浪汉，像社会图腾柱底部的一块泥巴，被世人抛弃和遗忘。不难想象，王子经受了巨大的苦难。他经历了疾病、饥饿、痛苦、孤独和衰竭。他挣扎在死亡的边缘，每天通常只吃一个坚果充饥。</span></p><p><span>几年过去了，又几年过去了......然而什么都没有发生。王子开始意识到，经历人生的苦难并非他的最终追求。因为苦难并不能带来他所渴望的，不能揭示世界更深层次的秘密。</span></p><p><span>其实，王子已逐渐认识到一个众所周知的事实：忍受苦难不仅极其糟糕，而且也不见得有什么意义。就像本来很富有，却毫无目的地去受苦一样，是没有任何价值的。王子很快得出结论：像他的父亲一样，他自己的宏愿同样是荒唐和可怕的，他觉得他应该去做点别的事情了。</span></p><p><span>带着满脸的困惑，王子将自己梳洗一番，然后起身走了。他在一条河流附近找到一棵大树。他决定一直坐在这棵树下，直到他想出另一个宏愿来。否则，他不会站起来。</span></p><p><span>根据传说，这位困惑的王子在那棵树下一坐就是七七四十九天。我们暂且不去深究从生物学的角度来讲，坐在同一个地方一动不动存活四十九天的可能性，但可以肯定的是，在那些日子里，王子一定对许多问题有了大量深刻的洞察。</span></p><p><span>洞察之一是生命本身就是苦难的一种形式。富人因富有而痛苦；穷人因贫困而痛苦；无家可归的人因无家可归而痛苦；有家庭的人因为家庭而痛苦；追求世俗享乐的人因为世俗享乐而痛苦；放弃世俗享乐的人因为放弃它而痛苦。</span></p><p><span>但这并不等于说，所有的痛苦都是一样的轻重。此痛苦可能更甚于彼痛苦，但我们都必须去承受。</span></p><p><span>多年后，这位王子创立了自己的学说，并开始同世人分享这些学说。他的学说的核心宗旨是：痛苦和损失是不可避免的，因而我们不应该去回避它们。这位王子后来被敬奉为佛陀，他就是佛祖释迦牟尼。假如你没听说过他，那我可以告诉你，他可是一位至关重要的人物。</span></p><p><span>我们很多的假设和信仰通常都有个前提条件，即幸福是可以计算的。人们会认为，幸福是可以通过努力工作和赚钱来获得的，就像你被法学院录取了，或者你搭建了一套十分复杂的塑料积木结构体那样。再譬如：如果我能够做到像X那样，那么我将会很幸福；如果我长得像Y，那么我将会很快乐；如果我能和Z一起生活，那么我将会很开心，等等。</span></p><p><span>但问题就出在这个前提上。幸福不是一道可解的方程式。不满足和焦虑既是人性中固有的部分，也是创造恒久幸福不可或缺的成分。佛是从神学和哲学的角度来论述这一问题的。我也会在本章中做同样的事情，不过我将借助于大熊猫从生物学的角度来加以论述。</span></p><h2 id='12--生活就是一个问题接着一个问题'><span>1.2  生活就是一个问题接着一个问题 </span></h2><p><span>尽管我们讨厌这些疼痛，然而它们却是很有用的。</span></p><p><span>如果可以，我想塑造一个名叫&quot;失望大熊猫&quot;的超级英雄。他戴着一副超酷的眼罩，穿一件衬衫（上面印有大写字母T）。相对于他那巨大的熊猫肚皮来说，这件衬衫实在太小了，但他拥有超强的能力，会把一些刺耳的真话讲给人们听。尽管人们不想直面现实，但他的话的确是人们需要去倾听的。</span></p><p><span>他将像推销员那样挨家挨户地去按门铃，说一些这样的真话，像&quot;当然了，赚很多钱会让你感觉良好，但不会让你的孩子多爱你半分&quot;，或&quot;假如你总想问自己是否信任你的妻子，那么你八成不信任她&quot;，或&quot;你所谓的&#39;友谊&#39;不过是你不断地试图去博得他人的好感罢了&quot;。然后他会祝愿房主一天快乐，接着再走向下一户人家。</span></p><p><span>这是可怕、讨厌和令人难过的，但同时也是令人振奋和必不可少的。毕竟，生活中让人心生沮丧的真话通常是人们最不愿意听到的。</span></p><p><span>失望大熊猫是位英雄。人们不欢迎他，但的确需要他。就像下面这则谚语所云：他是我们精神食粮中的蔬菜，而不是垃圾食品。尽管他让人感觉糟糕，但却会使我们的生活变得更美好。为了使我们变得更加强大，他将我们打翻在地；为了点亮未来，他向我们展示黑暗。聆听他的话语就像观看一部电影，在影片的最后，主人公死了。这会让你感到难过，但你会愈加喜欢这部电影，因为它让人感到真实可信。</span></p><p><span>现在请允许我戴上我的失望大熊猫面具，向你宣布另一个会让你感到不快的事实吧！</span></p><p><span>人们经受痛苦的原因其实很简单。从生物学的角度上讲，痛苦是很有用处的。大自然选择痛苦作为手段，用以刺激变化的发生。人类进化的结果使我们总是具有一定程度的不满足和不安全感。正因如此，人们才会努力地去创造和生存。我们热衷满足于已有的东西，同时为我们尚未得到的东西而感到不满足。这种恒定的不满足感激励人们一直不断地去抗争和奋斗，不停地建设和征服。因此，痛苦和苦难并非人类进化的缺陷，而是它所具有的功能。</span></p><p><span>各种形式的痛苦都是人体内刺激行动得以发生的最有效的手段。举个最简单的例子：碰疼脚趾。像我有时所做的那样，当你不慎将脚趾踢在某件东西上时，你会因疼痛难忍而大声尖叫。&quot;疼痛&quot;这个词虽仅有两个字，但它足以让包括教皇弗朗西斯在内的所有人痛哭流涕。你甚至会去责怪那件把你弄疼的物体，但它是没有生命的。你会指着一张桌子说：&quot;你这破烂东西。&quot;你甚至会因疼痛而对自己的整体室内设计思路提出质疑：&quot;是哪个白痴把桌子放在这儿的？开什么玩笑？&quot;</span></p><p><span>言归正传。无论是你、我，还是教皇，都惧怕脚趾剧痛的主要原因是：人体的痛苦是通过中枢神经系统来传导的。中枢神经系统是一套反馈机制，用来让我们感知身体部位的状况------比如该向哪里移动和不该向哪里移动，或什么东西可以触摸，什么东西不可以触摸，等等。当我们超过这些限制时，神经系统便会适度地给我们惩罚，以确保我们引以为戒，永不再犯。</span></p><p><span>尽管我们讨厌这些疼痛，然而它们却是很有用的。在我们年幼无知或粗心大意时，是疼痛教会了我们应该注意什么。是它让我们知道什么是有益的，什么是有害的。是它让我们接受和坚守我们的局限性。是它让我们知道不该在热风炉附近转来转去，或将金属物体插进电源插座。因此，总想避开痛苦去寻求快乐是有害而无益的，因为疼痛对于我们而言并非无关紧要，有时它甚至是性命攸关的。</span></p><p><span>但疼痛不仅仅指身体上的。看过《星球大战》前传的每一个人都知道，人类承受心理疼痛的能力同样是非常强大的。研究表明，人脑其实并不太关注身体疼痛和心理痛苦的差别。因此，当我告诉你我的初恋女友欺骗了我时，我感觉就像有一把碎冰锥慢慢地插入了我的内心，因为这件事带给我的伤害实在太深了，就像真的有一把碎冰锥慢慢插入了我的心脏似的。</span></p><p><span>心理上的痛苦像生理上的疼痛一样，是身体某个方面失去平衡或某些东西超越身体极限的表现。像身体疼痛一样，心理痛苦不一定总是不好的或是不受欢迎的。在某些情况下，心理或情感上的痛苦体验是健康和必要的。就像脚趾的疼痛让我们学会了不要踢到桌子上一样，因遭到拒绝或遭遇失败而带来的情感痛苦，可以让我们学会在将来少犯同样的错误。</span></p><p><span>因此我们所处的环境有时是危险的。因为潜伏的危险会精心地装扮自己，刻意掩饰生活中种种不可避免的不适，从而剥夺了我们通过经历适当的痛苦和损失来获得教益的机会，使得我们同周围的现实世界隔绝开来。</span></p><p><span>你可能对这样的生活垂涎三尺：每天无忧无虑，生活中充满了永恒的幸福和不竭的激情。但在现实生活中，问题是永远不会终止其存在的。失望大熊猫刚刚到访，我和他一起喝了玛格丽塔。他告诉我，问题是永远不会乖乖离去的，我们只能去改善它们。沃伦·巴菲特存在资金问题，奎克商业中心那位喝醉了酒的流浪汉也存在资金问题。只不过同流浪汉相比，巴菲特的问题是想得到更多的资金罢了。任何人的生活都是如此。</span></p><p><span>&quot;马克，生活本来就是由一系列永无休止的问题构成的。&quot;大熊猫对我说。他喝了一口手里的玛格丽塔，正了正他那粉红色的小伞，接着说，&quot;一个问题的解决意味着下一个问题的产生。&quot;</span></p><p><span>片刻后，我感到有些奇怪，我不知刚才跟我说话的大熊猫是从哪里来的，也不知道在我们交谈的时候，谁在招待我们喝玛格丽塔。</span></p><p><span>&quot;别奢望没有问题的生活。&quot;大熊猫说，&quot;根本没有那样的事。相反，我们应该期望生活中净是美好的问题。&quot;</span></p><p><span>说完他放下酒杯，正了下草帽，优哉游哉地朝着落日走去。</span></p><h2 id='13--解决问题才是快乐的本源'><span>1.3  解决问题才是快乐的本源</span></h2><p><span>秘密武器在于解决问题，而不是从一开始就否认问题的存在。</span></p><p><span>有问题是生活的常态。当你买了健身卡，解决了健身问题时，新的麻烦也随之而来。比如你必须早起，按时去健身房。当你在健身器材上汗流浃背三十分钟后，你必须洗个澡才能换上衣服去上班，不然整个办公室会让你搞得臭气熏天。当你同妻子约定每个周三晚上为你们的&quot;鹊桥之夜&quot;，从此解决伴侣之间相处不足的问题，新的问题也随之出现。譬如你必须搞清楚每个周三你俩都喜欢做哪些事情，你还需备足钱来为一顿不错的晚餐埋单，你还需重新唤起夫妻之间的化学反应，点燃起爱的火花，以便让两人沉浸在爱河之中。另外，你还需要解决小浴缸里泡沫太多的问题。</span></p><p><span>问题永无休止，只不过有时它们被置换了或得到了改善而已。</span></p><p><span>幸福的含义在于解决问题。关键词是&quot;解决&quot;。如果你对问题视而不见，或觉得根本就没什么问题，那么你就要遭罪了。如果你觉得问题无法解决，你同样会痛苦不堪。秘密武器在于解决问题，而不是从一开始就否认问题的存在。</span></p><p><span>要想快乐，就需要学会去解决问题。因此幸福就是某种形式的行动，它是一项活动，而不是别人赐予你的某种东西，也不是你在《赫芬顿邮报》排名前十的某篇文章中的某个惊人发现，更不是某位非凡的专家或导师的谆谆教诲。当你最终赚足了钱为你家的房子增添了一个额外的房间时，幸福不会神奇地出现在你的眼前。你会发现，幸福不会在某个地方等着你，它既不在某个想法里，也不在某项工作中，也不在某本书里。</span></p><p><span>幸福是一件半成品，需要不断地去完善。因为任何问题的解决都需要一个过程，今天的问题解决了，明天的问题会应运而生。以此类推，当你找到了自己喜欢的问题且又乐意去解决它的时候，真正的幸福就离你不远了。</span></p><p><span>有时，问题非常简单。比如：如何吃得好一点，是否该换个新的地方去旅行，以及如何打赢你刚买来的新游戏，等等。但有时，问题却十分抽象和复杂。比如：如何处理你同母亲之间的关系，如何找一个感觉良好的职业以及如何同他人建立起更好的友谊，等等。</span></p><p><span>无论你的问题是什么，道理都是相同的，即：解决问题，赢得快乐。不幸的是，对于许多人来说，生活并非如此简单。因为他们用以下两种方式把事情搞砸了：</span></p><p><span>第一种：否认。有些人一开始就否认问题的存在。他们拒绝承认现实，所以只好不停地自我欺骗或逃避现实。这可能在短期内让他们感觉良好，但会导致他们生活在不安全、神经质以及情感压抑的境况中。</span></p><p><span>第二种：受害人思维。有些人宁肯认为他们根本没有能力解决自己的问题。事实上，即使有能力，他们也不会去解决。受害者往往将自己的问题归咎于他人或外部环境。这可能在短期内让他们感觉良好，但会导致他们生活在愤怒、无助和绝望的境况中。</span></p><p><span>他们回避问题并将问题归咎于他人的原因很简单，因为这样做既容易，又让他们感觉良好。而选择去解决问题则会困难得多，且常常感觉很糟。他们这种行为给了我们某种刺激，因为他们是在暂时逃避我们的问题。而这种逃避又给了我们某种刺激，让我们感觉好了许多。</span></p><p><span>刺激有多种形式。不管刺激是来自于酒精，还是来自于责备他人的道德公义，还是来自于一些新的冒险游戏，对于个体的生活而言，它们都是肤浅和徒劳的。很多励志书籍不是寻求如何来解决读者的合理问题，而是在高声兜售他们的兴奋点。许多励志大师教你如何用一些新的方法来否定问题的存在，并通过良好的训练让你在短期内自我感觉良好，从而忽略潜在的问题。记住，世上没有任何一个真正快乐的人会站在镜子前对自己说：我很快乐。</span></p><p><span>刺激也会上瘾。你越是依赖它让自己感觉良好，越是忽视潜在的问题，你就越想去寻求刺激。从这个角度上说，几乎任何事情都会使人上瘾，这取决于人们使用它的背后动机。我们都会选择自己的方式来缓解问题所带来的痛楚。只要程度适当就无不可。但是当我们最终必须去面对问题的时候，你会发现，我们回避问题和自我麻醉的时间越长，我们就会越痛苦。</span></p><h2 id='14--别让情绪毁了你'><span>1.4  别让情绪毁了你 </span></h2><p><span>我们总喜欢这样想：我们一定可以找到某种形式的终极幸福。我们将可以永久地缓解我们的痛苦。我们可以一辈子感到心满意足，直至生命终结。</span></p><p><span>但我们做不到。</span></p><p><span>情感的进化只为一个特定的目的，即帮助我们更好地生活和繁衍，仅此而已。情感是一种反馈机制，它告诉我们什么是正确的，什么是错误的。除此之外，别无其他。</span></p><p><span>就像因触摸火炉而灼疼让你学会了不要去碰它，孤独的悲伤让你记住不要去做那些让你感到孤独的事情。情感不过是一些生物信号，旨在推动你向着有利的方向发展。</span></p><p><span>你瞧，我无意忽视你的中年危机或以下事实：</span></p><p><span>在你八岁时，你爸爸喝醉了酒，偷走了你的自行车，直到现在你也没把它要回来。你感觉很糟糕，因为你的大脑告诉你，你还有一个问题悬而未决。换句话说，负面情绪就是行动的召唤。当你感知到它们时，就说明你应该去做点什么了。另一方面，正面情绪是对于采取正确行动的回报。当你感知到它们时，生活将变得非常简单，你只需去享受它们就够了。然而同其他事物一样，正面情绪会很快消失，因为更多的问题将会不可避免地浮现出来。</span></p><p><span>情感只是生活等式的一部分，而非全部。正如感觉不错的东西未必真的好，而感觉不好的东西未必真的差。情感只是神经系统给我们的建议和暗示，而非命令，因此我们不能一味地信任自己的情感。事实上，我们应该养成质疑它的习惯。</span></p><p><span>许多人喜欢压抑自己的情感，尤其是负面情感。原因是多种多样的，其中有个人的、社会的或文化的。令人难过的是，回避负面情感等于拒绝许多可以帮助我们解决问题的反馈机制，结果使得许多情感压抑者终生都在面对自己的问题。因为这些问题得不到解决，他们就永远不会快乐。记住，痛苦本身就是一种目的。</span></p><p><span>但是，还有一些人过度认同自己的情感。他们判断事物的根据只有一个：我感觉是这样。&quot;哎呀！我打破了你的挡风玻璃，但我是真的疯了，我没办法控制自己的情绪。&quot;或者，&quot;我辍学后移居到了阿拉斯加，因为我感觉这样做不错。&quot;依靠情感直觉所做出的决定，若没有理性思考参与其中，其结果往往是糟糕的。你见谁将自己的整个人生的道路和选择全部托付给情感了？大概只有三岁小孩会那样做。你知道三岁小孩还会做什么吗？对了，在地毯上大小便。</span></p><p><span>对情感的过分依赖和投入容易导致我们产生失误的原因很简单：情感是难以持久的。今天我们很喜欢某样东西，不代表明天我们照样喜欢它，因为人类的生物学特性决定了他总是去追求更多的东西。幸福的定义其实就是永无休止地去追求&quot;别的东西&quot;------新房子、新朋友、下一个孩子及另一次加薪。尽管我们付出了全部的汗水和努力，但我们最终的感觉和最初并无不同：不满足。</span></p><p><span>心理学家有时将此种理念称作&quot;享乐跑步机&quot;。意为我们总是在试图改变我们的生存状况，但我们从未感觉有什么差别。</span></p><p><span>即问题是循环和不可避免的，同你结婚的人就是可能会同你打架的人，你买了房子就得负责修缮，你梦想得到的工作却有可能让你压力增大。一切事物都具有两面性：良莠参半、悲喜相随，某种东西在让你感觉良好的同时，也不可避免地会让你感觉很糟。我们在得到的同时也在失去。为我们带来积极体验的事物，同时也将决定我们的消极体验是什么。</span></p><p><span>这是一枚难以吞咽的苦果。我们总喜欢这样想：我们一定可以找到某种形式的终极幸福。我们将可以永久地缓解我们的痛苦。我们可以一辈子感到心满意足，直至生命终结。</span></p><p><span>但我们做不到。</span></p><h2 id='15--选择奋斗目标'><span>1.5  选择奋斗目标 </span></h2><p><span>幸福只能通过奋斗去获得，幸福源自于解决问题。快乐不会像雏菊和彩虹那样萌生于大地。真实、严肃的终生成就和人生意义须通过精心选择和我们的奋斗去斩获。</span></p><p><span>当我问你：&quot;你想从生活中得到什么？&quot;你回答：&quot;我想得到快乐。我想有个幸福的家庭，我想有个自己喜欢的工作。&quot;</span></p><p><span>人人都喜欢让自己感觉良好。人人都向往无忧无虑、快乐而又简单的生活。人人都想和心爱之人徜徉爱河，享受美妙的爱和融洽的夫妻关系。人人都想看上去完美无缺而又赚钱颇多。人人都想受人欢迎，让人尊敬和钦佩。人人都想成为一个顶级球手，漫步景色秀丽的红海岸边就像走进自家的客厅。</span></p><p><span>人人都想得到这些东西，因为这样想很容易。</span></p><p><span>于是一个更有趣的问题出现了。多数人从未思考过以下问题：&quot;你想在生活中经历什么样的痛苦？你愿意为之而奋斗的目标是什么？&quot;而这些也许才是我们生活中更重要的决定性因素。</span></p><p><span>比如：人人都想进精英办公室，然后赚大把的钞票，但很少有人愿意每周工作六十个小时，很少有人愿意长途往返上下班，没人愿意去做那令人厌烦的文书工作，没人喜欢专断的企业等级制度，以便逃脱一个个好似沙丁鱼罐头般小的隔间的禁闭。</span></p><p><span>多数人渴望美妙的爱和欢愉的夫妻关系，却少有人愿意去经历艰难的谈心、尴尬的沉默、情感的伤害，以及心理的悲剧。于是他们便由之任之，并想知道&quot;如果这样下去......将会怎样&quot;，直到多年后问题变成了&quot;除此之外......还有什么&quot;。当律师回到家中发现邮件里有一张离婚赡养费支票时，他问：&quot;这是怎么回事？&quot;怎么回事？还不是因为他二十年前降低了自己的生活标准和期望。</span></p><p><span>幸福只能通过奋斗去获得，幸福源自于解决问题。快乐不会像雏菊和彩虹那样萌生于大地。真实、严肃的终生成就和人生意义须通过精心选择和我们的奋斗去斩获。假如你备受焦虑、孤独和强迫症的困扰，假如你每天大半时间都被你的老板搞得不得安宁，那么解决问题的方案在于接受这一负面经验，并让它发挥积极作用，而不是去逃避这些问题或期望从中获得赦免。</span></p><p><span>你若想拥有健硕的体格，就须做到以下两点。第一，在健身房里待数小时，对体能训练所带来的疼痛和不适甘之如饴、安之若素；第二，对自己的饮食精打细算、斤斤计较、合理安排，不可暴饮暴食。</span></p><p><span>人人都想自主创业。你若想成为一个成功的企业家，就须让自己习惯于冒风险，习惯于不确定性，习惯于经历一次又一次的失败，习惯于付出海量的时间和精力却看不到任何收获。</span></p><p><span>人人都想有个配偶，有个伴侣。但你若想最终将心仪之人揽入怀中，就须乐于承受因不断遭拒而带来的感情波折，乐于承受因无法释放而带来的性压抑，乐于承受因电话铃迟迟不响而带来的悲观和失望。因为这是爱情游戏的一部分。但如果你不去参与这个游戏，你就永远赢不了。</span></p><p><span>决定你能否成功的因素不是&quot;你想得到什么样的享乐&quot;，而是&quot;你想忍受什么样的痛苦&quot;。通往幸福的道路上总会有困难险阻。</span></p><p><span>你必须有所选择，免于痛苦的生活是不存在的。生活中不可能到处都是玫瑰花和独角兽，快乐其实很简单，几乎人人都会做出类似的回答。</span></p><p><span>更有趣的问题是痛苦。你想经历的痛苦是什么？这个问题很重要，却很难回答。但它将会转变你的观念，改变你的人生，把你带入另一个境地。它是你和我之间的分水岭。它将定义我们的人生，然后将我们分离，最终又让我们聚在一起。</span></p><p><span>在我的青春期和成年早期的大部分时间里，我一直幻想成为一名音乐家，具体地说，是想成为一名摇滚乐明星。每当我听到吉他歌曲时，我总是闭上眼睛，想象自己在舞台上演唱的样子。台下观众的尖叫声响彻云霄，人们被我那甜美的歌喉和魔术般的手指彻底征服了。这样的幻想可让我一下陶醉好几个小时。对于我来说，这已不是&quot;如果我在尖叫的人群面前演唱&quot;的问题了，而是&quot;我何时去演唱&quot;的问题。我什么都计划好了，只需时机一到，我便会投入适当的精力和能量使自己一举成名。首先我需要完成学业，然后我要挣点外快来购买装备，再然后我还要找到足够的空闲时间来排练，再然后我还要上传和谋划我的第一个设计项目。然后......然后就什么都没有发生。</span></p><p><span>这个美梦我做了大半生，但它最终也没能变成现实。我花了很长时间和大量精力才最终找到原因：实际上，那并非是我真正想要的。</span></p><p><span>我只是喜欢它的结果而已------我在舞台上的形象。在观众们的欢呼声中，我如痴如狂地倾情于我的演唱，但我并不喜欢它的过程。正因如此，我失败了。而且是一而再，再而三地失败。真是见鬼，我甚至还没去拼搏就失败了，我甚至还没来得及去尝试过。想想吧，日复一日地艰苦练习，成立乐队和排演，操办演奏会，组织观众入席，维修损坏的弦乐器和管乐器，在没有车的情况下将重达四十磅的演出装备运出和运回排练场地。这个梦想真可谓堪比山高，需要攀登一英里才能到达巅峰。我用了很长时间才终于发现，其实我并不太喜欢攀登。我只是向往峰顶上的风光罢了。</span></p><p><span>相同的文化表达让我知道，我是莫名其妙地放弃的，我是个喜欢轻易放弃的人。我是个失败者，或者说我只是没有&quot;做到&quot;。我放弃了自己的梦想，抑或，我在社会压力面前屈服了。</span></p><p><span>但事实远不及解释来得那么生动有趣。真相是，虽然我觉得我想要得到某件东西，但实际上，我并不真的那么想。于是，一切就这样结束了。</span></p><p><span>我要的是回报，而不是奋斗；我要的是结果，而不是过程；我喜欢的是胜利，而不是战斗。</span></p><p><span>但生活并不是这样的。</span></p><p><span>你的奋斗目标决定了你将成为什么样的人。假如你喜欢在健身房里流汗流泪，那么你最终会成为一名三项全能运动员。你体格健硕、肌肉发达，能够举起一栋小房子。假如你喜欢承受压力和不确定的生活，那么你最终会像那些忍饥挨饿的艺术家们一样，以此为生，并有所作为。</span></p><p><span>这不是毅力和勇气的问题，也不是&quot;没有付出，就没有收获&quot;的翻版。它是生活最简单和最基本的构成部分，奋斗促成了我们的成功，问题催生了我们的幸福。与此同时，略有改变和升级的问题也随之而来。</span></p><p><span>你瞧，这是一个永无休止的良性循环。你若认为在某一时刻你可以停止攀登，那你就大错特错了。因为快乐就是攀登本身。</span></p><h1 id='第二章-焦虑的本质切开忧郁的洋葱'><span>第二章 焦虑的本质：切开忧郁的洋葱 </span></h1><p><span>有一天当我们回首往事，会觉得那些战斗的岁月才是最美丽的。</span></p><p><span>------弗洛伊德</span></p><h2 id='21--切开忧郁的洋葱'><span>2.1  切开忧郁的洋葱 </span></h2><p><span>我们都有情感盲点。这常常与我们在成长过程中被教导过的不恰当的情感有关。我们需要多年的实践和努力才能很好地识别这些盲点，然后将受影响的情感恰当地表达出来。这一点十分重要，值得我们去付出努力。</span></p><p><span>自我意识就像是一个洋葱。洋葱有许多层，你越扒，它就越有可能让你在不恰当的时刻流出眼泪。</span></p><p><span>姑且说自我意识的洋葱第一层是人们对自我情感的简单了解。如&quot;我感到很高兴&quot;&quot;这使我感到悲伤&quot;&quot;这给了我希望&quot;。</span></p><p><span>不幸的是，许多人连最基本的自我意识水平都很低。我知道我就是其中之一。我有时会和妻子玩这样一个有趣的往返游戏：</span></p><p><span>她：你怎么了？</span></p><p><span>我：没怎么，一点也没有。</span></p><p><span>她：不对，肯定有什么事。快说吧！</span></p><p><span>我：我很好，真的。</span></p><p><span>她：你敢肯定？你看起来有点不安。</span></p><p><span>我（神经质般地笑着）：真的吗？不，我很好。真的。</span></p><p><span>【30分钟后......】</span></p><p><span>我：......这就是我生气的原因！他常常不把我放在眼里。</span></p><p><span>我们都有情感盲点，这常常与我们在成长过程中被教导过的不恰当的情感有关。我们需要多年的实践和努力才能很好地识别这些盲点，然后将受影响的情感恰当地表达出来。这一点十分重要，值得我们去付出努力。</span></p><p><span>自我意识的洋葱第二层是探询我们为何能够感知某些情感。</span></p><p><span>这些带有&quot;为什么&quot;的问题通常都不好回答，往往需要花数月甚至数年时间，才能回答得既肯定又准确。多数人在首次听到这些问题时，往往需要去看心理医生。但这些问题十分重要，因为它们阐释了何为成功、何为失败。你为何感到愤怒？是因为你的某个目标没能实现吗？你为何昏昏欲睡，毫无灵感？是因为你觉得自己不够优秀吗？</span></p><p><span>这层质询会让我们清楚，是什么在控制我们的情感。一旦搞清楚了这一点，我们就可以做些什么来改变它了。</span></p><p><span>但自我意识的洋葱还有一个更深的层次，这一层让我满眼泪水。第三层是个人价值观，即我为何认为这是成功的，而那是失败的？我是如何来衡量自己的？我以什么标准来评价自己及周围的人？</span></p><p><span>这一层异常困难，因为它需要不断质疑和不懈努力。但它却是最重要的，因为价值观决定了我们问题的性质，而问题的性质又决定了我们的生活质量。</span></p><p><span>价值观是我们衡量一切事物的基础。如果我们所看重的东西是无益的，或所认为的成功或失败是不恰当的，那么建立在这些价值观基础上的一切，包括思想、情感以及日常感受都将出现异常。我们对于某件事情的看法和感受都将最终回到我们所认同的价值观上来。</span></p><p><span>多数人都准确地回答这样的质询，因此妨碍了他们对自己的价值观做更进一步的了解。他们说看重真诚和友谊，但可能刚转过身去就在背地里传播你的谣言，以使自己感觉良好；他们说感到很孤独，但当他们寻找原因时，便开始怪罪别人，认为别人都很差劲，没人足够义气或足够聪明来给他们以理解。于是，他们便更加回避问题，而不是想办法去解决它们。</span></p><p><span>许多人的自我意识便是如此。然而，只要更深层次地去审视他们的潜在价值观，你就会发现他们最初的分析是基于逃避问题，而非准确识别问题之所在。他们会发现自己的决定是建立在寻求刺激的基础上的，因此不会带来真正的幸福。</span></p><p><span>大多数励志专家也都忽视了这一更深层次的自我意识。他们把各种各样的赚钱方法传授给那些处境悲惨、想成功的读者，却忽视了那些更为重要的建立在价值观基础上的问题：首先，他们为何想致富？他们如何衡量自己的成功或失败？他们苦恼的根源是由于某种特定的价值观呢，还是因为他们没有开上宾利车？</span></p><p><span>他们的建议大都停留在很浅的层面上，只是试图让人们在短期内感觉良好，而不会解决人们真正的长期性问题。人们的看法和感受可能会改变，但潜在的价值观和评估这些价值观的标准不会改变。这并非真正意义上的进步，它只不过是换一种方式来追求更多的刺激而已。</span></p><p><span>真诚地自我质询是很困难的，需要你回答一些简单的问题，但会让你感到很不舒服。但根据我个人的经验，越是让人不舒服的问题才越有可能是真实的。</span></p><p><span>稍等，我想出个题目来为难一下你。你可能问为何会为难，因为答案会涉及诸如失败之类的问题。我们暂且接受失败的事实，然后来问为何这看似是&quot;真的&quot;。万一这不是真的失败呢？万一是你搞错了呢？</span></p><p><span>以下是我最近生活中的一个例子：</span></p><p><span>&quot;我弟弟不回我的短信或不给我发电子邮件，真是烦透了。&quot;</span></p><p><span>&quot;为什么这么烦？&quot;</span></p><p><span>&quot;因为他毫不在乎我。&quot;</span></p><p><span>&quot;为何你这么认为？&quot;</span></p><p><span>&quot;如果他心里还有我这个哥哥，他一天会拿出十秒钟来跟我联系的。&quot;</span></p><p><span>&quot;他不跟你联系为何让你觉得很失败？&quot;</span></p><p><span>&quot;因为他是我弟弟啊。我们应该保持良好的关系才对！&quot;</span></p><p><span>这里存在两个问题：一个是我所秉承的价值观，另一个是我衡量这一价值观的标准。我的价值观是：兄弟之间应该保持良好的关系；我的衡量标准是：通过电话或电子邮件保持联系，这是我衡量作为一个哥哥是否成功的标准。用这一标准来衡量，我感觉很失败。我会因此痛苦整整一个周六上午。</span></p><p><span>通过重复此过程，我们还可以挖得更深：</span></p><p><span>&quot;兄弟之间为何应该保持良好的关系？&quot;</span></p><p><span>&quot;因为他们是一家人，而家庭成员之间应该保持良好的关系！&quot;</span></p><p><span>&quot;为什么你这么认为？&quot;</span></p><p><span>&quot;因为家人对你来说比任何人都重要！&quot;</span></p><p><span>&quot;为什么你这么认为？&quot;</span></p><p><span>&quot;因为同家人保持亲密关系是正常、有益的，而我却没这福气。&quot;</span></p><p><span>在以上对话中可以看到，我的潜在价值观是同弟弟保持良好的关系，但我仍在为我的衡量标准而纠结。我换了一个名称叫它&quot;亲密&quot;。但我的衡量标准并未改变，依旧是弟弟同我的联系频度，并以此将自己与其他人做比较。其他人都（或者看似）同家人保持着密切的关系，而我却不是。很显然，我一定出了什么问题。</span></p><p><span>那么，如果我选择一个较低的标准来衡量自己和自己的生活呢？还会出现什么我不曾想到的情况呢？嗯，也许我不必同弟弟那么亲密，也不必用那样的价值观来衡量我们的关系。也许我们只需相互尊重就足够了（本来就有）。或者我们只需相互信任即可（也已存在）。也许这些才是衡量兄弟关系的最佳标准，而不是只看相互之间发了多少短信。</span></p><p><span>这显然很有意义，因为我感觉它真实不虚。但我和弟弟关系不亲密这一事实仍让我感觉心痛。但我找不到有效的办法来改变它，也没有什么秘诀能让我以此为荣。也许有时兄弟之间，甚至彼此相爱的兄弟之间也不见得非要保持特别亲密的关系。这没什么。这点一开始让人很难接受，但这没什么。客观存在的事实远不及你看待它的角度，以及你衡量它和评价它的方式重要。问题也许是不可避免的，但并非每个问题都有意义。判断问题是否具有意义的基础是我们思考问题的角度和衡量问题的标准。</span></p><h2 id='22--如何活成自己想要的模样'><span>2.2  如何活成自己想要的模样 </span></h2><p><span>如果你想换一个角度看问题，那么你必须首先改变你的价值观，或衡量成功与失败的标准。</span></p><p><span>1983年，一位颇具才华的年轻吉他手被其所在的乐队以最糟糕的方式驱逐出门。那时乐队刚刚签订了一个唱片合约，并即将出版第一张唱片。但就在录制开始前几天，乐队将这位吉他手赶出了门------没有预警、没有商量，也没有发生任何突发性事件。那天他们只是将他叫醒，然后塞给他一张车票叫他回家。</span></p><p><span>坐在从纽约回洛杉矶的公共汽车上，这位吉他手一直在自问：&quot;这到底是怎么啦？我做错了什么？我现在该怎么办？&quot;对这支喧嚣而又傲慢的金属乐队来说，合约是不会从天而降的。如此一来，他岂不是错过了仅有的大好机会？</span></p><p><span>但公共汽车刚一到洛杉矶，这位吉他手就停止了自我怜悯。他发誓要组建一个新的乐队。他要把这个新乐队搞得有声有色，让原来的乐队里的人永远后悔他们的决定。他要让自己家喻户晓，让老乐队一连数十年在电视上看他演出，在收音机里听他演奏，在大街上看他的宣传海报，在杂志上看他的照片。他幻想那些人刚刚结束了在某个低等俱乐部的演出，正吃着牛肉饼，将设备装上货车。他们一个个大腹便便、酒气熏天，身后跟着他们丑陋的妻子。而与此同时，他正在某个大型体育馆内对着潮水般的观众如痴如醉地演奏摇滚乐，电视同步直播。他沐浴在背叛者们的泪水中，每一滴眼泪都有一张崭新而洁净的百元大钞来将它擦干。</span></p><p><span>从此，这位吉他手像着了魔似的开始为音乐疯狂地工作。他花了数月时间招募他所能找到的最佳乐手，比他以前的乐队成员更好的音乐家。他写了很多歌曲并认真排练。他心中那愤怒的烈焰点燃了他的雄心，复仇成了他唯一的缪斯女神。几年内他的乐队就签署了属于自己的唱片合约。一年之后，首张唱片获得了金唱片奖。</span></p><p><span>这位吉他手名叫戴夫·马斯泰恩。他组建的新乐队就是具有传奇色彩的重金属乐队麦格戴斯乐队。麦格戴斯乐队总共售出超过2500万张唱片，并多次举行世界巡演。今天，马斯泰恩被认为是重金属音乐历史上最杰出、最具影响力的音乐家之一。</span></p><p><span>不幸的是，将他驱逐出门的乐队是著名的金属乐队，其唱片销量在全球超过1.8亿张。许多人认为，金属乐队是有史以来最伟大的摇滚乐队之一。</span></p><p><span>正因如此，在2003年的一次罕见的私人采访中，马斯泰恩含泪承认自己仍是个失败者。尽管他取得了不凡的业绩，但在他心目中，他将永远是那个被金属乐队驱逐出门的人。</span></p><p><span>我们都是从猿类进化而来。虽然我们能够制造出烤箱、设计出鞋子，但实际上我们仍会表现出一些动物的本能特征。正因如此，我们才会本能地与他人比较和争夺地位。问题不在于我们是否以他人为标准来评价自己，而在于我们拿什么标准来衡量自己。</span></p><p><span>不知戴夫·马斯泰恩是否意识到，他衡量自己的标准竟然是其乐队是否比金属乐队更成功和更受欢迎。被踢出前乐队的经历对他来说是痛苦的，以至于他采用了&quot;比金属乐队更成功&quot;这一标准来衡量自己和自己的音乐生涯。</span></p><p><span>尽管在经历了那个可怕的事件后，马斯泰恩很快走出了低谷并有所作为，但在几十年后，他仍为此痛心不已，因为他衡量自己及麦格戴斯乐队是否成功的参照是金属乐队。尽管他不缺钱、乐迷和赞誉，但他仍然认为自己是个失败者。</span></p><p><span>我想无论是我还是你，都可能会为戴夫·马斯泰恩的愚蠢而哈哈大笑。这家伙腰缠万贯，拥有成千上万的粉丝，从事着自己最喜欢的职业，却仍在眼泪汪汪。只因他二十年前的摇滚明星伙伴们比他更成功、更有名。</span></p><p><span>这是因为，无论我还是你，都同马斯泰恩一样，有着不同的价值观，并且会用不同的标准来衡量自己。我们的标准可能是&quot;我不想给不喜欢的老板干活&quot;，或&quot;我想多赚点钱送孩子去一所更好的学校&quot;，或&quot;我不想在臭水沟附近居住&quot;。假如用这样的标准来衡量，那么马斯泰恩简直太成功，太辉煌了。但假如用是否比金属乐队更成功和更受欢迎的标准来衡量，那他的确是个失败者。</span></p><p><span>价值观决定了我们以何种标准来衡量自己和他人。马斯泰恩想要超过金属乐队的标准激励他成就了一番异常成功的音乐事业，但也正是这一标准使他后来备受折磨，尽管他取得了巨大成功。</span></p><p><span>如果你想换一个角度看问题，那么必须首先改变你的价值观，或衡量成功与失败的标准。</span></p><p><span>请看下面的例子。他也是一个被乐队赶出门的音乐家。尽管他的故事发生在二十年前，但相对于戴夫·马斯泰恩的故事来说，可谓是一个奇妙的对比。</span></p><p><span>那是1962年，一支来自英格兰利物浦的精力旺盛的乐队被观众围了个水泄不通。乐手们不仅留着有趣的发型，而且还有着有趣的名字。他们的音乐的确不错，唱片公司最终注意到了他们。</span></p><p><span>乐队主唱兼词曲作者名叫约翰；满脸童真而又浪漫的贝斯手名叫保罗；叛逆的主吉他手名叫乔治。另外还有位鼓手。</span></p><p><span>这位鼓手被认为是乐队中长得最帅的------女孩们都为他发疯，而且他的肖像最先出现在杂志封面上。他是乐队中最为专业的乐手。他没有不良习惯，有个固定的女友。有几个穿西装、戴领带的人甚至认为，这个乐队的招牌人物应该是他，而不是约翰或保罗。</span></p><p><span>他的名字叫皮特·贝斯特。1962年，当乐队的首张唱片合约尘埃落定后，这支名为披头士乐队的其他三名成员悄悄聚在一起，请求乐队老板布莱恩·爱泼斯特将皮特解雇。做这样的决定让爱泼斯坦很痛苦，因为他喜欢皮特。因此他暂时没理会他们的建议，并希望他们改变主意。</span></p><p><span>但数月后，就在首张唱片开始录制仅仅三天前，爱泼斯坦终于把贝斯特叫到了办公室。老板毫不客气地让他走人，另谋高就，去找别的乐队。没有任何理由，没做任何解释，也没有一句安慰的言辞------只是说乐队其他成员都想让他离开。因此，祝他好运吧。</span></p><p><span>乐队找了一个稀奇古怪的人来取代他的位置。此人名叫林格·斯塔，年纪较大，长着大而有趣的鼻子。林格同意像约翰、保罗和乔治那样，留一个丑陋的发型，同时继续创作有关章鱼和潜艇的歌曲。</span></p><p><span>贝斯特被解雇六个月后，&quot;披头士狂潮&quot;爆发了。约翰、保罗、乔治和林格·斯塔成了那个时代无可争辩的、最著名的四张面孔。</span></p><p><span>与此同时，贝斯特却理所当然地陷入了极度抑郁之中。像任何一个英国人都会做的那样，贝斯特为他长期酗酒找到了一个极佳的理由。</span></p><p><span>对皮特来说，六十年代剩下的时光并不好过。到1965年为止，他已因诽谤罪起诉了两个披头士成员，而他几乎所有的音乐项目都一败涂地。1968年他曾试图自杀，有幸被其母亲劝住了。他的生活真可谓一片狼藉。</span></p><p><span>贝斯特没有像戴夫·马斯泰恩那样上演一部精彩的自我救赎的好戏。他没有成为国际巨星或百万富翁。然而从很多方面来讲，贝斯特的结局要比马斯泰恩更好。因为在1994年的一次采访中贝斯特说：&quot;没和甲壳虫乐队那帮人搅在一起，我很高兴。&quot;</span></p><p><span>这究竟是怎么回事呢？</span></p><p><span>贝斯特解释说，被甲壳虫乐队开除使他最终遇到了他的现任妻子，同妻子结婚后他有了孩子，从此他的价值观发生了改变。他开始用不同的标准来衡量自己的人生。名誉和荣耀当然不错，但他认为他目前拥有的才是最重要的。那就是一个人口众多的、充满爱的家庭，一个稳定的婚姻和简单的生活。他甚至仍在打鼓。直到2000年，他还曾到欧洲巡演并录制唱片。那么他失去了什么呢？是的，他失去了很多关注和追捧，但却得到了他所渴望的。</span></p><p><span>以上故事表明，不同的价值观和衡量标准所带来的结果截然不同。一些价值观和衡量标准会带来容易解决的困难，而另一些则会产生难以解决的困难。</span></p><h2 id='23--不良价值观夺走了你的幸福人生'><span>2.3  不良价值观夺走了你的幸福人生 </span></h2><p><span>许多人秉承自认为&quot;一贯正确&quot;的价值观，从而剥夺了自己从错误中获取教训的机会。他们缺乏更新观念和同情他人的能力，从而关闭了自己获取新的重要信息的渠道。</span></p><p><span>有些价值观会给人带来一些糟糕的问题，而且难以解决。让我们快速过目一下：</span></p><p><span>1．一味追求感官上肤浅的快乐。快乐是美好的，但假如对你生活中的问题做优先排序，它就有可能是个可怕的价值观。去问问那些瘾君子们，他们追求快乐的结果是什么？去问问抛妻舍子的奸夫们，快乐是否给他们带来了最终的幸福？去问问那些酒囊饭袋，快乐帮他们解决了什么问题？</span></p><p><span>研究表明，将精力集中在肤浅的快乐上会让人更加焦虑，情绪更不稳定和更加抑郁。快乐是生活中最容易让人感到满意的方式，因此它最容易得到，同时也最容易失去。</span></p><p><span>然而，却总是有人在时时刻刻地向我们兜售快乐，它吸引了我们的注意力。它让我们沉醉其中，不可自拔。生活中，快乐是必要的（在某种程度上），但就其自身而言却是不足的、不充分的。</span></p><p><span>与其说快乐是幸福的源泉，不如说是幸福的效果。只要其他事情（选择价值观和衡量标准）做得恰到好处，那么快乐这件副产品自然会随之而来。</span></p><p><span>2．过分注重物质上的成功。许多人衡量自我价值的标准是赚了多少钱，或开什么样的车，或他们前院的草坪是否比邻居家的更绿、更漂亮。</span></p><p><span>研究表明，当人的基本生理需求（食物、住所等）得到满足后，幸福和世俗成功之间的关系便迅速归于零。对于一个天天忍饥挨饿的流浪汉而言，每年一万美元的额外收入会对他产生巨大的影响。但对于某个发达国家的中产阶层来讲，则不会有多大影响------也就是说，你周末拼命加班可能没有多少意义。</span></p><p><span>过分注重物质上的成功会降低其他价值观的重要性，如诚实、非暴力和同情心。当人们衡量自我的标准不是行为举止，而是他们能够获取怎样的社会地位时，那么，他们极有可能变得肤浅，且令人憎恶。</span></p><p><span>3．自以为&quot;一贯正确&quot;。人脑有时是部低效的机器。我们常常做出糟糕的假设，常常误判概率、记错事实、出现认知偏差，并常常凭借虚妄的情绪做决定，人类经常犯错。假如你想用正确的标准来衡量人生成败，那么就不要相信自己一生中所有的言谈举止都是合乎情理的。</span></p><p><span>许多人秉承自认为&quot;一贯正确&quot;的价值观，从而剥夺了自己从错误中获取教训的机会。他们缺乏更新观念和同情他人的能力，从而关闭了自己获取新的重要信息的渠道。</span></p><p><span>只有认为自己对某些事物仍然还不了解，或所知甚少，才有可能让自己受益。它会让你远离迷信或不科学的信仰，从而促进你的学习和进步。</span></p><p><span>4．盲目积极。还有些人用能否对一切保持积极心态来衡量生活的成败。你丢了工作？太棒了！这也许正好可以让你发挥激情。</span></p><p><span>至于&quot;总是与生活的光明面同在&quot;，真相是：有时生活糟透了，而最好的办法就是去承认它。</span></p><p><span>否认负面情绪的存在，会导致你经历更深和更长时间的负面情绪以及情感紊乱。对于困难来说，一贯盲目积极有时恰恰是一种逃避，而非解决问题的有效方式。顺便说一句，如果你所选择的价值观和衡量标准是正确的，那么困难反而会激发你的能量，鼓舞你的斗志。</span></p><p><span>原因很简单，真的。当你做错了什么事，或有人让我们心烦，或发生了什么意外事故时，我们会感觉很糟糕。但这没什么，负面情绪是健康心理的必要成分。否认消极情绪是延续问题，而不是解决问题。</span></p><p><span>应对负面情绪的技巧是：（1）以社会可接受的良好方式加以表达。（2）表达方式要符合你的价值观。举个简单的例子：非暴力是我的价值观之一，衡量标准是不能动手。因此，当我对某人生气时，我只表达我的愤怒。但我会表明，我不打对方的脸。这个想法很荒谬。但我知道，愤怒不是问题。愤怒是很自然的，是生活的一部分。在许多情况下，愤怒对健康有好处。（记住，情绪只是反馈而已。）</span></p><p><span>你瞧，打脸才是真正的问题，而愤怒不是。愤怒只是我拳头的信使。不要指责信使，去指责拳头（或你的脸）。</span></p><p><span>一旦强迫自己一贯积极，你便否认了生活中存在的问题。一旦否认存在问题，你便丧失了解决问题并获得幸福的机会。这是因为，正是问题增添了生活的意义和重要性。逃避问题只能使生活失去意义（即使尚有愉快存在）。</span></p><p><span>长远来看，跑一场马拉松比吃一块巧克力蛋糕更快乐；抚养孩子比打电子游戏更快乐；和朋友一起做小生意，苦苦挣扎以维持收支平衡比买台新电脑更快乐。这些事情虽压力巨大，异常艰辛，且经常会让人不愉快，并需解决不断出现的问题，但却让人感觉无比快乐和富有意义。它们虽会让人痛苦、挣扎，甚至愤怒和绝望，但一旦做过了，当我们回首往事时，我们会忍不住眼含热泪，将这些故事讲给后代听。</span></p><p><span>弗洛伊德曾经说过：&quot;有一天当我们回首往事，会觉得那些战斗的岁月才是最美丽的。&quot;</span></p><p><span>这就是为何我们说：片面看重和追求感官上肤浅的快乐、物质上的成功，以及自认为&quot;一贯正确&quot;和盲目保持积极心态是不好的价值观。人生中一些重要的时刻有时就是伴随着不愉快、不成功、不出名和不积极的。</span></p><p><span>只要确定好价值观和衡量标准，快乐和成功自然会出现。它们是良好价值观的副产品。若将它们孤立起来，它们便会毫无意义。</span></p><h2 id='24--区分好的价值观和不良的价值观'><span>2.4  区分好的价值观和不良的价值观 </span></h2><p><span>好的健康的价值观是通过人的内心来实现的。</span></p><p><span>好的价值观为：1．基于现实；2．具有社会建设性；3．是直接和可控的。</span></p><p><span>不良的价值观为：1．迷信；2．具有社会破坏性；3．不是直接或可控的。</span></p><p><span>&quot;诚实&quot;是好的价值观，因为它是完全可控的。它反映了现实，且有利于他人（尽管有时不愉快）。某些方面，&quot;受欢迎&quot;却是不良的价值观。如果这是你的价值观，且衡量标准是在舞会上最受欢迎，那么，即将发生的大多数事件都将失去控制。比如你不知道还有谁将会出现在舞会上，甚至有一半人你根本不认识。再者，这个价值观和衡量标准并非基于现实。受欢迎或不受欢迎只是你自己的感觉，而别人到底怎么评价你，你根本不知道。（边注：通常情况下，害怕被别人评价，其实是担心自我评价被反射回来。）</span></p><p><span>好的、健康的价值观举例：诚信、创新、谦逊、自强自立、支持他人、自我尊重、好奇心、慈善等。</span></p><p><span>不良的、不健康的价值观举例：操纵或暴力统治、在乎一切、一味感觉良好、总想处于被关注的中心、不喜独处、渴望被人人喜欢、为富有而富有、为异教神虐杀小动物等。</span></p><p><span>你会看到，好的、健康的价值观是通过人的内心来实现的。像创新或谦逊这样的价值观，只要调整好心态，你马上就可以体验到。这样的价值观是直接和可控的，可以让你同现实融为一体而不会感到虚无缥缈。</span></p><p><span>不良的价值观通常依赖于外部事件------想乘坐私人飞机、总想让自己成为正确的那个人、想在巴哈马群岛上有座房子、想吃着奶油甜馅煎饼卷观看脱衣舞女表演。不良的价值观有时虽是有趣或愉快的，但你很难控制它们，且往往需要通过破坏性或迷信的手段来实现。</span></p><p><span>价值观是有优先次序的。人人都喜欢吃美味的奶油甜馅煎饼卷，或在巴哈马群岛上拥有一座房子。但你的优先选择是什么？哪些是你高于一切的价值观？哪些价值观更能影响你的决策？</span></p><p><span>戴夫·马斯泰恩获得了极大的声誉和荣耀，但他仍认为自己是个失败者。皆因他选择了一个困住自己的价值观，并随意拿别人的成功做比较。他的价值观带来了一些可怕的问题，比如&quot;我必须卖出超过1.5亿张唱片才行&quot;&quot;我的下一次巡演必须是在体育场才行&quot;。他认为这些能给他带来快乐，但不出所料，他仍旧不快乐。</span></p><p><span>相反，皮特·贝斯特却来了个一百八十度的大转弯。尽管被甲壳虫乐队开除让他沮丧和心烦意乱，但随着年龄的增长，他学会了该如何优先排列自己的关注点，并能够用新的标准来衡量自己的人生。因此贝斯特最终成了一个健康快乐的老人，过着简单又幸福的家庭生活。</span></p><p><span>当我们选择了不良的价值观，即用差的标准来评价自己和他人时，我们其实是将注意力放在了一些无关紧要的事情上，而这些事情只会使我们的生活更糟。但假如我们选择了好的价值观，我们就能够专注于那些更好、更重要的事情。而这些事情能够改善我们的生活状况，给我们带来幸福、快乐和成功。</span></p><p><span>简而言之，&quot;自我完善&quot;的意义在于优先选择更好的价值观，以及关注更重要的事情。这样一来，问题就变得更容易解决了。而一旦问题变得容易解决，生活质量便会提高。</span></p><p><span>本书其他部分将着重讲解五个违反常识的价值观。我相信它们是很有用处的，它们属于&quot;消极&quot;的方面，需要我们直面更深层次的问题，而不是通过寻求刺激来加以逃避。这五个价值观也许会令人感到很不舒服，但会让我们的生活发生改变。</span></p><p><span>第一个价值观将在下一章中加以介绍，它是责任的一种激进形式，即不管错是谁的都一概负责；第二个是不确定性，即承认自己的无知，并不断培养自我质疑的能力；第三个是失败，即愿意发现自己的缺点和错误，以便改善它们；第四个是拒绝，即有能力拒绝他人和被他人拒绝，以便确定生活中你想要什么和不想要什么；最后一个价值观是对于死亡的沉思，这一个至关重要，因为警觉和关注死亡可以帮助我们以正确的观点来秉持其他的价值观。</span></p><h1 id='第三章-主动式思维永远别说你没有选择'><span>第三章 主动式思维：永远别说你没有选择</span></h1><p><span>生活也一样，我们都需要出牌。一些人得到的牌更好一些。玩牌容易上瘾，且容易上当受骗，但游戏的真谛在于出牌的策略、可以承担的风险和承受的结果。那些尽可能做出最佳选择的人会最终技高一筹，赢得胜利。生活也是同样的道理，并非总是那些持有好牌的人会赢。</span></p><h2 id='31--永远别说你没有选择'><span>3.1  永远别说你没有选择 </span></h2><p><span>某件事是让你感到头疼还是浑身是劲，差别在于我们是否自愿选择了它，以及我们是否愿意为之负责。</span></p><p><span>想象一下，假如有人拿枪顶在你的脑门上，告诉你必须在5个小时内跑完26.2英里，否则他将杀掉你及你全家。那会是怎样的情形？</span></p><p><span>那真是太糟糕了。</span></p><p><span>再来想象一下，当你买了双好看的鞋子和跑步装备，数月来坚持刻苦训练，最终跑完了你的第一次马拉松，到达终点时，你最亲密的家人和朋友纷纷为你加油助威，那又会是怎样的情形？</span></p><p><span>那可能是你此生最引以为豪的时刻了。</span></p><p><span>相同的26.2英里，相同的人来跑，同样的两条腿承受完全相同的痛苦。但当你自主选择了它，并为之做好准备时，它就会成为你生活中一个光荣和重要的里程碑；当有人违背你的意愿强迫你去做时，它就会成为你生活中最可怕和最痛苦的经历。</span></p><p><span>某件事是让你感到头疼还是浑身是劲，差别在于我们是否自愿选择了它，以及我们是否愿意为之负责。</span></p><p><span>如果你当前状态不佳，那是因为你感觉某些事情超出了你的掌控能力，你没有能力解决某个问题。而这个问题并非你的自主选择，而是他人强加于你的。</span></p><p><span>当我们主动选择了自己的问题时，我们就会觉得强大有力。当觉得有人违背我们的意志将问题强加于我们时，我们就会觉得委屈和悲伤。</span></p><h2 id='32--每个人都要做人生的选择题'><span>3.2  每个人都要做人生的选择题 </span></h2><p><span>关键是，不管我们承认与否，我们总在选择。向来如此。</span></p><p><span>威廉·詹姆斯有很多困扰，而且是些非常糟糕的困扰。</span></p><p><span>威廉出生于名门望族，但他一出生就存在致命的健康问题。很小的时候，他的一只眼睛就已暂时性失明；他因严重的胃病不停地呕吐，因而不得不采取一种极其复杂和高度敏感的饮食方式；他存在听力困难；严重的背部痉挛常常让他一痛好几天，让他坐不下，也站不直。</span></p><p><span>因健康原因，詹姆斯大部分时间都待在家里。他朋友不多，也不太喜欢上学。相反，他天天画画。这是他唯一喜欢和尤其擅长的事情。</span></p><p><span>不幸的是，没有人认为他在这方面有才华。长大成人后，也没人购买他的画作。随着岁月的流逝，他的父亲（一个富商）开始嘲笑他的懒惰和无能。</span></p><p><span>与此同时，他的弟弟亨利·詹姆斯后来成了世界著名的小说家，他的妹妹爱丽丝·詹姆斯也成了一位作家。唯有威廉成了家里的怪物和败家子。</span></p><p><span>为了拯救这个年轻人的未来，詹姆斯的父亲做了最后一搏。他利用自己的业务关系让詹姆斯进了哈佛医学院。父亲告诉他这是他最后的机会，如果这次还不行，他就没有任何希望了。</span></p><p><span>但在哈佛大学，詹姆斯从未觉得自在和安适。医学对于他来说没有任何吸引力。他一天到晚感觉自己生活在虚假和欺诈之中。毕竟，他连自己的问题都解决不了，怎么可能有能力帮助别人去解决问题呢？有一天在参观了精神病院后，詹姆斯在他的日记里写道：他觉得自己不像个医生，更像个病人。</span></p><p><span>几年后，詹姆斯再次不顾父亲的反对，从医学院退学了。但这次，他没有忙着平息父亲的愤怒带给自己的冲击，而是决定离家出走。他报名参加了对亚马孙雨林的一次人类学考察活动。</span></p><p><span>在十九世纪六十年代，跨洲旅行是件极其困难和危险的事情。如果你小时候玩过电脑游戏俄勒冈小道，就会明白这点。随时都可能感染痢疾等疾病，到处是溺毙的水牛等等。</span></p><p><span>尽管如此，詹姆斯还是义无反顾地来到了亚马孙，开始了真正的探险生涯。他能够支撑着脆弱的身体到达那里实在令人吃惊，但他做到了。可是在探险开始后的第一天，他就很快感染上了天花，差点死在丛林中。</span></p><p><span>紧接着，他的背部痉挛发作了，疼痛让他举步维艰。因患天花无法进食，此时他已是骨瘦如柴、憔悴不堪。由于背疼不能行走，他独自一人被落在了南美洲中部（探险队其他成员已离开）。他辨不清回家的路，回程需花数月时间，且可能让他丧命。</span></p><p><span>但他最终还是回到了新英格兰，迎接他的是他失望的父亲（还有一些人）。此时他已不再年轻，快三十了，仍在待业，一事无成。病残的躯体每天都在折磨着他，且无任何好转的迹象。生活虽给过他某些优势和机遇，但一切都已破碎不堪。此生唯一不变的似乎只有痛苦和失望。詹姆斯陷入了深深的抑郁。他开始重新谋划自己的人生。</span></p><p><span>一天晚上，当詹姆斯阅读哲学家查尔斯·皮尔斯的演讲稿时，他决定做个小小的实验。他在日记里写道，他将花一年的时间让自己相信，他可以自理生活中的一切，无论发生什么。在此期间，他将尽其所能改变自己的生存状况，即便失败也没关系。假如一年内没有任何改善，那真的说明他无力改变现状。然后，他将走自己的路。</span></p><p><span>果不其然，威廉·詹姆斯后来成了美国心理学之父。他的作品被翻译成多种语言，他被誉为当代最具影响力的知识分子、哲学家和心理学家之一。他曾在哈佛大学任教，并在美国和欧洲大多数国家做过演讲。他结了婚，生了五个孩子（其中亨利成为著名传记作家，并获普利策奖）。詹姆斯后来把他的小实验命名为&quot;重生&quot;，并将后来的一切成就都归功于此。</span></p><p><span>从所有人的个人完善和发展历程中，我们得出一个简单的结论，即无论外部环境如何，每个人都需对自己生命中的一切负责。</span></p><p><span>我们无法掌控什么事会发生在我们身上，但我们总是能够掌控该如何理解它们，以及我们该如何回应。</span></p><p><span>无论我们是否清醒，我们总要对自己的体验负责，不负责是不可能的。选择不解释生活中发生的一切仍是一种解释。选择不回应生活中发生的一切同样是一种回应。即使你被一辆小丑车碾压了，旁边还有一车学生在拿你开涮，你也仍然有责任来解释这一事件的意义，并对此做出反应。</span></p><p><span>不管喜不喜欢，对于我们身上发生的一切事情，我们总在其中起着积极的作用。对于每时每刻发生的事情，我们总是在解释它的意义。我们总在选择自己的人生价值观，我们总在选择一个标准来衡量发生在我们身上的一切。由于衡量标准不同，同一件事往往既可以是好的，也可以是坏的。</span></p><p><span>关键是，不管我们承认与否，我们总在选择。向来如此。</span></p><p><span>这实际上又回到了一个事实：根本不存在毫不在乎这件事。因为这是不可能的。我们必须去在乎某些事情，不在乎任何事情本身就是在乎某件事情。</span></p><p><span>那么问题来了，我们该去在乎什么？我们该选择什么价值观来指导我们的行动？我们该选择用什么标准来衡量我们的生活？它们是正确的选择吗？它们是良好的价值观和衡量标准吗？</span></p><h2 id='33--伟大伴随着责任'><span>3.3  伟大伴随着责任 </span></h2><p><span>承担问题所带来的责任才是更重要的，因为我们能从中学到真正的知识，并真正改善我们的生活。只知道责怪别人不过是自我伤害而已。</span></p><p><span>几年前我还很年轻、很愚蠢。那时我写过一篇博客文章。在文章的最后我说：&quot;正如一位伟大的哲学家所言，&#39;伟大的力量来自于伟大的责任。&#39;&quot;这句话听起来很美妙、很权威，但我不记得这位哲学家是谁了。用谷歌搜索也一无所获。但不管怎样，我觉得把它放在那儿很合适。</span></p><p><span>大约十分钟后，第一条评论出现了。&quot;我认为你指的这位&#39;伟大的哲学家&#39;是电影《蜘蛛侠》里的本叔叔。&quot;</span></p><p><span>正如另一位伟大的哲学家所言：&quot;你说对了！&quot;</span></p><p><span>&quot;伟大的力量来自于伟大的责任。&quot;这是本叔叔被小偷杀死前说的最后一句话。小偷逃过彼得·帕克的追捕，在人头攒动的人行道上毫无理由地枪杀了本叔叔。可怜这位伟大的哲学家！</span></p><p><span>尽管如此，我们都曾听说过这个引语。它常常被人引用，通常在具有讽刺意味时，或在一连喝了大约七瓶啤酒之后。它听起来非常完美、非常智慧。但它不过道出了一个你已经知道的事实而已，只是你以前从未认真思考过它。</span></p><p><span>&quot;伟大的力量来自于伟大的责任。&quot;</span></p><p><span>这是千真万确的。但它还有个更好、更深刻的版本，你只需将其中的名词调换一下位置即可：&quot;伟大的责任产生伟大的力量。&quot;</span></p><p><span>我们越想承担责任，就越能展示我们的力量。勇于承担责任是向解决问题迈出的第一步。</span></p><p><span>从前我认识一名男子，他确信没有女人愿意跟他约会是因为他个头太矮了。他学历不低，且风趣而又帅气。原则上说，他应该是个抢手货，但他百分之百地确信，女人都嫌他太矮。</span></p><p><span>由于他觉得自己太矮，所以他总是窝在家里，很少出去和异性交往。仅有的几次出击也不过是同几个异性做过谨小慎微的交谈。言谈中，她们可能暗示他没有足够的吸引力。于是他便觉得她们不喜欢他。其实这未必是真的。可以想象，他的恋爱生活是极其糟糕的。</span></p><p><span>但他并未意识到，其实是他所选择的价值观害了他------身高。他认为女性只在乎身高。因此他被套牢了，做什么都无济于事了。</span></p><p><span>选择这样的价值观是消极的，它给这位男子带来了非常糟糕的困扰。那就是以社会的眼光来看，他的身材不够高（在他看来）。但其实他还有很多更好的价值观可以用在自己的恋爱生活中，譬如&quot;我只想同喜欢我这类男人的女人约会&quot;。这可能是个不错的开端，因为这是个诚实和可接受的评价标准。但他并没有选择这样的价值观。他可能甚至都不知道他正在选择自己的价值观（也可能知道）。然而，不管他是否意识到这点，他都须为自己的困扰负责。</span></p><p><span>但他不仅没意识到自己的责任，而且还继续抱怨道：&quot;我别无选择。&quot;他告诉酒保说：&quot;我还能怎么做？女人都是肤浅和自负的，她们永远不会喜欢我！&quot;你瞧，对于这样一个价值观低劣，且只知道自我怜悯的浅薄之徒，一个女人不喜欢他，天下所有的女人都跟着背了黑锅，这是个多么明显的谬论。</span></p><p><span>很多人不敢正视自己的问题，因为他们认为那样做会让自己错上加错。</span></p><p><span>在我们的文化中，责任和过失常常同时出现，但两者并不相同。开车撞了人是一种过失，但也要负法律责任，并需以某种方式加以赔偿。撞人虽是意外事故，但仍需负责。生活中的过失原则是谁做错事谁来处理，理应如此。</span></p><p><span>但有时即便我们没有过错，我们仍需去负责。</span></p><p><span>举个例子。如果有天你一觉醒来，发现你家门口放着个刚出生的婴儿，你该怎么办？婴儿放在那儿不是你的错，但现在照管这个婴儿的责任就是你的了，你必须选择一种做法。但不管你怎么做（收养、扔掉、不理），都会带来问题，而你也要对这些问题负责。</span></p><p><span>法官不会审理此类案件。当这样的案件进入法庭，法官不会指控你有罪，不会给你作证，你也不会因此受什么影响。但你仍需对此案件负责。此后法官必须宣布结果，而你必须明确此类案件的衡量标准，以便今后遵照执行。</span></p><p><span>尽管没有过错，但我们总是要对这样的事情负责。这是生活的一部分。</span></p><p><span>过失和责任的区别是：过失是过去时，而责任是现在时。过失产生于我们已经做出的选择，而责任是你每时每刻的选择所造成的结果。例如，你现在正在读这些文字，你现在正在思考这些概念。</span></p><p><span>你现在正在想，是接受还是拒绝这些概念。若你认为我的观点站不住脚，那或许是我的错，但你有责任得出你自己的结论。尽管我写下这些话不是你的错，但你仍有责任选择读或不读。</span></p><p><span>因自己的境况而指责他人，和他人的确应该为你的境况负责是不同的。除了你自己，没有人应该为你的境况负责。有些人可能责怪你的不幸，但除了你自己，没有人应该为你的不幸负责。原因在于，你总在选择看待和评价事物的方式。你总在选择衡量自己经验的标准。</span></p><p><span>我的初恋女友以令人吃惊的方式把我给甩了。她瞒着我和她的老师约会，这太可怕了！我说可怕是因为，这就好像自己肚子上被人连打了二百五十三拳一样。更糟的是，当我去质问她时，她转身就离开我找他去了。想不到相爱三年，结果竟是这样。</span></p><p><span>我因此痛苦了好几个月，这是不难想象的。但我仍认为，她应该为我的痛苦负责。我相信我没搞错，但这只会让我更痛苦。</span></p><p><span>你瞧，我拿她没办法。无论给她打多少次电话，或冲她尖叫，或请求她重新接受我，或意外造访她的住处，或玩其他诡异和非理性的前男友把戏，均无济于事。我无法控制她的情感或行为。按理说，她应该为我的感受负责，但她始终没有那种想法，那只是我的一厢情愿而已。</span></p><p><span>在某一时刻，当眼泪流尽了，酒也喝足了，我的想法开始转变。我开始觉得，尽管她对我做了很多糟糕的事情，且应该为此负责，但现在让我快乐起来的责任却完全在于我自己。她绝不会突然出现在我面前，来解决我所有的问题。我自己的问题必须由我自己来解决。</span></p><p><span>采取了这样的做法后，一切开始好转。首先我开始改变自己，我开始锻炼身体，并花更多的时间同朋友交往（我一直忽略了他们）。我开始有意地结识新朋友。我参加了一次大型的国际游学旅行，在其中做了一些志愿性的工作。慢慢地，我感觉好了许多。</span></p><p><span>虽然前女友的所作所为仍不能让我释怀，但至少现在我能对自己的情绪负责任了。这样一来，我便选择了一个更好的价值观：照顾好自己，学着让自己感觉更好，而不是一味地想该怎样和她修复关系。</span></p><p><span>（顺便说一句，我&quot;总想让她为我的情感负责&quot;的想法可能是她离我而去的原因之一。这点我会在其他几章中做更多交代。）</span></p><p><span>大约一年后，有趣的事情发生了。当我回过头来审视我们的关系时，我注意到了一些以前我从未注意到的问题，为这些问题负责的应该是我，我本来可以做一些什么来解决这些问题，但我没有。我意识到，可能我本来就不是个很好的男朋友，而且无缘无故地背叛同他们朝夕相处的人，这种事情并不多见。他们这样做一定有着某种不为人知的难言之隐。</span></p><p><span>这并不是说我已经原谅了我前女友的所作所为，一点也没有。但承认自己的不足让我意识到，也许我自己并非如以前所想，是个完全无辜的受害者。让那段并不良好的关系无限延长，我在其中起了很大作用。毕竟，彼此相爱的人之间往往有着相似的价值观。如果我长期爱着的人的价值观那么低劣，那么我该如何评价我本人及我的价值观呢？我获得的教训是：如果同你关系密切的人是自私的，那么你也不可能好到哪里去。有时你只是没有意识到这点而已。</span></p><p><span>事后来看，我能够回想起前女友性情中的某些警示性迹象，而和她在一起时我却忽视或故意不理会这些迹象，这是我的错。我发现那时我早已不再是她完整的男朋友了。事实上，我经常对她冷漠和傲慢，有时无视她的存在，因此伤了她的心，并让她最终远离了我。这都是我的错。</span></p><p><span>我有错误就证明她没错吗？不。但我仍需勇于担责，使自己不再犯同样的错误，不再忽视同样的警示性信号，以便不再遭受同样的痛苦。我仍需勇于担责，努力在未来的日子里与新女友保持更好的关系，我很高兴同你分享这些私事。我后来的女友再也没有对我不忠或离我而去过，肚子上也没再挨过二百五十三拳。皆因我选择了对问题负责并加以改进。皆因我选择了对自己在那段不良关系中所扮演的角色负责，并在后来与异性的交往中有所改善。</span></p><p><span>你知道吗？前女友离我而去不仅是我最痛苦的经历之一，而且也是我最重要和最具影响力的人生经历之一。这一事件极大地激发了我的个人成长。我从这个事件中学到的东西比从许多成功事例中学到的还要多。</span></p><p><span>我们都喜欢对成功和幸福负责，也经常为成功和幸福该归于谁而吵闹不休。但承担问题所带来的责任才是更重要的，因为我们能从中学到真正的知识，并真正改善我们的生活。只知道责怪别人不过是自我伤害而已。</span></p><h2 id='34--面对悲剧你的选择是'><span>3.4  面对悲剧，你的选择是...... </span></h2><p><span>事件的强烈程度并不会改变它的性质，无论是承担还是逃避责任，都是你的选择和反应。</span></p><p><span>什么才是真正可怕的事件呢？许多人需要为与工作相关的问题负责。也许因为电视看得太多，没有足够时间陪孩子，或因此耽误了工作。但当遇到真正可怕的灾难时，他们往往拉紧刹车，让责任的列车停下来，让自己下车。因为很多事情让他们太痛苦，以至于难以应对。</span></p><p><span>但你想过没有，事件的强烈程度并不会改变它的性质。如果你被人抢劫了，那显然不是你的错，因为没有人愿意遭遇这种事情。但当有人将婴儿放在你家门口，那你就必须要为这个婴儿的生死负责了。你反抗吗？惊慌失措吗？害怕吗？报警吗？或者忘掉它，假装它从未发生过吗？无论承担还是逃避责任，都是你的选择和反应。遭抢劫不是你选择的，但你仍有责任去处理因此而带来的情感心理创伤和法律后果。</span></p><p><span>2008年，塔利班武装控制了位于巴基斯坦东北部偏远地区的斯瓦特山谷。他们不准人们看电视、电影。在没有男性陪同的情况下，不准女性出门。女孩子不准去上学。</span></p><p><span>到了2009年，一个名叫马拉拉·优素福·扎伊的十一岁巴基斯坦女孩开始公开反对学校的禁令。她置自己与父亲的安危于不顾，继续到当地学校去上学。她甚至到附近城市去参加会议。她在网上写道：&quot;塔利班怎敢剥夺我接受教育的权利？&quot;</span></p><p><span>2012年她十四岁。有一天，当她乘公共汽车从学校回家时，一颗子弹击中了她的脸部。一个蒙面的塔利班士兵手持步枪上了车，问道：&quot;谁是马拉拉？告诉我。否则我将杀死车上的每一个人。&quot;马拉拉主动站了出来（这是个惊人之举）。于是这名持枪男子当着车上所有其他乘客的面朝她头部开了枪。</span></p><p><span>马拉拉进入了昏迷状态，濒临死亡。塔利班发表公开声明：如果她在这一事件中幸存下来，他们将会杀死她和她的父亲。</span></p><p><span>今天马拉拉仍然活着。她仍在公开反对某些国家对女性的暴力和压迫。现在她成了一名畅销书作家，并在2014年获得了诺贝尔和平奖。由此看来，脸部中弹让她比以前拥有了更多的观众和更大的勇气。对她来说，当时躺在地上说&quot;我什么都不会去做&quot;或&quot;我别无选择&quot;本来要容易得多。事实上，她当时完全可以这样选择，不过她的选择恰好相反。</span></p><p><span>几年前，我在博客上写过一些与本章内容相似的观点。有名男子在上面留言，说我的观点非常肤浅，说我并不真正了解生活中的问题或人类的责任。他说他儿子最近死于车祸，他指责我不知道什么是真正的痛苦，因为我竟然建议让他自己来承受儿子的死亡所带给他的痛苦。</span></p><p><span>这名男子所遭受的痛苦显然更甚于大多数人所需面对的困扰。他儿子的死不是他选择的，也不是他的过错，但他却必须承担因此而产生的痛苦。这是无可奈何的。除此之外，他还需为自己的情绪、信念和行为负责。他有权选择对儿子的死做何反应。对于每个人来说，各种形式的痛苦都是不可避免的，但我们要选择对自己有意义的应对方式。这名男子声称，除了想让儿子起死回生外，他别无选择，但他还是做了选择，只是在很多方式中选择了放大自己的痛苦。</span></p><p><span>当然，我没有跟他说这些。我很恐慌，我不知道我是不是说得有些过头了。我不知道我在胡说些什么，这便是我工作的危险性，这便是我所选择的问题，这便是我所需负责处理的事情。</span></p><p><span>起初，我感觉很可怕，但几分钟后我开始生气。我告诉自己，他的反对意见于我所言关系甚微。那我究竟为何生气？仅仅因为，我没有经历过孩子死亡并不意味着我没有经历过其他可怕的痛苦。</span></p><p><span>其实，我已在践行我的建议，我选择了自己的问题。我本可以对那名男子发火，跟他争论，并尝试用我的痛苦来&quot;缓解&quot;他的痛苦，但那只会让我俩都看起来很愚蠢、很迟钝。或许我可以选择一个更好的问题来磨炼下自己的耐心，以便让自己更好地理解读者，同时将这名男子的痛苦和创伤时刻铭记在心。这就是我想做的。</span></p><h2 id='35--打好命运给你的烂牌'><span>3.5  打好命运给你的烂牌 </span></h2><p><span>这的确不是他们的过错，但他们仍须为此负责。</span></p><p><span>2013年，BBC组织了十几名患有强迫症的青少年参加强化治疗，以帮助他们战胜分心和重复性行为，并对他们做跟踪调查。</span></p><p><span>有位十七岁的女孩名叫伊莫金。她有种强迫性习惯，不管她从哪里经过，都必须拍打所经物体的表面。如果不这样，她脑子里就会出现各种可怕的想法，比如她的家人会死等。还有乔希，他必须同时用身体两侧来做任何事，用双手同他人握手，用双手拿东西吃，用双脚跳过门口等，如果身体两侧不平衡，他便会出现严重的恐慌。然后是杰克，一个典型的洁癖重症患者。他不戴手套不敢出门，什么液体饮品都要烧开了才喝，不是亲手清洗和烹煮过的食物他不吃。</span></p><p><span>强迫症是一种可怕的神经性和遗传性疾病。这种病无法治愈，能做到可控就已经很不错了。我们知道，控制这类疾病实际上就是调整人的价值观。</span></p><p><span>在这个项目中，精神病学家做的第一件事就是让孩子们知道，他们的强迫性愿望本来就不是完美的。这意味着什么？举例来说，当伊莫金脑子里满是她的家人会死亡的可怕想法时，她就要接受其家人真的会死亡的事实，而且这是她无能为力的。简言之，就是告诉她，那不是她的错。乔希必须慢慢接受，强迫&quot;均衡&quot;自己所有的行为以保持对称，这比偶尔的恐慌更影响他的生活。杰克必须明白，不论他怎么做，细菌总是会存在的，而且会感染他。</span></p><p><span>他们的目的是让孩子们认识到，他们的价值观是非理性的，是紊乱带来的结果，并不源于他们自己。而践行这些非理性的价值观会导致他们的行为能力受到伤害。</span></p><p><span>下一步是鼓励孩子们选择一个更重要的价值观来取代强迫症价值观，并将注意力转移过去。对于乔希来说，他不必总是向朋友和家人隐瞒自己患有障碍症的事实，而是让他们知道他将会过上良好和正常的生活。对于伊莫金来说，她要控制自己的念头和情感，让自己变得快乐起来。而杰克呢？他需要培养自己长时间待在室外而不致遭受心理创伤的能力。</span></p><p><span>有了新的价值观作为追求，孩子们开始了密集的脱敏练习，以使自己向这些目标前进。然而恐慌接踵而至，有人哭，有人闹。杰克用拳头猛击一些静物，然后立即洗手。但在纪录片的最后，实验取得了重大进展。伊莫金不再敲击她经过的每个物体的表面。她说：&quot;我脑海中仍有个怪物在那里，且可能永远会有，但现在我要让它安静下来。&quot;乔希能在不必&quot;均衡&quot;身体两侧的情况下行走二十五到三十分钟。杰克的进步最大，他现在就餐时不必先去清洗瓶子和杯子了。杰克总结说：&quot;这种生活和可怕的状况非我所选，但我要选择与它和平相处，且我必须这么做。&quot;</span></p><p><span>很多人一出生就带有某种缺陷，如强迫症、身材矮小或其他与常人不同之处，这似乎让他们失去了某些很有价值的东西。对此他们感觉无能为力，所以不想对这些状况负责。他们争辩道：&quot;是糟糕的基因让我这样的，非我所选。这不是我的错，我没办法改变。&quot;</span></p><p><span>这是真的，的确不是他们的过错。</span></p><p><span>但他们仍需为此负责。</span></p><p><span>在大学时期，我曾凭借虚妄的幻想成了一名专业的扑克玩家。我赢了不少钱和其他东西，它很有趣。但在认真地玩了近一年后，我收手了。这种整晚盯着电脑屏幕，天天熬夜，一天赢数千美元，第二天再大部分输掉的生活方式不是我想要的，它不是健康或稳定的谋生手段。但玩扑克的那段时光对我如何看待生活产生了极其深远的影响。</span></p><p><span>玩扑克的妙处在于，虽然总是有运气在其中，但运气并不能决定游戏的长期结局。一个人可以凭借一把臭牌击败持有好牌的人。当然了，持有好牌的人赢的可能性更高。但最终的胜利，是的，你猜对了，是由每个玩家在玩牌过程中所选择的策略来决定的。</span></p><p><span>生活也一样。我们都需要出牌。一些人得到的牌更好一些。玩牌容易上瘾，且容易上当受骗，但游戏的真谛在于出牌的策略、可以承担的风险和承受的结果。那些尽可能做出最佳选择的人会最终技高一筹，赢得胜利。生活也是同样的道理，并非总是那些持有好牌的人会赢。</span></p><p><span>或许有些人正因某种神经或基因缺陷遭受心理和情感上的痛苦，但这不会改变什么。当然了，如果他们一出生就运气不佳，那谁也不能怪。不论那个想恋爱的男子怪自己矮，还是那个遭抢的人谴责抢劫，他们都需对自己的问题负责。他们有权选择是否接受心理或其他治疗。有些人经历过不幸的童年，有些人遭受过身体、感情或财产上的伤害或侵犯。他们并不是因为做错了什么才会遭受厄运，但仍需为此负责，总是要负责，背负问题，继续前行，并在当前境况下做出尽可能最佳的选择。</span></p><p><span>在此让我们诚实一些。如果你想把所有患有精神疾病、抑郁症或有自杀想法的人，受到过忽视或虐待的人，经历过悲剧或亲人死亡的人，以及从严重的疾病、意外事故或创伤中起死回生的人全都召集起来，放进一个房间的话，那你有可能得把全世界所有的人都召集起来。原因是，没有一个人自始至终不曾在自己身心上留下几道伤疤。</span></p><p><span>当然，有些人背负的问题可能比其他人更糟糕。有些人可能在以某种可怕的方式忍受着伤害。这让我们很失望，很不安，但这最终无法改变一个现实：每个人都必须要为自己的状况负责。</span></p><h2 id='36--带来焦虑的受害者心态'><span>3.6  带来焦虑的&quot;受害者心态&quot; </span></h2><p><span>&quot;受害者心态&quot;的最大问题在于它让人们忽视了那些真正的受害者，就像那个总是喊狼来了的小男孩那样。越是有人为自己的轻微伤害喊冤叫屈，人们就越难看清楚谁是真正的受害者。</span></p><p><span>责任或者过失谬论允许人们将解决问题的责任推卸给别人。人们通过谴责他人来减轻自己的责任，这种能力给他们带来了暂时的刺激和道德正义感。</span></p><p><span>不幸的是，互联网和社交媒体的副作用之一是使得追究责任变得比以往任何时候都更容易了，它甚至可用来追究其他团体或个人最微小的违规行为。事实上，这种公开指责或羞辱已成为时尚。在某些群体中，这甚至被认为是种很&quot;酷&quot;的行为。网民公认的&quot;不公行为&quot;会引发人们的极大关注和情绪宣泄，其力度远远超过大多数其他社交媒体事件。这就给那些自认为是受害者的人们带来了极大的关注和同情。</span></p><p><span>今天，无论在右翼还是在左翼中，无论在富人还是在穷人中，&quot;受害者心态&quot;都颇为盛行。事实上，每个群体都感到自己是社会不公的受害者。这在人类历史上可能是第一次。他们都站在了与之相对应的道义的制高点上。</span></p><p><span>当今，许多人不管因何事受到冒犯，都会觉得自己在某种程度上受到了压迫。他们觉得有必要拍案而起，以引起某种程度的社会关注。比如某本描写种族歧视的书被引入了某个大学的课堂、当地购物中心禁售圣诞树、或投资基金方面的征税提高了半个百分点等。</span></p><p><span>当今媒体鼓励和支持这些行为，因为这毕竟对商业有利。作家和媒体评论员莱恩·霍利迪称之为&quot;色情暴力&quot;。媒体不去报道真实的故事和现实问题，却报道一些不痛不痒的事件，让观众产生愤怒情绪，然后让这些情绪反弹回来，在不同人群之间蔓延。因为他们发现这样做很容易（且有利可图）。这些毫无意义的垃圾话题泛滥成灾，分散了人们对真正的社会问题的注意力。难怪目前政治极端化比以往任何时候都还要严重。</span></p><p><span>&quot;受害者心态&quot;的最大问题在于它让人们忽视了那些真正的受害者，就像那个总是喊狼来了的小男孩那样。越是有人为自己的轻微伤害喊冤叫屈，人们就越难看清楚谁是真正的受害者。</span></p><p><span>人们喜欢沉浸于受害者的感觉，因为这会给他们带来某种刺激------自以为是和道德优越让他们感觉良好。正如政治漫画家蒂姆·克雷德在《纽约时报》专栏中称：&quot;愤怒像其他很多东西一样，虽让人感觉良好，但迟早会由内而外地将我们吞噬。因为它比大多数恶习更阴险，会让我们不自觉地将它当成一种乐趣。&quot;</span></p><p><span>然而，既然生活在一个自由的社会里，我们就得接受不同的观点和我们不喜欢的人。这是我们所付出的代价，甚至可以说，这正是整个制度的意义所在。但似乎越来越多的人忘记了这一点。</span></p><p><span>我们应该谨慎选择我们的斗争，同时试着对所谓的敌人多一点理解。我们应适度地质疑新闻和媒体，避免粗枝大叶地去渲染我们不赞同的做法。我们应该将诚实的价值观放在首位，促进透明度，同时欢迎对某些价值观提出质疑，如一贯正确、感觉良好和报复等。在一个嘈杂的网络世界里，&quot;民主的&quot;价值观难以保持。但不管怎样，我们有责任去培育它们。我们需要它来维持未来秩序的稳定。</span></p><h2 id='37--只有做或不做的问题'><span>3.7  只有&quot;做&quot;或&quot;不做&quot;的问题 </span></h2><p><span>当你重新评估自己的价值观时，你将会遇到来自内部和外部的阻力。更重要的是，你会有种不确定感。你会想，你是不是做错了。但我们明白，这是件好事。</span></p><p><span>看完这些后，很多人可能会说：&quot;很好。但我该怎么做呢？我知道我的价值观很糟糕，我不愿为自己的问题负责，我是个自以为是的小混混，我总认为世界应该围绕我和我的困扰旋转，但我该如何改变自己？&quot;</span></p><p><span>对此，我要用我最擅长的尤达模仿秀来回答你：&quot;只有做或不做的问题，没有如何做的问题。&quot;</span></p><p><span>每一天所度过的每一刻，你都在选择该在乎些什么。因此，改变自我就像去在乎一件其他东西那么简单。</span></p><p><span>尽管简单，却不容易做到。</span></p><p><span>原因在于，改变自我首先会让你觉得自己是个失败者，是个骗子和笨蛋。你会紧张，会疯掉。你会责备你的妻子、朋友或父亲。这些都是改变价值观和关注点所带来的副作用，但这是难免的。</span></p><p><span>所以说，这很简单，但又真的好难。</span></p><p><span>其中的一些副作用包括：你会有种不确定感。这是我保证过的。&quot;我真的要放弃吗？我这样做对吗？&quot;放弃自己秉承了多年的价值观将会让你感到茫然失措，仿佛突然之间不辨东西、不知对错了。这很让人窘迫，但却是很正常的。</span></p><p><span>然后你会有种失败感。大半生时间，你都在用旧的价值观来衡量自己，一旦改变价值观的优先次序，改变衡量事物的标准，不再按老路子去做事，你会感到违背了原有的可靠标准。你马上会有种被欺骗的感觉或失落感。这很正常，但同时也令人不安。</span></p><p><span>因此，你会拒绝改变。因为你的很多关系都建立在原有价值观的基础上，所以一旦改变它们，当你觉得学习比聚会更重要，结婚和成家比泛交更重要，找个自己喜欢的工作比金钱更重要时，这些转变将都会在原来的关系中产生回响，其中许多会当场破裂。这很正常，但也同样令人不安。这些副作用虽令人痛苦，但确实是必要的。它们会让你把关注点转移到其他地方，转移到更重要、更值得你释放能量的地方。当你重新评估自己的价值观时，你将会遇到来自内部和外部的阻力。更重要的是，你会有种不确定感。你会想，你是不是做错了。</span></p><p><span>但我们明白，这是件好事。</span></p><h1 id='第四章-曼森规避法人生就是不断在犯错'><span>第四章 曼森规避法：人生就是不断在犯错</span></h1><p><span>不要执着于与众不同，不要痴迷于独一无二。要以更世俗和更宽泛的方式重新确定你的衡量标准。不要以后起之秀或未来天才为标准来衡量自己，也不要把自己装扮成可怜的受害者或彻底的失败者。</span></p><h2 id='41--在犯错中寻找答案'><span>4.1  在犯错中寻找答案 </span></h2><p><span>我这辈子一直在犯错误，对自己、对他人、对社会、对文化、对世界、对宇宙、对一切，但我在犯错中汲取经验而成长。而我希望，我的余生仍将如此。</span></p><p><span>五百年前，制图师认为加州是个岛屿；医生们认为，切开手臂（或让其他任何地方流血）可以治愈疾病；科学家们认为，火的成分是一种叫作燃素的东西；妇女们认为，在脸上涂抹狗的尿液可以抵抗衰老；天文学家认为，太阳围绕地球运转。</span></p><p><span>小时候，我曾认为&quot;平庸&quot;是种我不愿吃的蔬菜；我认为哥哥在祖母家里发现了一个秘密通道，因为他不必出浴室（有个窗户）就能溜到外面去；我也曾认为我的朋友和家人参观&quot;华盛顿特区（Washington, B.C.）&quot;时，不知怎的就穿越了时光隧道，回到了恐龙时代。因为公元前（B.C.）毕竟是很久、很久以前了。</span></p><p><span>作为一个十几岁的青少年，我告诉大家我什么都不关心，但事实却是我在乎得太多了；当别人操控了我的世界时，我竟然一无所知；我认为幸福是种命运，而非选择；我认为&quot;爱&quot;是刚刚发生的一件事情，无须苦苦追求；我认为&quot;酷&quot;需要多加练习或向他人学习，不必自我装扮。</span></p><p><span>和初恋女友在一起时，我以为我们能够天长地久。分手后，我以为我再也不会爱上另一个女人了。然后当我真的爱上另一个女人后，我又认为仅有爱有时是不够的。后来我又意识到，&quot;够&quot;与&quot;不够&quot;完全可以由个人自行决定，而爱也可以成为任何我们想要的样子。</span></p><p><span>然而，几乎每一步我都可能有错。我这辈子一直在犯错误，对自己、对他人、对社会、对文化、对世界、对宇宙、对一切，但我在犯错中汲取经验而成长。</span></p><p><span>而我希望，我的余生仍将如此。</span></p><p><span>就像现在的我可以回顾过去的我的每一个缺点和错误一样，总有一天，未来的我也将会想起现在的我的假想（包括本书内容），并发现相似的缺点。那是件好事，因为这意味着我成长了。</span></p><p><span>著名篮球运动员迈克尔·乔丹曾引用名言来说明他在经历了一次又一次的失败后，最终获得了成功。而我呢，应该是在犯了一个又一个错误后，最终让自己的生活获得了改善。</span></p><p><span>成长是一个不断更迭的过程。学到某种新知识并不意味着我们已经从&quot;错误&quot;走向了&quot;正确&quot;。相反，我们只是从错误走向略少一点的错误；再学一些新知识，我们又从略少一点的错误走向更少一点的错误，然后再走向比这还少一点的错误，以此类推。我们一直走在接近真理和完美的道路上，却永远难以臻于真理或完美。</span></p><p><span>我们不应试图去寻找终极的&quot;正确&quot;答案，而应尽量减少今天犯错的方式，以便将来我们可以少犯错误。</span></p><p><span>从这个角度上讲，个人成长其实是一门学问。我们的价值观是不断假设：某种行为是良好和重要的，而某种则不是。而我们的行为是实验，由此产生的情感和思维模式则是实验数据。</span></p><p><span>正确的教理或完美的意识形态是根本不存在的。唯一可以说明你正确与否的是你的个人体验，但个人体验也可能是错误的。由于需求、经历和生活环境的差异，每个人都不可避免地会对生活的意义和生活方式得出截然不同的正确答案。我的正确答案是一年到头独自旅行，居无定所及嘲笑自己的胡言乱语。至少到目前为止是这样。当然，它会发展变化，因为我自身也在发展变化。随着年龄和经验的增长，我的错误会一天比一天减少。</span></p><p><span>许多人如此沉迷于生活中的&quot;正确&quot;，以至于他们自始至终都没有过上自己想要的生活。</span></p><p><span>有位单身女子感到很孤独，想找个伴侣，但她从不肯走出家门去为此做点什么。有位男子拼命工作，希望能得到提升，但他却从未向老板明确提出过。</span></p><p><span>他们被告知，自己的原因在于害怕失败，害怕遭到拒绝，害怕别人说&quot;不&quot;。</span></p><p><span>而事实绝非如此。当然，遭拒会让人伤心，失败会让人难过。可事实上，是我们一直坚守的某些确定性在起作用------多年来我们不敢质疑和舍弃的确定性，以及这些年来赋予我们生活以意义的价值观。那位女子不肯出门同男人约会，因为那样她将被迫直面自己的愿望；那位男子不肯提出升迁要求，因为那样他将不得不正视他的实际技能究竟价值如何。</span></p><p><span>的确，坚守痛苦的确定性，不去展示你的魅力，不去显露你的才华，比真正挑战那些信仰和直视自己的能力更加简单。</span></p><p><span>尖创造的这种念头：我魅力不够，我何必去自找麻烦，或我的老板是个混蛋，我何必去自找啰唆，等等，这些念头给了我们眼下一定程度的舒适，却牺牲了将来可能取得的更大的幸福和成功。作为长期策略来说，这是很糟糕的，但我们却紧抓不放。因为我们认为自己是正确的，且知道会发生什么。换句话说，我们认为自己已经知道故事的结局是什么了。</span></p><p><span>确定性有时是成长的大敌。但实际上很少有什么是确定的，除非事情已经发生，即使已经发生，也仍有回旋的余地。由此看来，接受自己的价值观中存在不可避免的缺陷，对于成长来说是十分必要的。</span></p><p><span>因此，我们不应一味地追求确定性，而是应该不断研究该如何质疑：质疑假如我们不挺身而出、勇于开拓，未来我们还能得到什么。我们不应一味地追求正确，而是应该经常审视我们究竟错在哪里。因为我们的确总在犯错。</span></p><p><span>犯错让我们有了改变的可能，犯错给了我们成长的机会。这意味着不再切开手臂来治疗感冒，不再在脸上涂抹狗尿以便让自己看上去更年轻，不再把&quot;平庸&quot;当成常态，以及不再害怕去在意某些事情。</span></p><p><span>有件事情不可思议，却是事实：其实，我们并不知道什么是积极体验，什么是消极体验。生活中最为艰难和最有压力的时刻通常也是最具建设性和最能激发斗志的时刻。生活中最精彩和最振奋人心的体验，同时也是最让人分心和意志消沉的体验。因此不要相信积极体验或消极体验这些没什么价值的概念。我们所能确定的只有什么东西至关重要，什么东西无关痛痒。</span></p><p><span>就像我们会惊恐地回溯五百年前人们的生活一样，五百年后，人们可能也会嘲笑我们和我们的确定性。他们可能会嘲笑我们用金钱和工作来定义生活，嘲笑我们不敢赏识生活中最重要的东西，反而对公众人物赞赏有加，嘲笑我们的礼仪、迷信、忧虑和战争。他们会惊讶于我们的残忍，会学习我们的艺术，并会讨论我们的历史。他们会了解有关于我们的事实真相，而我们却至今无人知晓。</span></p><p><span>他们也会犯错，只是比我们犯得少而已。</span></p><h2 id='42--我们的大脑有时是不可靠的'><span>4.2  我们的大脑有时是不可靠的 </span></h2><p><span>人类思维有时候就是一堆杂乱无章的谬误。这样说会让人很不舒服，但你会看到，接受这一理念是非常重要的。</span></p><p><span>试试以下测试。随意把某个人领进房间，房间里有些按钮。告诉他们，如果他们做某件具体事情，他们必须找出某种未知的规律，灯就会亮，表示他们得了一分。看看他们能在三十分钟内得多少分。</span></p><p><span>你可能已经预料到心理学家在做该测试时会发生什么了。人们一坐下便开始乱按一气，直到有个灯亮了，让他们得分。从逻辑上讲，只要他们按下去，就可以得更多的分。但现在灯再也不亮了。于是，他们便想出更为复杂的排序------按这个按钮三下，然后再按一下，五秒钟后------&quot;叮&quot;，灯居然亮了，又得了一分。当这个方法最终也不灵时，他们便觉得灯亮不亮与按钮无关，而可能与坐姿有关，与触摸到的东西有关，或与脚有关。&quot;叮&quot;，又得了一分。是的，真的与脚有关，于是他又按了另一个按钮。&quot;叮&quot;，又亮了！</span></p><p><span>一般来说，每个人都能在十到十五分钟内找到得分所需的具体动作。动作千奇百怪，如单脚站立，面朝某个方向，记忆在一定时间内按的一长串按钮。</span></p><p><span>有趣的是，得分其实是随意的。既无关顺序，也无关模式。只是有个灯会不断亮起来。而人们却总是认为，是他们的行为让他们得了分。</span></p><p><span>实验的目的不是为了施虐，而是为了说明人类思维在追随和相信某些谎言时是多么迅速。事实上我们都擅长于此。离开房间后，每个人都确信自己搞定了实验，赢了比赛，都相信自己发现了取胜的&quot;准确&quot;的按钮顺序。他们的方法各具特色。有位男子想出一个很长的按钮顺序，除他自己外，没人知晓其中含义。有个女孩相信，她只需敲天花板到一定次数就能得分。结果离开房间时，她已因为跳上跳下累得筋疲力尽了。</span></p><p><span>人脑是用来储存意义的机器。我们所理解的&quot;意义&quot;是由大脑在两个或两个以上的体验之间进行联系生成的。我们按下一个按钮，看到灯亮了，便以为是这个按钮让灯亮的，这便是意义的基础。按钮，灯；灯，按钮。我们看到一把椅子，注意到它是灰色的。大约是大脑描绘出了颜色（灰色）和物体（椅子）之间的联系，并形成意义：这把椅子是灰色的。</span></p><p><span>大脑在不停地运转，产生越来越多的联系来帮助我们理解和控制周围的环境。我们体验过的一切，包括内部的和外部的，又在脑海里生成新的联系和连接。一切事物，从本页上的文字到你解读它们所使用的语法概念，再到我笔下那些乏味而又啰唆的观点，每一个观点、冲动和认知都是由成千上万的神经连接组成的。这些连接相互协调，用知识和智慧的光辉照亮你的心灵。</span></p><p><span>但应该注意两个问题。首先，大脑是不完美的，我们常常失察或误听，我们很容易忘事或曲解。</span></p><p><span>其次，一旦我们创造出某个意义，大脑就会记住它。我们偏爱于自己思想所创造的那个意义，不愿舍弃它。即使发现有些意义同我们所创的意义相矛盾，我们也常常忽略它们，然后继续相信我们所创造的意义。</span></p><p><span>喜剧演员埃·飞利浦曾经说过：&quot;我过去常常认为人脑是最美妙的器官，然后我才意识到是谁在告诉我这点。&quot;我们所知道和相信的事情都是大脑中谬误和偏见的产物。我们的许多甚至大多数价值观都是不具代表性的事件的产物，或者说是完全被误解了的过去经验的结果。</span></p><p><span>有时候，我们的大多数观念都是错误的，或更确切地说，所有的观念都是错误的，只是有一些比另一些稍微正确而已。人类思维有时候就是一堆杂乱无章的谬误。这样说会让人很不舒服，但你会看到，接受这一理念是非常重要的。</span></p><h2 id='43--为什么跟着感觉走不一定靠谱'><span>4.3  为什么&quot;跟着感觉走&quot;不一定靠谱 </span></h2><p><span>很多传统智慧会告诉你&quot;相信自己&quot;&quot;跟着感觉走&quot;及其他各种动听的陈词滥调。但正确答案或许是少相信自己。</span></p><p><span>1988年，记者兼女权主义作家梅勒迪斯·马兰在治病期间意识到一个惊人的事实：小时候父亲曾性侵过她，这让她深感震惊。在她成年生活的大部分时间里，她并未理会这一被压抑的记忆。但在三十七岁那年，她同父亲摊了牌，并将此事告诉了她的家人。</span></p><p><span>梅勒迪斯的故事令她所有的家人都惊恐不安起来，她的父亲立即否认曾对她做过什么。一些家庭成员站在了梅勒迪斯这边，其他人则站在了她父亲那边。于是家谱被一分为二。诉讼之前，梅勒迪斯与父亲之间这种关系所带来的疼痛，像霉菌一样四处蔓延，撕裂了每个人的心。</span></p><p><span>接着在1996年，梅勒迪斯又抛出一个惊人的发现：其实她父亲并没有性侵过她。原来那段记忆是她在治疗师善意的帮助下，自己编造出来的。她为此深感内疚，决心在父亲有生之年通过不断道歉和解释，竭尽所能地取得他及其他家庭成员的谅解，但是已经太迟了。父亲去世了，她的家再也不是原来那个样子了。</span></p><p><span>但梅勒迪斯事件并不是个孤例。就像她在自传《我的谎言：一个错误记忆的真实故事》中所描述的那样，在整个十九世纪八十年代，许多妇女指控其男性家庭成员对自己实施了性虐待，并在数年后放弃了指控。与此同时，在那十年里，为数众多的人声称有邪教在虐待儿童。但警方在数十个城市展开调查，结果并未找到此类疯狂行为存在的任何证据。</span></p><p><span>人们为何会突然编造出家庭性侵犯和邪教虐待儿童的可怕记忆呢？为何这种事情都恰好发生在十九世纪八十年代呢？</span></p><p><span>你小时候玩过传话游戏吗？也就是，你在一个人耳边悄悄地说一句话，然后让他继续传给后面大约十个人。而最后一个人听到的往往与你开始时说的话没有任何关系。我们的记忆也大致是这样的。</span></p><p><span>我们所经历过的事情，在几天后记忆就会略有不同，就像经过耳语传话被传错了一样。然后当我们将这件事告诉别人时，就不得不通过想象补充几个情节，以使事件完整和有意义，听上去不像在胡言乱语。而后我们逐渐相信了那些补充的情节，以便下次照本宣科。这个本来就不真实的故事现在错上加错。一年后的某天晚上，当我们借着酒劲将它讲给别人听时，又添油加醋一番。好了，说实话，这个故事已约有三分之一是编造的了。但下周清醒后，我们并不承认自己是大骗子。于是又将这个经过修改和最新补充的酒鬼版本继续传播下去。我对天发誓，五年后，这个所谓绝对真实的故事就最多只剩一半是真的了。</span></p><p><span>我们向来如此，人人如此。无论我们多么诚实，多么好心好意，我们却总是在误导自己和他人。原因在于人脑虽然高效，有时却是不准确的。</span></p><p><span>不仅我们的记忆极其糟糕，就连大脑的功能也常常会出现严重偏差，以至于在案件庭审时，连目击者证词甚至有时都可以不必当真。</span></p><p><span>怎么会这样？好吧，大脑总是基于我们已经相信和拥有的经验来解释现状，总是通过已有的价值观和结论来衡量每一条最新信息，总是偏向于那一刻我们感觉真实的东西。因此当姐妹关系极佳时，我们便会以积极的方式来理解对她的大多数记忆。但当关系恶化时，我们又往往会用不同的眼光来看待相同的记忆，就像解释当前对她的愤怒一样来重塑它们。于是，去年圣诞节她送给我们的甜蜜礼物现在被视为傲慢和居高临下的象征物；她忘记邀请我们去她的湖滨别墅做客当时来看是个无意的过失，而现在变成了一个可怕的错误。</span></p><p><span>当了解了梅勒迪斯产生这种想法是基于何种价值观时，她编造性虐待故事一事就更加意味深长了。首先，梅勒迪斯一生大部分时间与父亲关系紧张；其次，梅勒迪斯与男人有过一连串失败的亲密关系，包括一次失败的婚姻。</span></p><p><span>因此在她的价值观里，&quot;与男性关系亲密&quot;并非那么重要。</span></p><p><span>后来，在十九世纪八十年代早期，梅勒迪斯成了一名激进的女权主义者，并开始从事虐待儿童方面的研究。多年来，她研究过一个又一个可怕的性虐待事件，接触过许多乱伦关系的幸存者------通常是小女孩。她还广泛报道了那段时间出现的许多不准确的调查报告，后来证明，娈童案件的发生率被严重高估了。（最著名的研究报道曾称，约有三分之一的成年女性曾在幼年时遭到过性侵犯。这一数字后来被证明是不实的。）</span></p><p><span>正是在这种情况下，梅勒迪斯与另一个女人，一个乱伦关系的幸存者开始了恋爱关系。她们之间产生了一种互相依赖的不健康关系。一方面，梅勒迪斯一心想把这名女子从过去的痛苦中&quot;拯救&quot;出来。另一方面，这名女子想以自己痛苦的过去为武器来博得梅勒迪斯的同情（更多信息参见第8章）。与此同时，梅勒迪斯和父亲之间的关系进一步恶化（成为同性恋者让父亲很震惊），并将接受强迫性治疗。治疗师们在自我价值观和信仰的驱使下，坚持认为梅勒迪斯不幸的根源不仅仅在于她那高度紧张的报道工作，或糟糕的人际关系，一定还有其他更深层次的原因。</span></p><p><span>大约就在此时，一种被称为&quot;唤醒被压抑的记忆&quot;的新疗法开始流行。在这种疗法中，治疗师诱导患者进入迷幻状态，然后鼓励他或她挖掘并再次体验早已被遗忘的童年记忆。这些记忆大多是良好的，但也不排除其中会有些痛苦的记忆。</span></p><p><span>因此，这就是可怜的梅勒迪斯，每天痛苦地研究乱伦关系和娈童案，和父亲势不两立，一生与男人关系失败，唯一理解她或爱她的人是名女子，而且是个乱伦关系幸存者。她躺在沙发上天天哭泣，与此同时，治疗师一遍遍地让她回忆她已不记得的事情。于是万事俱备，一件从未发生过的性虐待事件就这样编造而出了。</span></p><p><span>人脑最高的优先级习惯于用符合以前所有的经验、感受和信仰的方式来解释和处理经验，但过去的生活状况和现在的并不总是相一致的。在此情况下，我们此刻正在进行的体验，便开始挑战过去我们一直认为是正确和合理的一切。为了达成一致，大脑有时会编造一些错误记忆。通过将当前经验和想象中过去的经验进行连接，大脑让我们记住已经确定的任何意义。</span></p><p><span>如前所述，梅勒迪斯的故事不是仅有的。事实上，在十九世纪八十年代和九十年代早期，成百上千的无辜人士在类似情况下被无端地指控为性暴力犯罪。其中许多人因此进了监狱。</span></p><p><span>这些暗示性的解释加上耸人听闻的媒体宣传，使性虐待和邪恶的暴力事件四处蔓延，你也可能成为受害者，并且给了那些对生活不满的人某种无意识的动机，来编造点回忆以解释他们当前的痛苦，以便让自己成为受害者从而去逃避责任。&quot;唤醒被压抑的记忆&quot;疗法作为一种手段唤醒了人们这种无意识欲望，并让它们变成了一个个有鼻有眼的故事。</span></p><p><span>人们称这个普遍存在的过程及产生它的心理状态为：错误记忆综合征。它改变了法庭的审判结果。成千上万的治疗师被起诉，并失去了营业许可。&quot;唤醒被压抑的记忆&quot;疗法遭取缔，取而代之的是其他更有效的疗法。最近的研究只强化那个时代的惨痛教训：信仰是可塑的，但记忆却是相当不可靠的。</span></p><p><span>很多传统智慧会告诉你&quot;相信自己&quot;&quot;跟着感觉走&quot;及其他各种动听的词汇。</span></p><p><span>但正确答案或许是少相信自己。我们的心灵和思想有时是不可靠的，我们应该更多地质疑自己的意图和动机。既然我们会错，而且总是在错，那么唯一合乎逻辑的做法就是去质疑和挑战自己的信念和假设。</span></p><p><span>这听起来似乎是可怕和灾难性的。但事实恰好相反，这不仅是更加安全的选择，而且是一种解放。</span></p><h2 id='44--危险的确定性'><span>4.4  危险的&quot;确定性&quot;</span></h2><p><span>我们的价值观有时是不完美和不全面的。假如认为它们时时刻刻是完美和全面的，那就等于把自己置于教条主义心态的危险之下，从而让自己产生特权意识去逃避责任。承认自己的行为和信念是错误和不起作用的，是解决问题的唯一办法。</span></p><p><span>在寿司餐厅里，艾琳坐在我对面。她想解释为何她不相信死亡。近三个小时过去了，她已吃掉了四个黄瓜卷，独自一人喝光了一整瓶清酒（第二瓶其实也只剩一半了）。现在是星期二下午四点。</span></p><p><span>我并没有邀请她，她通过互联网发现我在这儿，就赶过来找我。</span></p><p><span>这已不是第一次了。</span></p><p><span>她以前就这样做过。艾琳相信她能让人起死回生，但这需要我的帮助。不是指那种商业意义上的帮助，假如她只是需要一些公关方面的建议，那会是另外一码事。但事情没那么简单，她要我做她的男友。这究竟是为什么呢？探讨了三个小时，喝完了一瓶半清酒，事情仍未水落石出。</span></p><p><span>顺便提一下，我的未婚妻也在现场。艾琳觉得让她参加这次谈话很有必要。她想让我女友（现在是老婆）知道，她愿意同她分享我的爱，因此我的女友不应感到是种威胁。</span></p><p><span>我是在2008年的一场励志研讨会上遇到艾琳的。她看上去是个优雅的女子，风情万种，新潮时尚。她是个律师，曾上过常青藤联盟学校，显然是极其聪明的。她喜欢听我讲笑话，觉得我很可爱。</span></p><p><span>一个月后，她邀请我去全国各地旅游，并搬过去同她一起住。我感到这是个危险信号，因此想斩断与她的联系。她回应说，如果我拒绝和她在一起，她将自杀。这是第二个危险信号。我立即拉黑了她的电子邮件及其他联系方式。</span></p><p><span>但这只能延缓她的行动，却无法阻止她。</span></p><p><span>几年前，艾琳曾遭遇过一场车祸，差点送了命。实际上有那么一刻，她已经脑&quot;死亡&quot;了，大脑所有的活动都已停止，但她竟奇迹般地活了过来。醒来后，她说感觉一切都变了。她变成了一个性灵之人，并对能量疗愈、天使、宇宙意识和塔罗牌产生了兴趣。她还相信自己是一名治疗师兼神使，可以看到未来。不知出于什么原因，在遇到我后，她认定命中注定将要和我一起拯救世界。正如她所言，她要治愈&quot;死亡&quot;。</span></p><p><span>被我拉黑后，她又注册了新的邮件账号，有时一天之内给我发十几封充满愤怒的电子邮件。她还创建了虚假的Facebook和Twitter账户，用来骚扰我及我的亲人。她建了一个和我相同的网站，发表了数十篇文章，声称我是她的前男友。她说我欺骗和背叛了她，说我曾答应过要娶她。当我联系她，让她将这些文章撤下时，她说可以，但前提是我同意飞到加州与她同住，这算是她的妥协。</span></p><p><span>她做这一切的理由是相同的，即我命中注定要和她在一起，这是上天的旨意。她说有天她半夜醒来，听到了天使的号令，说&quot;我们之间的特殊关系&quot;将揭开世界永久和平的新篇章。（是的，她的确这样说过。）</span></p><p><span>到坐在寿司店里为止，她已经给我发了成千上万的电子邮件。无论我是否回应，恭敬地回应，还是愤怒地回应，一切一如既往，从未有所改变，她的信念从未动摇过。这种情况已经持续了长达七年之久。</span></p><p><span>这就是所发生的一切。艾琳坐在小寿司餐厅里，一边狂饮清酒，一边数小时喋喋不休地讲她如何用能量拍打法治愈了她家小猫的肾结石。</span></p><p><span>艾琳热衷于自我完善。她花了成千上万的美元来购买书籍、听讲座和进修课程。最为疯狂的是艾琳不折不扣地践行了她所学的一切。她有自己的梦想，并为之坚持不懈地努力。她做可视化训练，勇于采取行动，不怕拒绝和失败，跌倒后，爬起来继续尝试。她积极得近乎残酷，且自我评价超高。她声称她治愈病猫正如耶稣治愈拉扎勒斯。</span></p><p><span>然而，她的价值观却是十分糟糕和毫不重要的。她想把一切做&quot;正确&quot;，但事实上却全都做错了。</span></p><p><span>她身上有种确定性让她拒绝放下执念。她甚至曾多次对我说过，她知道她的痴迷是完全非理性和不健康的，会让她和我都不开心。但不知出于何种原因，她就是难以忘却，也无法罢手。</span></p><p><span>十九世纪中期，心理学家罗伊·鲍迈斯特开始研究恶的概念。他所研究的主要是做坏事的人及他们做坏事的原因。</span></p><p><span>当时人们认为，人们做坏事是因为他们自我厌恶------就是说，他们的自尊心很差。但鲍迈斯特最初的惊人发现之一却是，事情并非总是如此，恰恰相反，一些最严重的罪犯往往自我感觉相当良好。正是这种不管周遭真实境况如何，总是自我感觉良好的心态给了他们伤害和不尊重他人的理由。</span></p><p><span>对于一个人来说，想要找到正当理由来对别人做可怕的事情，他就得对自己的正义感、信仰和价值观有种坚定不移的确定性。种族主义者制造暴行，是因为他们坚信自己的基因是最优秀的；宗教狂热分子引爆身上的炸弹，一次杀死数十人，因为他们认为自己是殉道者；男人强奸和蹂躏女人，因为他们确信有权支配女人的身体。</span></p><p><span>邪恶之人从不认为他们是邪恶的。相反，他们认为其他人都是邪恶的。</span></p><p><span>心理学家斯坦利·米尔格拉姆在以自己的名字命名的饱含争议的实验（现被简称为米尔格拉姆实验）中说，研究人员让一些&quot;正常&quot;人去惩罚那些违犯各种规则的其他志愿者，而这种惩罚有时会升级为身体虐待。结果没有一个实施惩罚的人提出反对或要求解释。相反，许多人似乎很喜欢这种确定性，即实验赋予他们的道德公义感。</span></p><p><span>问题在于，确定性不仅难以获得，且追求确定性通常会产生更多（甚至更糟）的不安全感。</span></p><p><span>许多人坚信自己的工作能力或应得多少工资。但这种确定性只会使他们感觉更糟，而不是更好。一旦见别人得以升迁，他们就会感到自己被忽视了，会觉得不被赏识，或得不到承认。</span></p><p><span>甚至连偷窥男友的短信，或问朋友别人怎么议论自己，此类简单行为也是追求安全感和确定性所带来的结果。</span></p><p><span>当你检查完男朋友的短信而一无所获时，你很少就此罢休。你会想，他是不是还有另外一个手机。你因未被提升和感觉受到轻视而在上班时，一个劲地说明原因，从而怀疑同事在背后议论你，结果使你更加提升无望。你不断期望成为某种你所想象的人，但却总是离目标越来越远，无数个寂寥的夜晚让你越来越怀疑，你是否做错了什么。</span></p><p><span>在缺乏安全感和深度绝望时，阴险的特权意识会侵袭我们的大脑，让我们觉得应该去欺骗他人，而他人应该受惩罚。我们应该得到我们想要的，为此，有时甚至不惜使用暴力。</span></p><p><span>但这正如逆向法所言------你越是想确定，你就越会感到不确定和不安全。</span></p><p><span>反之亦然，你越是觉得不确定和不明了，你就越会知之甚少，泰然自若。</span></p><p><span>不确定性让我们不再对他人评头论足。当在电视上、办公室里或街上看到某个人时，我们不再产生不必要的成见和偏见。不确定性还能改变我们的自我判断。我们不知道我们是否可爱，不知道我们有多大的吸引力，不知道我们能取得多大的成功。想要知道，唯一的方法是对它们保持不确定感，并通过体验去发现它们。</span></p><p><span>不确定性是进步和成长的源泉。有句老话说得好，&quot;谦受益，满招损。&quot;认为自己什么都懂，其实就是什么都不知道。&quot;不积跬步，无以至千里；不积小流，无以成江海。&quot;不从一点一滴做起，就难以成就伟业。越是承认知之甚少，就越能找到更多的机会去学习。</span></p><p><span>我们的价值观有时是不完美和不全面的。假如认为它们时时刻刻是完美和全面的，那就等于把自己置于教条主义心态的危险之下，从而让自己产生特权意识去逃避责任。承认自己的某些行为和信念是错误和不起作用的，是解决问题的唯一办法。</span></p><p><span>这种对犯错保持开放接受的心态，必然会给我们带来真正的变化和成长。</span></p><p><span>想要审视自己的价值观和优先级，并让它们变得更好和更健康，我们必须首先对当前的价值观保持不确定性。我们必须理智地去分析它们，看到其中的错误和偏颇，看到它们与社会不相适应的地方，直面和承认我们的无知。因为无知比我们自身更重要。</span></p><h2 id='45--曼森规避法'><span>4.5  曼森规避法</span></h2><p><span>我们一直在错失重要的机会，因为它们会改变我们的自我评价和自我感觉，会威胁到我们已经习以为常的人生价值观。</span></p><p><span>你可能听说过帕金森定律：&quot;工作会无限延长，以占满所有可用的时间。&quot;</span></p><p><span>你也肯定听说过墨菲定律：&quot;一切可能出错的准会出错。&quot;</span></p><p><span>当你出席某个时髦的鸡尾酒会时，如果你想给人留下些深刻印象，那你就试着来条曼森规避法吧：</span></p><p><span>某件事情越是威胁你的自我认同，你就越会规避它。</span></p><p><span>意思是，某件事情越是可能改变你的自我评价，或改变你对于成功或失败的判断标准，或改变你履行个人价值观状况的自我感觉，你就越不会去做它。</span></p><p><span>当你能够很好地适应社会时，你就会有某种舒适感。任何动摇这种舒适感的事情，即使它会让你的生活变得更好，是可怕的。</span></p><p><span>曼森规避法既适用于好的事情，也适用于坏的事情。赚一百万美元和身无分文同样会威胁你的自我认同。成为超级摇滚明星和失业都会威胁到你的自我认同。这就是为何人们如此害怕成功，原因都一样，即害怕失败。因为失败会威胁到他们的自我认同。</span></p><p><span>你不愿创作那个你梦寐以求的剧本，因为你自己就是个保险精算人，这样做会让你质疑自己的自我认同；你不敢冒险同丈夫谈论更大胆的亲密关系，因为你是个良家妇女，这样做会挑战你的自我认同；你不敢告诉朋友你不想再见他了，因为你是个友善和宽容的人，这样做会与你的自我认同相矛盾。</span></p><p><span>我们一直在错失重要的机会，因为它们会改变我们的自我评价和自我感觉，会威胁到我们已经习以为常的人生价值观。</span></p><p><span>我有个朋友，很久以来一直说要将他的作品放在网上，放手一搏，去做个职业（或至少半职业）画家。这件事他说了很多年，也攒了些钱，甚至还建了数个不同的网站，并上传了自己的作品集。</span></p><p><span>但他却从未真正开始运作。原因可能是：作品设计方案不够好，或他只是画得较以前好了些，或他还没能投入足够的时间。</span></p><p><span>几年过去了，他从未放弃自己的真正工作，去以画画谋生。为什么？因为他让自己变成了一个&quot;没人喜欢的画家&quot;。更可怕的是，他让自己变成了一个&quot;没人听说过的画家&quot;。但至少他还能接受这一事实。</span></p><p><span>我还有个朋友是个舞会迷，总是出去喝酒追女孩。过了多年的&quot;刺激生活&quot;后，他发现自己陷入了孤独、沮丧和不健康的情绪中，他想放弃这种生活方式。他言谈举止中流露出对拥有固定婚姻和&quot;安居乐业&quot;的强烈向往，但他却从未有所改变。多年来依旧我行我素，夜夜不归，酒气熏天。他总能找到借口，总是有某个原因让他停不下来。</span></p><p><span>因为放弃现有的生活方式会威胁到他的自我认同。他只知道自己是个舞会迷，放弃这一自我认同无异于让他在精神上剖腹自尽。</span></p><p><span>我们都拥有自己的价值观，我们都在保护这些价值观。我们都在践行自己的价值观，证明并维护它们。即使我们无意这么做，我们的大脑也会这样想。正如之前所言，我们往往不公平地偏向于我们已经知道的和认为是确定的东西。如果我认为自己是个好人，那么我就会回避任何否定这一信仰的情形。如果我相信我是个很棒的厨师，那么我就会寻找机会，一遍又一遍地证明这一点。信仰总是居于优先地位。若不改变我们的自我认知和自我认同，我们就无法克服焦虑，也就不会发生任何改变。</span></p><p><span>如此一来，&quot;了解自我&quot;或&quot;发现自我&quot;就可能是危险的。这会让你成为一个固化的角色并赋予你一种不必要的期望。这会扼杀你内心的潜能和外部的机会。</span></p><h2 id='46--放下的美丽'><span>4.6  放下的美丽</span></h2><p><span>当你开始放弃这一切时，你将会经历一场大撤退。然而，你将浴火重生，越变越好。</span></p><p><span>佛教认为，&quot;你&quot;的说法是种任意性的心理建构，应该舍弃&quot;你&quot;这个根本不存在的概念。你用来定义自我的任意性标准会让你陷入困顿。因此，最好舍弃这一切。从某种意义上说，佛教是在鼓励放下执念。</span></p><p><span>这听起来似乎不太靠谱，但这一理念会让你获得许多心理益处。当我们舍弃自我和他人的那些故事时，我们实际上是在让自己获得行动（含失败）和成长的自由。</span></p><p><span>有人坦率地说：&quot;你知道，我不太善于处理人际关系。&quot;然后她却突然放开手脚，勇敢地采取行动，结束了她那痛苦和毫无价值的婚姻。她不想为了保护自己的自我认同再继续维持它了。</span></p><p><span>某个学生坦诚地说：&quot;你知道，我可能不是叛逆，我只是有些胆小而已。&quot;然后他却一下变得豁然开朗、雄心勃勃起来。他没有理由再担心追求学术梦想可能会带来失败了。</span></p><p><span>某个保险精算人坦诚地说：&quot;你知道，我的梦想和工作可能毫不引人注目。&quot;然后他却无拘无束地投身职场，去拥抱他的收获了。</span></p><p><span>一个既好又坏的消息是：你的问题并没什么特别和与众不同之处。这就是为何舍弃会让人如此畅快。</span></p><p><span>有种专注产生于恐惧，这种恐惧是基于荒谬的确定性的。当你认为你所乘坐的飞机会坠毁，或每个人都会嘲笑你那愚蠢的观点，或人人都会愚弄你和忽视你时，你如果是在暗示：&quot;我是个例外，我和其他人不一样，我非同一般，卓尔不群。&quot;那么这是自怜、单纯和头脑简单。你总觉得你的问题应该得到不同的对待，你的问题非同一般，可以违反物质世界的法则。</span></p><p><span>我的建议是，不要执着于与众不同，不要痴迷于独一无二。要以更世俗和更宽泛的方式重新确定你的衡量标准。不要以后起之秀或未来天才为标准来衡量自己，也不要把自己装扮成可怜的受害者或彻底的失败者。相反，要以某些更加世俗的身份特征为标准来衡量自己。例如：学生、合伙人、朋友或创造者等。</span></p><p><span>因为选择的身份特征越狭窄，越稀有，你所感受到的威胁就越大。因此，要尽可能用简单和平凡的身份特征来定义自我。</span></p><p><span>这往往需要你放弃一些浮夸的想法。比如你异常聪明、才华出众、魅力无穷，或是个难以想象的受害者；这需要你放弃过度的特权意识和社会亏欠于你的想法；这需要你放弃多年来赖以生存的情感刺激，就像瘾君子放弃注射器那样。当你开始放弃这一切时，你将会经历一场大撤退。然而，你将浴火重生，越变越好。</span></p><h2 id='47--如何减少确定性'><span>4.7  如何减少&quot;确定性&quot;</span></h2><p><span>也就是说，大多数人都会以某些方式将问题搞砸。或者说，你也有比大多数人更正确的时候。</span></p><p><span>质疑和质询自己的观点和信念是最难培养的技能之一。但这是可以做到的，以下问题可以帮助你产生更多的不确定性。</span></p><p><span>问题一：我做错了会怎样？</span></p><p><span>我有个朋友最近订了婚，准备结婚。向她求婚的小伙子相当可靠，性情温和，且有份好工作。</span></p><p><span>但自从她订婚后，她哥哥却不断地训诫她，认为她的选择不够成熟。他警告说，同这个男人结婚，她早晚会受伤害。他说她犯了个错误，对自己的人生不负责任。她问哥哥：&quot;你到底怎么了？什么事让你这么闹心？&quot;但他看上去没什么问题，妹妹订婚的事也没给他带来任何困扰。他不过出于好心，想帮助下自己的小妹妹而已。</span></p><p><span>但他显然有什么烦心事，或许他对婚姻有种不安全感，或许与同胞相争有关，或许出于嫉妒心理，或许他在受害者情绪中陷得太深，以至于不知道该如何向他人祝福，或让他人开心。</span></p><p><span>一般来说，人的自我观察能力是世界上最差的。当我们愤怒、嫉妒或难过时，我们往往在最后一刻才会发现。想要发现自己的负面情绪，唯一的方式是在确定性的盔甲上开一道裂缝，以不断质疑自己的错误认识。</span></p><p><span>&quot;我爱嫉妒吗？如果是，那么原因何在？&quot;&quot;我爱生气吗？&quot;&quot;她说得没错，而我只是在保护自己的自尊心，是吗？&quot;</span></p><p><span>类似的质疑应该成为一种心理习惯。在许多情况下，这种简单的自问自答能让我们产生谦卑感和同情心，有助于解决问题。</span></p><p><span>有一点要注意，质疑自己是否错误并不意味着你真的错了。如果你丈夫因为你把锅里的红烧肉烧煳了而打了你，这明明是虐待，而你却质疑自己这样认为对不对------嗯，有时你是对的。质疑有时只是为了愉悦思想，而非自我憎恶。</span></p><p><span>值得记住的是，一旦生活中有什么变故发生，那肯定出了什么差错。如果你天天坐在那里愁眉苦脸，那肯定出了什么大错。只有通过自我质疑，我们才能发现它，否则不会发生任何改变。</span></p><p><span>问题二：我做错了意味着什么？</span></p><p><span>许多人能够质疑错误，但很少有人能够更进一步追问，他们做错了意味着什么。这是因为错误背后的潜在意义往往是令人痛苦的。它不仅会让我们质疑自己的价值观，还会被迫考虑采取全然不同的和与之相对立的价值观将会怎样。</span></p><p><span>亚里士多德写道：&quot;受过教育的人可以欣赏某个观点却未必接受它。&quot;审视和评价不同的价值观，却未必采纳它们是一种核心技能。我们需要这种技能来使生活变得更有意义。</span></p><p><span>至于我朋友的哥哥，他应该问自己的问题是：&quot;在妹妹的婚事问题上，我错了将意味着什么？&quot;答案通常是直截了当的（诸如&quot;我真是个自私、自以为是的混蛋&quot;）。假如他错了，而他妹妹的婚姻良好、健康而又幸福，那么，他的行为真的没法解释，只能将问题归咎于他的不安全感和瞎操闲心的价值观。他认为那是为妹妹好，而他妹妹没有能力决定自己的人生大事，他认为他有权利和责任替妹妹拿主意。他确信他是正确的，而其他人都是错的。</span></p><p><span>无论我朋友的哥哥，还是我们自身，即使发现错了，也很难承认自己这种特权意识，这很让人伤心。这就是为何很少有人愿意触及那些难以回答的问题。但探讨这些问题是必要的，旨在找出哪些才是致使我们做出种种龌龊行为的核心问题。</span></p><p><span>问题三：对于我和他人来讲，犯错会让现有的问题更好了，还是更糟了？</span></p><p><span>这是一块试金石，可用来确定我们是否已经确立了某些相当可靠的价值观。或者我们根本就是神经病患者，无论谁的事都去瞎操心，包括我们自己的。</span></p><p><span>目的是看看哪个问题更好一些。毕竟就像失望大熊猫所言，生活中的问题是无穷无尽的。</span></p><p><span>对于我朋友的哥哥来讲，他会选择什么呢？</span></p><p><span>A．继续在家庭内部制造事端和摩擦，使原本一件愉快的好事复杂化，结果毁了他和妹妹之间的信任和尊重。皆因他有个预感（有人称之为直觉），这个家伙会对他妹妹不好。</span></p><p><span>B．质疑自己在妹妹婚事问题上的是非判断能力，保持谦虚，相信妹妹有能力自己做决定。即便做不到这些，出于对妹妹的爱和尊重，也应接受既有的事实。</span></p><p><span>有人会选A。因为选项A更便捷。无须多费脑筋，不必更多猜疑，直接否决别人所做的而你不喜欢的事情。但这会让所有人都陷入极大的痛苦之中。</span></p><p><span>而选项B是建立在信任和尊重的基础之上的，所以有助于维持健康和幸福的家庭关系。选项B迫使人们保持谦虚，并承认自己的无知。选项B使人们超越自己的不安全感，承认自己的鲁莽、不公或自私。然而，选择B却是艰难而又痛苦的，因此大多数人不会选它。</span></p><p><span>我朋友的哥哥为了反对妹妹的婚姻，陷入了一场虚拟的自我战争。可以肯定的是，他认为是在保护妹妹。但正如所见，他的信仰是任意性的。更糟糕的是，这种信仰通常是在调整了自己的价值观和衡量标准后编造出来的。事实上，他宁愿与妹妹闹得势不两立，也不愿承认自己可能是错的，尽管这样能帮助他走出不安全感。正是这种不安全感导致他走入了误区。</span></p><p><span>我不太喜欢规则性的东西，但有一条我多年来一直认同。即如果我可能会把事情搞砸，或其他人正在把事情搞砸，那么我真的也会把事情搞砸。这是我的切身体会，我曾凭借自己的不安全感和低劣的确定性无数次鲁莽行事。这很不光彩。</span></p><p><span>也就是说，大多数人都会以某些方式将问题搞砸。或者说，你也有比大多数人更正确的时候。</span></p><p><span>其实很简单：看似你是在挑战世界，其实你是在挑战自我。</span></p><h1 id='第五章-媒体陷阱过度积极带来的自尊危机'><span>第五章 媒体陷阱：过度积极带来的&quot;自尊危机&quot;</span></h1><p><span>原来逆境和失败其实是很有用处的，甚至在锤炼意志这点上是必不可少的。</span></p><h2 id='51--过度积极带来的自尊危机'><span>5.1  过度积极带来的&quot;自尊危机&quot;</span></h2><p><span>原来逆境和失败其实是很有用处的，甚至在锤炼意志这点上是必不可少的。</span></p><p><span>我曾经认识一个人，叫吉米。</span></p><p><span>吉米一直在经营各种各样的企业。不管哪天，当你问他在做什么，他都会说出一大串他正在咨询的公司名称。或者会给你描述一个有前途的医学应用项目，说他正在为此寻找天使投资基金的投资，或者会谈论一些慈善活动，说他是这些活动的主题发言人。或者说他有办法让煤气泵提高效率，仅此一项就能给他带来数十亿美元的收益。这家伙总在东奔西跑，总是在忙。如果你给他几分钟时间，他便会向你吹嘘他的事业多么成功，他的想法多么伟大，以及他结交的朋友多么尊贵。你会觉得跟他交谈简直就像跟一个小报记者在侃大山。</span></p><p><span>吉米一贯积极，总是在不断进取，总是让人觉得他很能干，不管能干在这儿意味着什么。</span></p><p><span>但事实却是，吉米竟是个赖账不还之人------他只是说得好听罢了。就像他的&quot;经营理念&quot;所奉行的那样，他把大部分时间和大量金钱都花在了酒吧和豪华饭店里。吉米是个专业&quot;吸血鬼&quot;，靠盘剥家人辛辛苦苦挣来的那点血汗钱苟延残喘。他和这座城市里所有空怀未来科技梦想而无所作为的人没什么两样。当然，有时他也会象征性地做些努力，比如冷不丁地给某些权贵和名流打个电话。但实际上，什么也不会发生。他那些所谓的&quot;商业冒险&quot;从未获得过任何回报。</span></p><p><span>然而，这家伙靠年复一年地盘剥女朋友及关系较远的亲戚一直混到了快三十岁。而最为糟糕的是，吉米竟对此感觉良好。他对自己有种不切实际的自信。他认为，那些嘲笑他的人统统&quot;错失了大好的人生机会&quot;，那些约他出去洽谈虚假生意的人纯属&quot;无知和缺乏经验&quot;，他们根本无法理解他的雄才伟略。至于那些对他游手好闲的生活方式说三道四的人，他认为那纯粹是因为羡慕他的成功而&quot;嫉妒&quot;和&quot;仇视&quot;他。</span></p><p><span>吉米的确赚些了钱，但多是通过不正当的方式赚来的。比如将他人的经营理念当成他自己的来出售，或从别人那里骗取贷款，或者更糟一点，劝说别人赠予他初创时期的原始股票。他偶尔还会说服一些人让他去做公开演讲（演讲的内容我都不敢想象）。</span></p><p><span>而最为糟糕的是吉米竟对自己的谎言深信不疑。他的虚妄想法可谓刀枪不入。老实讲，你想对他发火都难。这一点真让人无语。</span></p><p><span>在十九世纪六十年代的某个时期，培养&quot;高度自尊&quot;------即培养积极的思想和自我意识的观念曾在心理学界风靡一时。一些研究发现，那些自我评价很高的人通常会表现更好，且问题更少。当时的许多研究人员和政策制定者认为，提高人们的自尊意识能够带来切实的社会效益。如降低犯罪率、提高学业成绩、提高就业率以及降低预算赤字等。因此，自十九世纪七十年代开始，在专家、政客和老师们的强调下，政府制定了相关的教育政策，家长们开始接受自我尊重实践的课程培训。从此分数至上的状况得以缓解，孩子们不再因成绩欠佳而感到沮丧。为了鼓励孩子们参加为数众多的各类社会活动，参与奖和荣誉奖制度开始实施。与此同时，孩子们的家庭作业却大多空洞无物，比如写出他们为何觉得自己与众不同，或写出他们最喜欢的五件事。牧师和阁僚们告诉信众，在上帝眼中他们都是独一无二的。他们注定会超越平凡，成就伟大。商务培训和励志讲座则众口一词地强调：每个人都是非凡的，人人都会取得令人难以置信的成功。</span></p><p><span>但针对这代人的研究资料却告诉我们，我们并非人人都与众不同。原来自我感觉良好并没什么特别意义，除非你有充分的理由让自我感觉良好。原来逆境和失败其实是很有用处的，甚至在锤炼意志这点上是必不可少的。事实证明，让人们相信自己与众不同及自我感觉良好并不能培养出多少个比尔·盖茨和马丁·路德·金。它会把人们培养成吉米。</span></p><p><span>吉米不愧为白日做梦的代言人。他每天除了夸夸其谈和对自己的深信不疑外，别无任何实际的经营能力。他刚刚还骂他的生意伙伴&quot;不成熟&quot;，然后就为打动某位妩媚的俄罗斯超模，在伯纳丁餐厅刷爆了公司的信用卡。他还很快花光了姑姑和叔叔给他办的另一笔贷款。</span></p><p><span>是的，这就是那个充满自信和高度自尊的吉米。他花了那么多时间谈论他有多么优秀，但却忘了他应该实际地去做点儿什么。</span></p><p><span>自尊的问题在于，它衡量的标准是人们的自我感觉是否积极。然而，如何看待自己的消极方面，才是衡量人们自我价值真正正确的标准。吉米百分之九十九的时间都自我感觉超好，但他的生活境况却是一团糟。因此，怎么能用自我感觉是否积极来衡量一个人的人生是否成功和幸福呢？</span></p><p><span>吉米获得了这种权利。他觉得他有资格拥有那些美好的事物，但他实际上并没得到。他觉得他应该发大财，但他却从来不去实际努力。</span></p><p><span>他觉得他应该很有人缘，很讨人喜欢，但实际上他从不帮助任何人。他觉得他应该过上令人惊叹的好日子，但却不想做出任何牺牲。</span></p><p><span>吉米这种人往往过分专注于他们那良好的自我感觉，以至于总是想方设法骗自己相信他们将能够成就伟业，但实际上不能。他们认为自己是人生舞台上最聪明的主持人和明星，但实际上是在自欺欺人。他们自认为是成功的实业开创者，但事实上从未搞成过一家盈利的企业。他们称自己为人生导师，并收钱去帮助别人，但其实他们才刚刚二十五岁，并未在实际生活中做出什么拿得出手的骄人业绩。</span></p><p><span>这种人浑身上下散发着虚妄的超级自信。这种自信至少可以在短时间内迷惑其他人。在某些情况下，这种自信还具有传染性，它会让周围类似的人也变得自信爆棚。尽管吉米是在恶搞，但我必须承认，跟他出去闲逛有时的确会感觉很有趣。因为他会让你觉得自己超级强大、无所不能。</span></p><p><span>这类人总是让人们觉得自我感觉良好是必须的，为此他们不惜伤害周围的人。正因如此，他们最终必须花费大量的时间来思考自己的问题。毕竟，他们需要付出许多能量和努力来让自己相信，他们并非那么臭气熏天、惹人生厌。</span></p><p><span>人一旦形成这样的思维模式，即借助于周遭发生的事来夸大自我，那就无可救药了。任何人想要质疑他们，都会被视作对于他们优越性的&quot;挑战&quot;。而发起这种挑战的人也往往&quot;搞不清楚&quot;他们到底多么聪明、多么有才、多么美貌以及多么成功。</span></p><p><span>这种人躲藏在自我陶醉的泡沫中不可自拔。他们以自我强化的方式扭曲了一切。他们会将生活中发生的一切都看作是对他们自我形象的肯定或威胁。如果有好事发生，他们认为那是因为他们做出了某种惊人之举。如果有坏事发生，他们认为那是有人嫉妒他们，想让他们蒙受损失。总之他们的权利是不容置疑的，他们会使用欺骗的手段来维持给他们带来优越感的东西。他们会不惜一切代价保持良好的精神风貌，为此甚至不惜在身体或情感上虐待身边的人。</span></p><p><span>但特权意识是种失败的策略。因为它不过是另一种形式的刺激而已，并非幸福。</span></p><p><span>对于一个人来说，衡量自我价值的最好方式并非如何看待自己的积极体验，而是如何评价自己的消极经验。吉米这类人无时无刻不想通过假想的成功来掩饰自己的问题。正因他不敢直面问题，所以不管他自我感觉多么良好，他终归是脆弱的。</span></p><p><span>拥有高度自尊的人能够坦然地面对自己性格中的负面因素：&quot;是的，我有时花钱不走脑子。&quot;&quot;是的，我有时夸大自己的成就。&quot;&quot;是的，我过于依赖别人的帮助，我应该更加自立自强。&quot;然后努力去提高自己。虚荣的人因不愿开诚布公地承认自己的问题，所以难以通过任何长久或有意义的方式来改善自己的处境。他们在那儿一次又一次地追求刺激，以至于愈加无视自己的问题。</span></p><p><span>但现实最终会让他们清醒过来。潜在的问题迟早会重新浮出水面，让他们看清楚自己的本来面目。这只是时间早晚和痛苦程度深浅的问题。</span></p><h2 id='52--特权意识与过度补偿'><span>5.2  &quot;特权意识&quot;与&quot;过度补偿&quot; </span></h2><p><span>当我们遭遇此类&quot;真正的创伤&quot;时，我们会不由自主地觉得我们遇到了无法解决的问题。这种无力感使我们痛苦和无助。</span></p><p><span>上午九点钟，我正在上生物课。我将手臂支撑在桌子上，双手抱住脑袋，眼睛盯着钟表的秒针绕圈。它那嘀嗒嘀嗒的声音与老师有关染色体和有丝分裂的授课声融汇在一起。作为一个十三岁的孩子，我对教室里沉闷而耀眼的荧光感到很无聊。</span></p><p><span>有人敲门。学校的副校长普莱斯先生推门走了进来。&quot;对不起，马克。打扰一下，你能跟我出来一趟吗？哦，带上你的东西。&quot;</span></p><p><span>我感到莫名其妙。一般是学生被送到校长跟前，但很少见有校长主动来找学生的。我收拾好东西，跟着他走了出去。</span></p><p><span>走廊里空荡荡的。放眼望去，只见数以百计的米黄色储物柜整齐地排列在大厅地面上。&quot;马克，请打开你的储物柜好吗？&quot;</span></p><p><span>&quot;好的。&quot;我说着，慢慢走向大厅。此刻，我那宽松的牛仔裤、蓬乱的头发和超大的潘泰拉T恤衫完全暴露在校长面前。</span></p><p><span>普莱斯先生跟我来到我的储物柜跟前，说：&quot;请打开它。&quot;于是我打开了。普莱斯先生抢先将我的外套、运动包及背包，包括储物柜里的所有物品，除去一些笔记本和铅笔外全部收集起来，然后转过身，头也不回地走开了。&quot;请跟我来。&quot;他说。我开始有了种不祥的预感。</span></p><p><span>我跟他来到他的办公室。他让我坐下，然后把门关上，并上了锁。他走到窗前调整了下百叶窗，以便挡住窗外行人的视线。我的手心开始冒汗。我感觉这不是一次普通的校长谈话。</span></p><p><span>普莱斯先生坐下后，开始静静地翻检我的物品。他检查了衣服口袋，拉开拉链，并将运动服中的物品全部倒在地板上。</span></p><p><span>普莱斯先生没看我，只是问道：&quot;马克，你知道我在找什么吗？&quot;</span></p><p><span>&quot;不知道。&quot;我回答。</span></p><p><span>&quot;找违禁品。&quot;</span></p><p><span>听到这个词，我不由地紧张起来。</span></p><p><span>&quot;违......违禁品？&quot;我结结巴巴地问，&quot;什么违禁品？&quot;</span></p><p><span>他严肃地看着我，说：&quot;不知道。你有什么？&quot;说着，他打开我的笔袋，开始挨个检查上面那些小口袋。</span></p><p><span>我开始浑身冒汗。先是手掌，再是胳膊，接着是脖子。我心跳加速，血流加快，顷刻间头昏脑涨，满脸潮红。我只是个十三岁的学生，却被指控沾染了违禁品，并被带到校长办公室。我只想尽快逃离并将自己隐藏起来。</span></p><p><span>我抗议道：&quot;我不知道你在说什么。&quot;这句话一出口，我感觉要比我想象得谦恭许多。我感觉我现在让人听起来很自信，但也许不那么自信。也许我应该害怕才对。说谎的人是应该让人听起来更害怕，还是更自信呢？不管怎样，我反正想让人听起来与事实正好相反。然而，我体内缺乏自信的化学成分。这让我因不自信而更加不自信了。</span></p><p><span>&quot;我们会找到的。&quot;说着，他将注意力转向我的背包。那上面看似有一百个小口袋。每个口袋里都装着某种愚蠢的青少年用品------彩笔、旧课堂笔记、九十年代早期的开裂式盒装CD、签字笔、缺了一半的老式画板，上面沾满中学时期日积月累形成的灰尘、绒毛和污物。</span></p><p><span>我身上已经大汗淋漓。但时间却慢得像个蜗牛，在无限地膨胀和延展。那天上午九点钟那几秒钟让我感觉仿佛回到了旧石器时代。那一刻，我在不断地长大，同时又在不断地消亡。那一刻世界上只剩下我、普莱斯先生和那个深不见底的背包。</span></p><p><span>在中石器时代的某个时刻，普莱斯先生终于完成了对背包的搜查。他什么也没有找到，所以看上去有些慌乱。他把背包倒过来，口朝下把里面所有的乱七八糟全部倒在了地板上。和我一样，他也大汗淋漓了。当然了，我流汗是因为恐惧，而他是因为愤怒。</span></p><p><span>&quot;怎么，今天没带违禁品来？&quot;他尽量让自己保持平静。</span></p><p><span>&quot;没有。&quot;我也在努力克制自己的情绪。</span></p><p><span>他不甘心。他将我的东西摊开，将每一种物品仔细分开，并将它们堆放在我的运动服旁边。我的外套和背包现已空空如也，正瘪三似的耷拉在他的膝盖上。他叹了口气，眼睛盯着墙壁。我不过才十三岁，现在却被一个愤怒的男人锁在办公室里，而且我的东西被扔得满地都是。我只想大哭一场。</span></p><p><span>普莱斯先生扫了一眼放在地板上的东西，没有发现里面有什么非法的或违禁的物品，也没有任何违背学校规定的东西。他叹了口气，把外套和背包也扔在地板上。他弯下腰，把胳膊肘放在膝盖上，以便让他的脸和我的处在同一高度上。</span></p><p><span>&quot;马克，跟我讲实话吧。给你最后一次机会。诚实一些对你有好处。如果你撒谎，那么事情只会更糟。&quot;</span></p><p><span>突然之间，我变得有些上气不接下气。</span></p><p><span>&quot;讲实话吧！&quot;普莱斯先生命令道，&quot;你今天带违禁品来了吗？&quot;</span></p><p><span>我强忍住眼泪，喉咙里发出刺耳的尖叫声。我脸上现出极其痛苦的表情，内心充满孩童般的恐惧。我用恳求的声音说：&quot;不，我不知道你在说什么。&quot;</span></p><p><span>&quot;好吧。&quot;他说着，终于投降了，&quot;你可以收拾东西走了。&quot;</span></p><p><span>他最后久久地凝视了我那瘪瘪的背包一眼。那背包躺在办公室的地板上，仿佛一个破碎的承诺。他不经意地把一只脚放在背包上，轻轻踩了一下，算是做最后的努力。我焦急地等待他动身离去，以便可以继续我的生活，并尽快忘掉这个噩梦。</span></p><p><span>但他的脚踩到了什么东西。&quot;这是什么？&quot;他一边用脚轻轻地拍打，一边问道。</span></p><p><span>&quot;你指什么？&quot;我问。</span></p><p><span>&quot;这里面还有些东西。&quot;他拿起背包，伸手去触摸它的底部。刹那间，房间里的一切都变得模糊不清。一切都在我眼前晃来晃去。</span></p><p><span>我小时候很聪明，很友善，但同时我也很愚笨，属于那种可爱型傻瓜。我是个爱说谎的小叛逆，内心充满愤怒和怨恨。在我十二岁时，我曾用冰箱磁铁弄断家里的安全系统，以便在我半夜偷偷溜出家门时不被发现。我曾和朋友一起将他妈妈的车子从院子里推到大街上，以便将车开走时不会惊动她。我还曾和另一个朋友一起偷了他妈妈的香烟，然后在学校后面卖给其他孩子们。</span></p><p><span>我也曾在我的背包底部割出一个秘密空间，用来隐藏违禁品。</span></p><p><span>普莱斯先生踩到的东西正是被我藏起来的违禁品，我其实一直在说谎。不出所料，普莱斯先生没有跟我客气。几个小时后，年仅十三岁的我就被戴上手铐，押上了警车。我感觉我的好日子到头了。</span></p><p><span>从某种程度上说，我猜得没错。从那天起，我被父母隔离在家里。在可预见的未来，我将不能再跟任何朋友来往。被学校开除后，这年剩下的时间我在家自学。妈妈让我剪了头发，并扔掉了我所有印有玛丽莲·曼森和金属乐队图案的衬衫（在1998年，这对一个青少年学生来说无异于被判了&quot;死刑&quot;）。爸爸每天早晨把我拖到他的办公室，让我一连数小时不间断地整理文件。家庭管教结束后，我被送进了一所很小的私人基督教学校。但我并不适合待在那里，这点你大概丝毫不会感到惊讶。</span></p><p><span>正当我终于开始规范自己的行为，按时上交家庭作业并学习履行好学生的职责的时候，我的父母却要离婚了。</span></p><p><span>我跟你讲这些，无非是想让你知道，我的青春期简直糟糕透了。在大约九个月的时间内，我失去了所有的朋友、交际圈、法定权利和家人。在我二十多岁时，我的医生称这些为&quot;某些实质性的心理创伤&quot;。我将不得不在接下来的十年里，努力改变和抚慰这些创伤，以使自己不至过于自私和叛逆。</span></p><p><span>家庭生活问题并非我所说或做过的可怕事情的全部。相反，这只是那些需要说或做但并未真正实施的。我的家庭问题妨碍了沃伦·巴菲特的生财之道以及珍娜·詹姆逊的咒语：我们才是最棒的。也许我们身边的房子正在燃烧，且碰巧让他们看见了。他们说：&quot;哦，不，一切都很好。只是有点热而已。也许，但真的一切都很好。&quot;</span></p><p><span>我父母离婚时没有摔盘子，没有撞门，没有尖叫着争吵说谁欺骗了谁。他们告诉我和哥哥，他们离婚不是我们的错。然后我们开始了一个问答环节，是的，你没猜错，是有关于如何安排新生活的。我们没掉一滴眼泪，没有吵，也没有闹。我和哥哥对于父母的情感生活最真切的了解就是：谁也没有欺骗谁。哦，这很不错。只是房间里有些热，但真的，一切都很好。</span></p><p><span>我父母都是好人，我不会因此而责怪他们（至少不会再责怪），我非常爱他们。就像天下所有的父母以及他们自己的父母一样，他们都有自己的故事，都有属于自己的人生旅程和自己的烦恼。像所有的父母一样，我的父母也将他们的一些问题带给了我，而我还可能会把这些问题带给我的孩子们。但他们并非有意而为之。</span></p><p><span>当我们遭遇此类&quot;真正的创伤&quot;时，我们会不由自主地觉得我们遇到了无法解决的问题。这种无力感使我们痛苦和无助。</span></p><p><span>而这还会导致其他问题的发生。如果有些问题无法解决，我们的潜意识就会认为我们要么非常特别，要么存在缺陷，要么与众不同，要么我们所遵守的规则与其他人不一样。</span></p><p><span>简而言之，我们获得了这样的特权。</span></p><p><span>青春期的痛苦让我走上了一条爱慕特权的道路，并一直延续到成年早期。吉米的特权是在他的商业世界里将自己包装成一个了不起的成功人士，而我的特权则是在人际关系方面，尤其是在同异性的关系方面。我的创伤大多来自于亲密关系和是否被人接受，所以我常常在这方面做出过度补偿，以证明自己是被爱和被接受的。</span></p><p><span>我并非指我所渴望的是性爱关系，尽管性是有趣的。我是指对某些事情的确认，如被人需要、被爱，第一次被认为有价值，等等。我渴望迅速得到他人的认可，这让我形成了自我夸大和放纵的心理习惯。我自认为有权说或者做我想要说或者做的任何事情，像失信于人、无视他人感受等，过后再用卑劣和毫无用处的道歉予以挽回。</span></p><p><span>我经常失业，常常睡在朋友的沙发上或妈妈那里。我饮酒过量，失去了很多朋友，一旦我遇到真正喜欢的女人，我的热情将会迅速战胜一切。</span></p><p><span>痛苦越深，我们就越会在问题面前感到无助，同时我们也就越觉得有权利来弥补这些问题所带来的困扰。这种权利可分为以下两种方式：</span></p><p><span>1．我很棒，而你们都很垃圾，所以我理应享有这种特殊待遇。</span></p><p><span>2．我很垃圾，而你们都很棒，所以我理应享受这种特殊待遇。</span></p><p><span>表面来看，这两种心态是相反的，但它们在本质上都同样是自私的。你会看到，觉得拥有这种权利的人经常在这两者之间来回摇摆。他们或者幸福到上天堂，或者悲伤到下地狱。这取决于那天是周几，或当时他们的某种特别嗜好是否得到了很好地满足。</span></p><p><span>像吉米那样的人，因为他们孤芳自赏和妄自尊大，所以多数人能够准确地将他们识别出来。但那些觉得自己获得了某种特别授权的人，却很少有人能够准确识别。因为这些人总觉得自己是世界上最低劣和最无价值的人。</span></p><p><span>因为想要将生活中的困难都看作是对自己的不断伤害，这需要尽可能多的自私心理来反衬。想要让自己相信，一个人的问题多得无法解决等同于没有任何问题，这同样需要付出很多能量和虚妄的自我膨胀。</span></p><p><span>其实根本不存在所谓的纯个人问题。就像你所认识的人一样，你所面临的问题，其他数百万人都可能会在过去、现在或将来遇到。但这不会让问题减少，或意味着它们无害，也不意味着在某些情况下你不会成为受害者。</span></p><p><span>也就是说，你并不特别。</span></p><p><span>通常而言，只有当你认识到，你的问题和它所带来的痛苦是不可避免的，你才向解决问题迈出了第一步，而且是最关键的一步。</span></p><p><span>但由于某些原因，越来越多的人，尤其是年轻人都忘记了这一点。无数教授和教育工作者都注意到，如今年轻人身上缺乏情感弹性及存在过度的自私诉求。当前，某些图书因让某个人感觉不舒服而被要求退出班级课程的现象已是司空见惯。一些演说家和教授被喊下课，并被永远禁止进入校园，只因他们认为某些万圣节服装并非那么让人恶心。学校辅导员指出，有迹象显示，越来越多的大学生对某些不愉快的校园经历表现出日益严重的情绪困扰。如与室友吵架，或在班里成绩欠佳，等等。</span></p><p><span>奇怪的是，尽管人与人之间联系更加紧密，但特权意识仍有增无减。这是因为最新的科学技术已经让我们的不安全感上升到了前所未有的程度。我们自我表达的自由越多，我们就想得到越多的自由，用以应对不赞同我们或让我们心烦意乱的人。我们暴露在不同观点面前的机会越多，我们就会对这些观点的存在感到越失望。生活变得越容易和越没有问题，我们越觉得有理由让它变得更好。</span></p><p><span>互联网和社交媒体的作用无疑是极其美妙的。从许多方面来讲，这是历史上最好的时代。但这些技术也带来了很多意想不到的社会副作用。它使人们获得了自由，受到了教育，但同时也使得人们的特权意识愈加强烈了。</span></p><h2 id='53--你我皆凡人'><span>5.3  你我皆凡人 </span></h2><p><span>当今生活中，到处充斥着来自于&quot;人类活动极端值贝尔曲线&quot;的信息。因为对于媒体而言，这样的信息能够抓人眼球，而眼球能给他们带来美元。这才是问题的实质。然而，绝大多数人都生活在简单和平凡之中。他们的生活平淡无奇、波澜不惊，并无那么多非凡之处。</span></p><p><span>多数人在自己所做的大部分事情上都表现平平。尽管你可能对某一件事情特别擅长，但很可能在其他事情上处于甚至低于平均水平。这便是生活的本质。要想在某件事情上做出真正惊人的成就，你必须奉献出大量的时间和精力。但因为我们的时间和精力是有限的，所以很少有人能够同时在几件事情上取得不凡的业绩，更别谈在所有方面都出类拔萃了。</span></p><p><span>这么来说吧，从统计学的角度来说，任何人想要在生活的多个领域都有非凡的表现是不可能的，更不要说在所有的领域。因此，即便是最精明的商人也会在其个人生活方面或其他方面表现得一塌糊涂。</span></p><p><span>非凡的运动员也有可能思想肤浅，蠢如顽石。许多名人可能同你一样，对生活一无所知，但你却想要成为他们，痴迷地盯着他们，模仿他们的一举一动。</span></p><p><span>在很大程度上，我们都是极其普通的人。但独占舆论风头的却往往是那些极端事例。我们都明白这点，但很少去思考或谈论它，更不会谈论它可能存在的问题。</span></p><p><span>目前我们拥有互联网、谷歌、Facebook、YouTube以及五百多个电视频道。这是惊人的，但我们的注意力却是有限的。我们没法处理身边那海浪般不断涌动的信息潮，因此只有那些真正非同一般的信息才能吸引我们的注意力------那些处于第99.999个百分位上的信息。</span></p><p><span>一天到晚我们都在谈论那些不一般的人和事。最好之中最好、最坏之中最坏、最伟大的壮举、最滑稽的笑话、最令人沮丧的消息和最可怕的威胁，等等，不一而足，从不间断。</span></p><p><span>当今生活中，到处充斥着来自于&quot;人类活动极端值贝尔曲线&quot;的信息。因为对于媒体而言，这样的信息能够抓人眼球，而眼球能给他们带来美元。这才是问题的实质。然而，绝大多数人都生活在简单和平凡之中。他们的生活平淡无奇、波澜不惊，并无那么多非凡之处。</span></p><p><span>极端信息泛滥的结果导致我们认为例外主义已成为常态。由于我们绝大部分时间都过寻常的日子，所以此类特殊信息的大量出现让我们感到不安和绝望。它让我们觉得自己做得不够好，于是我们觉得应该通过权利和自我沉溺来做补偿，而我们唯一的策略便是自我强化或外部强化。</span></p><p><span>为此，有人开始炒作一夜致富项目；有人飞遍全球拯救非洲饥饿婴儿；有些人在校园里凭借优异成绩赢取各大奖项；有些人在校园里朝人开枪；还有些人同任何一个能讲话、会呼吸的人谈恋爱。</span></p><p><span>这与我前面讲过的日益增长的文化权利有关。&quot;千禧一代&quot;常因这一文化转变而备受指责，可能因为他们是最紧跟时代和最显而易见的一代人。事实上，权利倾向正日益明显地向整个社会蔓延，而这是与大众媒体所推波助澜的例外论分不开的。</span></p><p><span>问题在于，技术的普遍性和大众化营销让很多人的愿望化为了泡影。特殊论的泛滥让人们自我感觉越来越糟，让人们觉得必须更特殊、更激进和更自信才能引起人们的关注或让自己显得举足轻重。</span></p><p><span>在我年轻时，流行文化中盛行的有关男子汉阳刚之气的荒谬故事加剧了我对于两性关系的不安全感。这类故事流传至今。作为一个酷男人，你必须像摇滚明星那样参加社交聚会；想要受人尊敬，你必须得到女性的仰慕。</span></p><p><span>媒体对于这类故事的宣传是不切实际的，这加剧了我们的不安全感。它让我们完全暴露在我们做不到的不着边际的标准面前。如此一来，我们不仅无法解决自己的问题，而且还会觉得自己是个失败者。因为只需一个简单的谷歌搜索，我们就可以看到成千上万的有此类问题的人。</span></p><p><span>科学技术解决了旧有的经济问题，同时也给我们带来了新的心理问题。互联网不仅有资源开放的信息，而且还有资源开放的不安全感、自我怀疑和耻辱。</span></p><h2 id='54--平凡的意义'><span>5.4  平凡的意义 </span></h2><p><span>很多人惧怕接受平庸的事实。因为他们觉得一旦接受了它，那么他们将平庸一辈子，永无出头之日，他们的人生就这样毁了。</span></p><p><span>&quot;人人都注定要成就非凡。&quot;这是当今文化约定俗成的理念。名人如是说，商业大亨如是说，政客们如是说，甚至连奥普拉也这样说（因此一定假不了）。每一个人都应不同凡响，都应该去伟大一回。</span></p><p><span>但它却是自相矛盾的，假如每个人都不同凡响，那么也就没有人不同凡响了，多数人忽视了这一点。我们暂不去问这应不应该，我们暂且先接受它，以便来做更多的探讨。</span></p><p><span>&quot;普普通通&quot;也已成为失败的新标准。假如你正好处于贝尔曲线的中段，那是最糟糕的。如果某种文化表述中对于成功的标准是&quot;不同凡响&quot;，那么处于贝尔曲线最低点，甚至比处于中间要好得多。因为在最低点至少你显得很特别，很值得关注。于是许多人选择了这样的策略：让大家知道他们是最痛苦、最受压迫或最受伤害的人。</span></p><p><span>很多人惧怕接受平庸的事实。因为他们觉得一旦接受了它，那么他们将平庸一辈子，永无出头之日，他们的人生就这样毁了。</span></p><p><span>这种想法是极其危险的。一旦你认为只有引人注目和不同凡响的人生才是有价值的，那么你也就接受了这样的事实：整个人类中的大多数（包括你自己）都是极其糟糕和一文不值的。这种心态会很快将你和他人置于危险的境地。</span></p><p><span>的确有人会做出不一般的成就，但原因不在于他们相信自己是超人，相反，在于他们痴迷于让自己不断进步。而他们这种痴迷源自于一个信念，即事实上，他们并没什么特别之处，这与特权意识恰好相反。某些人成就伟业的原因在于他们知道自己并不伟大，他们很普通、很平凡，但他们还可以做得更好。</span></p><p><span>&quot;人人皆非同小可，人人均可成就伟业&quot;的叫嚣都不过是自我意淫而已。它听起来让人热血沸腾，但实际上不过是导致你情感的虚胖和肿胀的垃圾食品，就像人人皆知的，巨无霸汉堡对你的心脏和大脑的危害一样。</span></p><p><span>情感健康像身体健康一样，关键在于多吃蔬菜。就是说，接受生活是平淡无奇的这一事实。比如&quot;在这项宏伟工程中，你的作用其实是有限的。&quot;&quot;你一生中绝大多数时间将会是无聊和默默无闻的，而这没什么不好。&quot;刚开始你会觉得这道菜味道欠佳，甚至非常糟糕，你可能拒绝接受它。</span></p><p><span>但一旦你将它吃进肚里，你的身体能量将被唤醒，你会感觉更强壮，更有活力。毕竟，你肩上那成就伟大和创造非凡的压力被卸掉了。你总是感觉不足和需要不断证明自己的紧张和焦虑也随之烟消云散了。知晓和接受自己也是个平凡的生命的事实，能够让你真正放开手脚，无拘无束地去追求自己的梦想，而不必担心评价和期望值过高所带来的困扰。</span></p><p><span>于是，你会愈加欣赏那些最基本的生命体验。比如简单的友谊和快乐，创造些什么东西，帮助需要帮助的人，读本好书以及同你在乎的人一起开怀大笑，等等。</span></p><p><span>这听起来很无聊，是吗？皆因它们太普通，太平常了。但它们普通是因为，它们才是真正重要的。</span></p><h1 id='第六章-重塑幸福不纠结的人生态度'><span>第六章 重塑幸福：不纠结的人生态度 </span></h1><p><span>幸福生活的关键不在于在乎得更多，而是在于在乎得更少，在于只去在乎那些真实、直接和重要的事情。</span></p><h2 id='61--不纠结的人生态度'><span>6.1  不纠结的人生态度</span></h2><p><span>那些我们所熟知的正面、快乐的励志读物------它们总是将重心放在你所缺少的东西上。它们总是紧紧抓住你已知的缺点和失误不放，并一再地加以强调。</span></p><p><span>查尔斯·布可夫斯基曾是个酒鬼，一个好色之徒。他不仅嗜赌成性、游手好闲，而且蠢笨又吝啬。在他最为不堪的岁月里，他还是位诗人。你绝对不会期望这种人会给你什么人生指导，或是期待在任何类型的励志书籍上看到他的名字。</span></p><p><span>这么看来，故事从他这儿讲起，真是最合适不过了。</span></p><p><span>布可夫斯基想成为一名作家。但数十年来，他的作品屡屡遭拒。几乎所有杂志、报纸、期刊、代理人和出版商都拒绝了他的投稿。大家说：&quot;他的作品太恐怖了。粗俗卑劣、颓废堕落，简直令人作呕。&quot;堆积如山的退稿加剧了他的挫败感，令他郁郁寡欢，整日沉迷酒色，就这样度过了大半生。</span></p><p><span>布可夫斯基平日在一家邮局做信件分拣员。他把辛辛苦苦挣来的这点小钱大多都买了酒喝。然后再到跑马场，把剩余的钱输个精光。到了晚上，他往往自斟自饮，偶尔在那台破旧的打字机上敲出几行诗来。累了，便倒头就睡，第二天再从地板上爬起来。</span></p><p><span>三十年如斯而逝，布可夫斯基大部分时间都庸庸碌碌。后来，在经历了大半生的失败和自甘堕落之后，布可夫斯基的命运迎来了转机。在他五十岁那年，一家小型独立出版社的编辑异乎寻常地对他表现出了兴趣。这位编辑虽不能在稿酬和销售方面对他做出任何承诺，但决定给他一次机会。这可是布可夫斯基首次获得幸运之神的垂青。而且他觉得，不可能再有第二次了。于是布可夫斯基在给编辑的回信中写道：&quot;我只能做个抉择------要么继续留在邮局，直至发疯；要么辞职，去当个作家，忍饥挨饿。我已经决定选择后者了。&quot;</span></p><p><span>签完合同后，布可夫斯基仅用了三周时间，就完成了他的第一部小说，书名就叫《邮局》。他在献辞中写道：&quot;此书不献给任何人。&quot;</span></p><p><span>布可夫斯基终于让自己成为一名小说家和诗人。他不停地写作，出版了六部小说和数百首诗歌，总销量超过二百万册。他的声望之大超出所有人的预料，尤其是他自己。</span></p><p><span>在我们的文化表述中，布可夫斯基的故事可归为面包和黄油一类。他的故事隐含着所谓的美国梦：一个男人为他想要得到的东西而奋斗、抗争，永不言弃，最终实现了自己的狂妄梦想。它实际上是一场戏剧，正等待上演。读了类似布可夫斯基的故事，大家都会说：&quot;瞧见了没有？他永不言弃，至死不渝。他总是充满自信。他冲破了种种艰难险阻，最终获得了成功！&quot;</span></p><p><span>然而，令人诧异的是，布可夫斯基的墓碑上却分明地写着：&quot;别去尝试。&quot;</span></p><p><span>布可夫斯基的著作卖得不错，这令他名利双收，但他却仍是个失败者。这一点他比谁都清楚。他的成功并非刻意追求的结果，而是因为他知道自己是个失败者。他接受了这一事实，并将它真实地写了出来。他就是他，他从未想过要去做别的谁。布可夫斯基的才智不在于他克服了种种令人难以置信的困难，或将自己打造成了一个熠熠生辉的文学巨匠。恰恰相反，他的成功在于他有一种简单的能力，使他得以完完全全、毫无保留地忠于自我------尤其是忠于自我中最为糟糕的那部分------并且敢于毫不犹豫地让别人来分享他的失败。</span></p><p><span>布可夫斯基获得成功的真相在于，他心甘情愿做一个失败者。布可夫斯基对于成功与否毫不在乎。即便在他成名后，他仍在诗歌朗诵会上攻击、辱骂他的某些听众。他仍频频在公共场合露面，流连花丛之中。声誉和成功并没让他变成一个更加优雅的人。换句话说，他也并非因为变得优雅，从而获得了更大的声誉和成功。</span></p><p><span>自我提升和成功往往同时出现，但这并不意味着它们是同一件事。</span></p><p><span>当今我们的文化热衷于追逐某些不切实际的期望，比如让自己变得更快乐、更健康；去做最好的自我，超越其他人，去让自己变得更聪明、更机智、更富有、更性感、更有人缘、更有成效、更令人羡慕，以及更受人尊崇；让自己变得更加完美和令人仰慕。每天早餐前潇洒地取出几块十二克拉金条，吻过正在玩自拍的妻子及两岁半大的孩子，与他们道别。然后乘坐直升机去从事某项令人羡慕而又意义非凡的工作。你所从事的工作非常重要，说不定哪天还要指望你来拯救我们的星球。</span></p><p><span>但当你停下来仔细想一下，你会发现那些传统的人生指导书籍------那些我们所熟知的正面、快乐的励志读物------它们总是将重心放在你所缺少的东西上。它们总是紧紧抓住你已知的缺点和失误不放，并一再地加以强调。比如因为你觉得钱不够花了，所以你去了解什么方法最赚钱；因为你觉得自己不如以前漂亮了，所以你站在镜子跟前一遍遍地确认说自己很漂亮；因为你觉得自己没从前那么可爱了，所以你去接受有关约会和建立亲密关系的指导；因为你觉得自己没以前那么成功了，所以你尝试去做那些又蠢又笨的可视化训练，等等。</span></p><p><span>然而颇具讽刺意味的是，我们总是去关注的那些正面、美好、优越的东西，恰好说明我们缺少这些东西。毕竟一个真正快乐的人并不需要站在镜子前跟自己说他很快乐，因为他本来就很快乐。</span></p><p><span>正如得克萨斯州的一句俗语所云：&quot;越小的狗叫得越响亮。&quot;自信的男人没必要证明他很自信，有钱的女人没必要让人觉得她很有钱。你就是你，不是别人。假如你成天梦想你要成为什么样的人，那么你其实是在一遍遍地强调一个你并未意识到的事实：你根本就不是那样的人。</span></p><p><span>所有人及其电视广告都试图让你相信，要过上美好的生活，关键是要拥有一个好点儿的工作、一辆坚固点儿的汽车、一个漂亮点儿的女朋友，或一个带有儿童专用充气泳池的温水浴缸。满世界都在不断地强调，通往美好生活的道路只有一条，那就是更多、更多、更多------购买更多的物品、拥有更多的财富、做更多的事情、学会更多的技能。无论何时总有没完没了的琐事需要你去关注、去在乎。譬如在乎是否该买一台新的电视机；在乎是否比同事拥有一个更精彩的假期；在乎是否该买个新的草坪点缀品；在乎是否该买一根类型合适的自拍杆。</span></p><p><span>怎么会这样呢？我的猜想是，因为你在乎得越多，对商家就越有好处。</span></p><p><span>对商家有好处并非是件坏事。但问题是，在乎得过多无益于你的心理健康。这会使你变得过于肤浅和虚荣，从而让你把生命消耗在追逐虚幻的幸福和满足上。幸福生活的关键不在于在乎得更多，而是在于在乎得更少，在于只去在乎那些真实、直接和重要的事情。</span></p><h2 id='62--不在乎的生活艺术'><span>6.2  不在乎的生活艺术 </span></h2><p><span>渴望获得更多的正面体验本身就是一种消极体验。反之，接受消极体验本身就是一种积极体验。</span></p><p><span>人脑有个阴险的怪癖，只要你允许，它绝对能让你发狂。请告诉我，以下内容你是否觉得似曾相识：</span></p><p><span>日常生活中，你往往会因要去面对某个人而感到担忧。这种担忧让你很不自在，于是你想搞明白你为何会如此担忧。这样一来，你便开始为你的担忧而担忧了。哎呀，别！我不要双重担忧！于是你又开始为你的担忧所带来的担忧而担忧了。快点，我要喝点威士忌！</span></p><p><span>抑或你正在生气，正在因某件愚蠢至极而又无聊透顶的琐事而生气，而你根本不知道你为何生气。于是你很容易生气这一事实又惹你更加生气了。然后待你稍微冷静下来，你意识到总是生气会让人变得肤浅和小气，而你不想这样；因为你讨厌这样，所以你开始生自己的气。于是你开始为自己生自己的气而变得越来越生气。哎呀，撞墙了！真想给它一拳。</span></p><p><span>抑或你正在焦虑，正在为你能否总把事情做正确而焦虑。接着你开始为你的焦虑到底有多严重而焦虑。抑或你在为自己所犯过的每一个错误而感到内疚，以至于让你开始为自己内疚的严重程度而内疚。抑或你常常感到悲伤和孤独，以至于你一想起这些就感到愈加悲伤和孤独。</span></p><p><span>欢迎关注恐怖的&quot;反馈回路&quot;。也许你已不止一次地关注过它了，且现在你正在关注它。&quot;天哪！我一直在做&#39;反馈回路&#39;这件事------但我没做好，我失败了。我不应该再继续做下去了。哦，天哪！我竟然称自己是个失败者。可见我有多么失败啊！我不该再称自己是个失败者了。哎呀，糟糕！我又在这么做了！你看，我真是个失败者啊！哎呀，受不了了！&quot;</span></p><p><span>冷静下吧，朋友。信不信由你，这其实是我们人类非常迷人的部分。地球上很少有其他动物具有如此强大的思维能力，能够像人类那样很奢侈地控制自己的思维。你看，我刚刚还在考虑去YouTube网站观看麦莉·赛勒斯的视频，然后立马又觉得产生这样的念头真是傻。哈哈，你瞧，这是不是思维的奇迹？</span></p><p><span>那么问题来了。当今社会通过令人惊艳的消费文化以及类似&quot;看，我活得比你酷！&quot;这样的社交媒体内容孕育了整整一代人，但这代人普遍认为：焦虑、恐惧、内疚等此类的负面经历是毫无裨益的。我是说，如果你看看你的脸谱网资源，你就会发现，上面的每个人都拥有一段相当辉煌的旧时光。你瞧，有八个人在本周结婚了！还有位十六岁女孩在电视上购买了一辆法拉利作为自己的生日礼物。而另一个孩子则花掉了二十亿美元用来发明一个应用程序，只为当你如厕时自动将厕纸递到你的手中。</span></p><p><span>与此同时，你却只能窝在家里侍弄你养的那只小猫。于是你不禁会想，你的生活真是糟糕透了，甚至比你想象的还要糟。</span></p><p><span>恐怖的反馈回路业已成为一种流行病。它让很多人纠结不已、神经兮兮，甚至自我厌恶。</span></p><p><span>在我爷爷那个时代，假如他觉得自己什么都不是，他会想：&quot;哎呀，我感觉今天自己真的像摊牛粪。但是，嘿，我想生活大抵如此。我还是去除草吧。&quot;</span></p><p><span>而现在呢？当你觉得自己什么都不是时，不到五分钟就会有350张面孔出现在你的面前，令你感到无地自容。这些人过着非常快乐的、令人惊讶的美好生活，而且他们很可能觉得你那样是欠妥当的。</span></p><p><span>以上信息让我们陷入了困顿。我们因感觉糟糕而糟糕。我们因感到内疚而内疚。我们因变得愤怒而愤怒。我们因忧心忡忡而忧心忡忡。我们到底怎么了？</span></p><p><span>乔治·奥威尔说过，只有坚持不懈地奋斗，才能在黑暗中看到光明。那么解除压力和焦虑的办法就摆在我们面前，而我们却在忙着观看电视和那毫无作用的腹部前屈机广告。一边看一边还在想：我们何不用那块摇晃的箱板打一下那位性感的金发女郎，以便引起她的注意呢？</span></p><p><span>我们常常在网上讥讽所谓的&quot;富裕国家的烦恼&quot;，而今我们却成了成功的受害者。在过去三十年里，尽管家家都用上了平板电视，可以在家购物，但与压力相关的健康问题、焦虑症以及抑郁症席卷而来。我们的危机不再与物质有关，而是与生存和精神有关了。每天有那么多乱七八糟的事情需要我们去关注，有那么多我们并不了解的机会等待我们去尝试，但我们根本无暇顾及。</span></p><p><span>正因为目前我们能够看到或知晓无限多的事物，所以我们也可以找到无限多的方法来发现我们做得不适当或者不够好的地方，同时发现事物的不足和缺陷。这一点从内心深处将我们区别开来。</span></p><p><span>《如何获得幸福》之类的读物的荒谬之处正在于此。尽管在过去数年间，这类读物在脸谱网上被浏览和分享近八百万次，但竟然没有人意识到，它们其实是地地道道的废话。</span></p><p><span>渴望获得更多的正面体验本身就是一种消极体验。反之，接受消极体验本身就是一种积极体验。</span></p><p><span>这句话让人颇感费解。请花一分钟时间来整理下思路，然后再读一遍。渴望获得更多的正面体验本身就是一种消极体验。反之，接受消极体验本身就是一种正面体验。这便是哲学家阿兰·瓦所称的&quot;逆向法&quot;------你越想让自己感觉良好，你便越会感觉糟糕。无论你实际上多么富有，你越是拼命追求财富，你就越觉得自己贫穷和不值。无论你实际上颜值多高，你越是拼命想让自己妩媚、性感，你就越觉得自己丑陋不堪。尽管你身旁儿孙绕膝、亲朋满堂，但你越是拼命想要得到快乐和被人喜爱，你就越会感到恐惧和孤独。你越是想得到精神上的启蒙，你就越会变得自以为是和粗陋浅薄。</span></p><p><span>存在主义哲学家阿尔贝·加缪说过：&quot;如果你沉迷于在探寻幸福的含义，那么你将永远不会幸福。如果你终日只在求索生命的意义，那么你就从来没有真正活过。&quot;</span></p><p><span>简言之：</span></p><p><span>没什么好纠结的。</span></p><p><span>现在我明白你的意思了。&quot;马克，你的话让我很受教。但我的卡玛洛轿车怎么办？我一直在攒钱想买一辆。我的瘦身计划怎么办？为了减肥，我不惜忍饥挨饿，而且还花钱买了一台腹部前屈机呢！还有那所湖畔豪宅，我连做梦都想得到它。假如我不去关注它们------那么，我将一无所获。我可不想这样。那我该怎么做呢？&quot;</span></p><p><span>你问得好！我很高兴。</span></p><p><span>你可曾注意到，有时当你对某件事毫不在乎时你反而会做得更好？你可曾注意到，往往是那个看似投入最少的人最终如愿以偿地获得了成功？你可曾注意到，有时你越是不闻不问、顺其自然，反而一切越会按部就班、水到渠成？</span></p><p><span>这是怎么回事呢？</span></p><p><span>逆向法的迷人之处在于它的名称叫&quot;逆向&quot;。不在乎的工作原理就是基于逆向运动的。想要追求正向结果本身就是消极的。而当你并不在乎逆向结果时，反而会产生积极的结果。健身运动让你苦不堪言，但结果却是皆大欢喜------它让你身体更健康，精力更充沛。生意失败了，你才会去学习怎么做才能获得成功。解除自己的戒备心理会让你在他人面前显得更加自信，更有魅力。直面自己的痛苦可以让你在人际交往过程中赢得最大的信任和尊重。恐惧和焦虑带来的痛苦可以磨炼你的勇气和毅力。</span></p><p><span>说真的，我可以继续讲下去，但你要抓住要点。生活中一切有价值的东西，都是战胜相关的负面经验所带来的结果。任何企图逃避消极方面的行为，任何试图回避它、消除它或在它面前保持沉默的行为只会适得其反。回避痛苦本身就是一种痛苦。避免抗争本身就是一场抗争。否认失败本身就是一种失败。隐藏耻辱本身就是一种耻辱。</span></p><p><span>痛苦是生命织物上不可或缺的一缕丝线。抽掉它不仅不可能，而且还会毁掉整个织物。正所谓牵一发而动全身。力图回避痛苦实则是过于在乎痛苦。与此相反，如果准备好迎接痛苦，那么你将是不可战胜的。</span></p><p><span>生活中我曾经瞻前顾后，我也曾对许多事无所畏惧。然而，就像从未走过的路那样，反而是我不畏后果的那些事给我带来的影响最大。</span></p><p><span>生活中你可能认识这样的人------他对什么都无所畏惧，后来取得了非凡的成就。也许你曾经有段时间对可能的失败都不屑一顾，但你的事业却到达了惊人的高度。我本人也曾在金融领域工作仅仅六周后就辞了职去从事互联网业务。它在我不在乎的事项中排名颇高。同样，我决定卖掉大部分财产并移居南美也是如此。我在乎了吗？没有。但我就那样去做了。</span></p><p><span>有时反而那些不经意的时刻使我们的人生变得不同。比如职业生涯的重要转折点；中断大学学业去参加摇滚乐队。</span></p><p><span>不在乎就是去蔑视生活中那些最可怕和最艰难的挑战而仍去采取行动。不在乎就是去无视那些与我们的生活无关的无聊琐事并且笔直向前。</span></p><p><span>表面上来看，做到不在乎似乎非常简单，就像吃掉仓盖下面那一整袋新的墨西哥卷。我甚至不懂这句话的意思，但我不在乎它。一袋墨西哥卷听起来太棒了！让我们接着讲下去。</span></p><p><span>大多数人一生忙碌，在乎过太多太多的事情。但其中有许多事并不值得去在乎。比如，当那位粗鲁的加油站服务员找给我们的零钱是硬币时，我们去在乎；当我们喜欢的某个电视节目被取消时，我们去在乎；当某个同事不厌其烦地问我们周末过得怎么样时，我们去在乎。</span></p><p><span>与此同时，我们的信用卡刷爆了，家里养的狗狗不理我们了，而我们还在因为硬币和《人人都爱雷蒙德》节目被取消的事余怒未消呢。</span></p><p><span>你瞧，事情就是这样的。总有一天我们都会老去，这是显而易见的。我只是想提醒你一下，让你不要忘记。你和你认识的所有人都很快会老去。在这极其短暂的须臾之间，你能去在乎的事情是十分有限的。实际上少之又少。如果你这儿转转，那儿看看，不假思索和毫无选择地去在乎任何事------那么你将会过得很悲惨。</span></p><p><span>不在乎是一种微妙的艺术。这一理念乍一听似乎有些可笑，而我本人也显得有点儿像个赖皮，但你将从实质上学会该如何有效地选择和优先考虑你的想法------如何基于你个人的价值观来甄别对于你而言哪些是重要的选项，哪些是非重要的选项。这是极其困难的，需要花一生的时间来学习和训练。尽管你常常会失败，但它或许是你此生最值得为之奋斗的事情，且或许是你此生唯一值得为之奋斗的事情。</span></p><p><span>原因在于，当你在乎得过多，当你对所有的人和事都去在乎时，你会觉得你理应获得长久的舒适和快乐，而一切事情也都理应以你所希望的方式存在着。这便是症结所在。而仅此一点便会要了你的命。它会让你视所有灾难为不公，视所有挑战为失败，视所有不便为个人傲慢，视所有分歧为背叛。它会让你局限在你自己那狭小的头颅里，心中燃起不满和愤怒的火焰。它会让你围绕在你自己的反馈回路兜圈子，转来转去，最终还是回到原地。</span></p><h2 id='63--不在乎-不代表冷漠与消极'><span>6.3  &quot;不在乎&quot; 不代表冷漠与消极</span></h2><p><span>现在我们准备把注意力转移到此生值得我们关注的部分------我们的家人、好友和高尔夫教程上。而令我们颇感惊奇的是，这就足够了。这种简单化的方式让我们从本质上将快乐建立在了一个恒定的基础之上。</span></p><p><span>多数人把不在乎想象成对一切保持平静的冷淡，平静得可以经受任何风暴的摧残。在他们的想象中，不在乎的人是这样的：雷打不动，卑微得似乎根本不存在。</span></p><p><span>世上有种人，他们对任何东西都毫无感情，漠不关心。你为什么非要去做这样的人呢？我实在找不出理由。</span></p><p><span>那么，不在乎究竟意味着什么呢？就让我们从以下三个&quot;微妙之处&quot;来寻找答案吧。</span></p><p><span>第一：不在乎并非漠不关心，而是甘愿与众不同。</span></p><p><span>我们要搞清楚一点：漠不关心决不是什么令人钦佩或引以为豪的事情，也决不是对外界不在乎的表现。</span></p><p><span>事实上，冷漠之人常常表现为漠不关心。冷漠的人是僵硬和令人害怕的，他们更像&quot;沙发土豆&quot;和互联网巨魔。他们关心的事太少太少了。他们或许只关心别人怎么评价他们的头发，所以他们总是不厌其烦地去洗涤或梳理它。他们或许只关心别人如何看待他们的想法，所以他们总是只在意与自己相关的事，以至于陷入自以为是的泥潭而不可自拔。他们害怕任何人接近自己。他们把自己想象为一些特殊的、独一无二的雪花，拥有无数别人无法理解的麻烦。</span></p><p><span>冷漠之人惧怕这个世界及他们的个人选择所带来的影响，因此他们做不出任何有意义的选择。他们自掘了一个灰色的、没有情感的大坑并藏身其中，终日自我封闭、顾影自怜，同尘世永远地隔绝开来，以免让生活中不幸的东西消耗他们一丝一毫的时间和精力。</span></p><p><span>一个生活真相是，根本就没有毫不在乎这种东西，你必须事事挂心。你总要去关注点什么，总要去操点儿闲心。这也许是我们的人类生物学特性所规定好的。</span></p><p><span>那么问题来了，我们该去关注什么呢？我们该选择哪些事情来加以关注呢？我们该如何避免自己所选之物最后被证明并非重要呢？</span></p><p><span>我妈妈最近被好友诈去一大笔钱。假如我是个冷漠的人，我会耸耸肩，一边喝摩卡咖啡，一边下载另一季《火线》。对不起了，妈妈。</span></p><p><span>相反，我很恼火，很生气。我说：&quot;妈妈。不能这么算了，我们要找律师起诉他！我们要去找那家伙算账！为什么会这样？都是因为当初我不在乎。我要让那家伙得到法律的惩罚。&quot;</span></p><p><span>以上事例阐明了不在乎的第一个微妙之处。但我们说&quot;看哪，要当心了。马克·曼森可是什么都不在乎&quot;时，千万别以为马克·曼森怎么样都行。相反，他只是为了实现自己的目标不在乎逆境而已。为了实现那些他认为是正确的、重要的或崇高的目标，即便得罪一些人，他也会毫不犹豫地去做的。就像本文中马克·曼森用了第三人称来讲述自己的故事，因为他认为这是正确的。他只是不在乎这些罢了。</span></p><p><span>这是令人钦佩的。不，不是指我。我是指那些&quot;怪人&quot;们------那些世俗认定的&quot;弃儿、流浪汉和怪胎们&quot;。我是指那样一些人，他们为了践行自己的价值观去挑战逆境，并甘愿因此与众不同。他们敢于直面失败，敢于朝失败轻蔑地竖起中指。他们不在乎逆境、失败或尴尬。无论怎样，他们都会放声大笑，然后去做自己认为该做的事情，因为他们知道这样做是正确的。他们知道这比他人的评价更重要，比他们的感觉、骄傲和自我意识更重要。他们并非对生活中所有的一切都不予理睬，而是对那些无关紧要的事情满不在乎。然而他们对待那些真正重要的事情是严肃认真的。比如对待朋友、家人、目标理想。正因他们只关注那些重要的事情，所以他们才更会引起人们的关注。</span></p><p><span>另一个生活真相是，对许多人来说，假如你不曾经历过挫折和苦难，你便很难对生活有更深层次的感受和思考，你便难以让自己的人生发生什么改变。因为你不曾磨砺过自己。不经历逆境和失败就获得成功的概率几乎为零，是可能压根就不存在的事情。有句老话说得好，无论你走到哪里，都会有个五百磅重的担子在等着你去挑。这句话说得太棒了。这不是让你逃避困难，而是让你直面自己的难题去加以解决。</span></p><p><span>第二条：想要不被逆境击垮，你须首先在乎那些比逆境更为重要的东西。</span></p><p><span>想象一下，当你在杂货店看到一位年长的女士朝收银员大喊大叫，指责他拒绝接受她那张三十美分的优惠券时，你会怎么想？这位女士为什么会这么在乎？那不过只是三十美分而已。</span></p><p><span>让我来告诉你原因吧。那位女士很可能除了在家剪优惠券外，别无任何更好的事情可做。她老了，感到很孤独。她的孩子们是些白眼狼，从不来看望她。她三十多年没人陪伴了。她的养老金快用完了，如今贫困潦倒，即将走到人生的尽头。因此，她每天都在思念她梦中的糖果乐园。</span></p><p><span>所以她才会剪优惠券来用，她只能这么做。这便是她的处境和她那少得可怜的优惠券的来历。除了关注优惠券，她想不到有什么其他东西可以去关注。所以当那位满脸丘疹的17岁收银员拒绝接受她的优惠券并像一位骑士保护少女那样来捍卫收银机的纯洁性时，这位老奶奶终于忍不住地爆发了。八十年的关注刹那间全都倾泻下来，就像故事《回到旧时光》和《失去的尊重》中所讲到的铺天盖地的冰雹那样。</span></p><p><span>当你发现你总是对太多的生活琐事斤斤计较、不能释怀时，你真正的麻烦就来了。比如当你看到你前男友的新照片出现在脸谱网上时，当你家的电视遥控器电池消耗殆尽，以至于使你错过了购买买一赠一的洗手液的机会时，你总是烦恼不已------问题在于你缺少其他更有价值的事情去关注。这不能怪洗手液，也不能怪电视遥控器。</span></p><p><span>某个艺术家曾经说过，人一旦无事可做，大脑就会给你找事做。多数人，尤其是受过教育且衣食无忧的中产阶级------他们认为，所谓的&quot;生活烦恼&quot;只不过是无所事事和百无聊赖所带来的副作用而已。</span></p><p><span>因此，在生活中找到更重要的和更有意义的事情去关注是充分利用你的时间和精力的最有效的方法。因为如果你找不到这样的事情去关注，你必然会把注意力浪费在那些毫无意义和百无聊赖的事情上。</span></p><p><span>第三条：不管你是否意识到，你总是在寻找你的关注点。</span></p><p><span>人并非天生对任何事情毫不在乎，事实上我们生来就是在乎得太多了。我曾看见一个小孩因为不喜欢自己帽子上的蓝颜色而哭红了眼睛，这是真的，这孩子也真是的。</span></p><p><span>年轻时我们觉得一切都是那么新鲜和令人兴奋，一切都那么重要，因此我们什么都去关注。我们去关注每一件事和每一个人------关注他们如何评价我们，关注那个可爱的男孩或女孩是否给我们回电话了，关注我们脚上的袜子是否合适，关注我们的生日气球是什么颜色的，等等。</span></p><p><span>随着年龄的增长和人生阅历的增加（光阴如水而逝），我们注意到此类事情并未对我们的生活产生任何持久的影响。之前我们曾经在乎的那些人对我们的看法今天已不复存在。曾因遭受拒绝而带来的创痛也已平复如初。我们意识到，人们其实很少关注我们的表面细节，而我们也不会再去理会它们。</span></p><p><span>这是因为我们对自己想去关注什么有了更多的自主权。我们称之为成熟期，这很美妙，改天你也该去试试。成熟是指你学会了只去在乎那些真正值得你去在乎的事情。在电影《火线》中，邦克·莫兰对他的侦探伙伴麦克纳尔蒂说：&quot;在还没有轮到你的时候，你应该学会在一旁等待。&quot;</span></p><p><span>进入中年后，事情开始发生改变，我们的精力大不如前。我们的自我认同感已经稳固下来，我们搞清楚自己是谁了。我们接纳了自己，包括我们不感兴趣的一切。</span></p><p><span>颇为奇怪的是，这竟是一种解脱。我们不必再去关注一切了。生活该如何就如何。我们毫无保留地接受它便是了。我们意识到目前我们还无法治愈癌症，或人人都可登上月球。无所谓，生活还在继续。现在我们准备把注意力转移到此生值得我们关注的部分------我们的家人、好友和高尔夫教程上。而令我们颇感惊奇的是，这就足够了。这种简单化的方式让我们从本质上将快乐建立在了一个恒定的基础之上。这时我们会想，也许那个疯疯癫癫的醉汉布可夫斯基说得没错。不必在乎。</span></p><h1 id='第七章-重塑自我尊敬一事无成的自己'><span>第七章 重塑自我：尊敬&quot;一事无成&quot;的自己 </span></h1><p><span>如果你把&quot;有房有车&quot;作为&quot;世俗成功&quot;的衡量标准，而且花了二十年的辛勤努力去实现它，那么，目标一旦实现，你也就陷入没有追求的境地了，就等着向你的中年危机问好吧。</span></p><h2 id='71--尊敬一事无成的自己'><span>7.1  尊敬&quot;一事无成&quot;的自己</span></h2><p><span>最多不过是从一个身无分文、毫无经验的二十二岁失业者变成了一个身无分文、有失败经验的二十五岁失业者。谁在乎呢？</span></p><p><span>真的，我的确很幸运。</span></p><p><span>2007年我大学毕业时，正赶上金融危机和大萧条。于是，我试着进入80多年来最糟糕的就业市场。</span></p><p><span>大约就在同一时间，我发现同住一个公寓的女生三个月没有支付房租了。她当时转租了其中的一个房间。当我去质问她时，她哭了。然后就消失无踪，留下我和另一位室友负担一切费用。再见了，我的存款。接下来的六个月里，我睡在朋友的沙发上，打些零工，并想在尽可能减少债务的情况下，尽快找份&quot;正式工作&quot;。</span></p><p><span>我说我很&quot;幸运&quot;，是因为我刚刚踏入成年就失败了，一下子跌至谷底。对每个人来说，这都是一生中最大的噩梦。我面临的是必须开始一项新业务，改变职业生涯，或辞去一份糟糕的工作。体验的大门在我面前轰然打开，而事情只会也只能越变越好。</span></p><p><span>所以，我是幸运的。当你睡在一张臭气熏天的沙发床上，数着硬币，看看能否负担得起本周的麦当劳，或当你发出去二十份简历，收不到任何回应，这时去建个博客，开始一项互联网业务，听起来应该不是个坏主意。即使所有的项目都一败涂地，即使每篇文章都没人读，大不了从头开始。因此，为什么不去试一试呢？</span></p><p><span>失败本身是个相对的概念。如果我的衡量标准是做个无产主义者，那么从2007年到2008年赚钱完全失败便是个伟大成功。但如果我的标准和大多数人一样，仅仅是找个正式工作用以支付离校后的一些费用，那么我就是个彻底的失败者。</span></p><p><span>我生长在一个富裕家庭，钱从来不是问题。可我家的钱常常被用来逃避问题，而不是解决问题。幸运的是，这让我在小小年纪就懂得了，对于我来说，赚钱并非是一个值得追求终生的价值观。你可以赚很多钱，但依旧痛苦，也可以身无分文，但非常开心。因此，何必用金钱来衡量自己的价值呢？</span></p><p><span>相反，我的价值观里有其他的东西，比如自由和自立。我不喜欢别人对我指手画脚，而是想按照自己的想法做事，所以做个企业家的想法很吸引我。于是我产生了利用互联网做点事情的想法。因为无论何时何地，我都可以上网工作。</span></p><p><span>我问了自己一个简单的问题：&quot;我是愿意找份不喜欢的工作体面地赚钱呢，还是愿意从事互联网业务，忍受暂时的穷困潦倒呢？&quot;答案是直截了当的：后者。然后我又问自己：&quot;如果几年后我尝试失败，不得不再去找份工作，我失去什么了吗？&quot;答案是否定的。最多不过是从一个身无分文、毫无经验的二十二岁失业者变成了一个身无分文、有失败经验的二十五岁失业者。谁在乎呢？</span></p><p><span>有了这样的价值观，不去追求自己的事业反而成了一种失败，而缺钱或睡在朋友和家人的沙发上（此后两年中大部分时间仍如此）已不再是问题了。简历上空空如也也不是什么问题。</span></p><h2 id='72--没有任何人能轻易成功'><span>7.2  没有任何人能轻易成功 </span></h2><p><span>他们一次又一次地宣传明星们的杰出成就，却从不告诉我们，这些成就是经过成千上万个小时乏味和单调的练习才获得的。</span></p><p><span>毕加索晚年坐在西班牙一家咖啡馆里，在一块用过的餐巾上随意涂鸦。他丝毫没把这当回事，喜欢什么就画什么，画得有点像一个十几岁的小男孩在浴室里把玩自己的生殖器，但这不是别人，是毕加索。因此，他那张沾着些许咖啡污渍的浴室生殖器画看上去更像是一张精彩的立体派或印象派杰作。</span></p><p><span>有个女人当时坐在他旁边，敬畏地观看他作画。片刻之后，毕加索喝完了咖啡，准备离开。他把那张餐巾揉成一团，打算扔掉。</span></p><p><span>女人拦住了他。&quot;等等。&quot;她说，&quot;把您刚才画的那块餐巾给我好吗？我会付钱的。&quot;</span></p><p><span>&quot;当然可以。&quot;毕加索回答说，&quot;二万美元。&quot;</span></p><p><span>女人听了，震惊地摇了摇头，就像刚刚被他扔了块砖头。&quot;什么？你画那幅画才用了两分钟啊！&quot;</span></p><p><span>&quot;不，夫人。&quot;毕加索说，&quot;画这幅画花了我六十多年。&quot;说完，他把餐巾塞进衣袋，走出了咖啡馆。</span></p><p><span>任何技能的熟练和完善都来自于成千上万次微小的失败。在某件具体事情上，如果有人比你做得好，很可能因为他失败的次数要比你多。如果有人比你差，很有可能因为他还没经历过任何痛苦的学习历程。</span></p><p><span>想想小孩子学走路的情景吧，不摔几个跟头，是学不会的。但任何时候孩子都不会停下来想：&quot;哦，我想走路不适合我。我不擅长这件事情。&quot;</span></p><p><span>逃避失败是我们后来才学会的一件事情，主要原因恐怕是来自于我们唯成绩至上的教育体制。这种体制根据考试成绩严厉地惩罚那些做得不好的学生。另一部分原因来自于家长的傲慢和挑剔。他们不容许孩子凭自己的能力做事，怕他们把事情弄糟，更不容许他们尝试任何新的或未知的事情。还有所有的大众媒体，他们一次又一次地宣传明星们的杰出成就，却从不告诉我们，这些成就是经过成千上万个小时乏味和单调的练习才获得的。</span></p><p><span>到一定时候，大多数人都变得害怕并本能地逃避失败，因此只去做那些近在咫尺的，或者已经擅长的事情。</span></p><p><span>这一点限制和扼杀了我们的主观能动性。不去直面失败，很难获得真正的成功。</span></p><p><span>害怕失败的原因在于我们选择了不良的价值观。例如，如果以&quot;让每个人都喜欢我&quot;为标准来衡量自己，那么我将感到很焦虑。因为这完全是由他人的行为来决定自己的成败，而非自己的行为，我没法掌控。也就是说，我的自我价值有赖于他人的评判。</span></p><p><span>而如果以&quot;改善我的社交生活&quot;为衡量标准，那么无论他人怎么响应，就都与我的&quot;与他人保持良好关系&quot;的价值观相一致了，从而将自我价值建立在了个人的行为和幸福基础之上。</span></p><p><span>正如第二章所讲，无法控制的有形的外在目标属于不良的价值观。追求这些目标会造成巨大的焦虑。即使你设法实现了这些目标，也会感到空虚和无聊。因为这些目标一旦实现，就再也没有什么问题需要解决了。</span></p><p><span>正如前文所述，良好的价值观是以过程为导向的。比如&quot;诚实&quot;的衡量标准&quot;诚实地表达自己&quot;就是个永远无法彻底完成的过程。它是一个经常出现和需要不断解决的问题。每一个新对话和每一段新关系都会带来诚实表达方面的新挑战和新机遇。因此，这是个持续不断和伴随终生的过程，永远不会终结。</span></p><p><span>如果你把&quot;有房有车&quot;作为&quot;世俗成功&quot;的衡量标准，而且花了二十年的辛勤努力去实现它，那么，目标一旦实现，你也就陷入没有追求的境地了，就等着向你的中年危机问好吧。因为你整个成年生活中需要解决的问题消失不见了，你没有其他机会继续成长和完善了。然而，给人带来幸福的恰恰是成长，而不是一长串随心所欲的成就。</span></p><p><span>从这个意义上说，传统目标、大学毕业、买座湖畔别墅、减肥十五磅等给我们带来的幸福是有限的。在追求快速和短期利益方面它们可能有用，但对于整个生活轨迹来说，并无多少指导意义。</span></p><p><span>毕加索活了九十多岁，一生多产。直到生命的最后几年，他还在不停地创作。如果他以&quot;出名&quot;&quot;成为艺术界的大富翁&quot;或&quot;画一千幅画&quot;为标准来衡量自己的成功，那他早就在其间的某一时刻放下画笔，被焦虑或自我怀疑打败了。或者，他也就不可能几十年如一日地完善和创新他的绘画技艺了。</span></p><p><span>毕加索取得成功的原因与他作为一个老人饶有兴致地在咖啡馆的餐巾纸上随意涂鸦的原因是完全相同的。他的潜在价值观是简单和谦逊的，是永无止境的。那便是&quot;诚实表达&quot;。这也正是那张餐巾如此值钱的原因。</span></p><h2 id='73--苦痛是旅程中的风景'><span>7.3  苦痛是旅程中的风景 </span></h2><p><span>我们需要某些生存危机来让自己客观地看到，生活的意义究竟来自何方，然后考虑改变方向。</span></p><p><span>十九世纪五十年代，波兰心理学家卡奇米日·达布罗夫斯基对&quot;二战&quot;幸存者如何应对战争创伤做了研究。在当时的波兰曾发生过极其阴森恐怖的事情。这些人经历或目睹了大规模饥荒、狂轰滥炸、大屠杀、用酷刑对待战俘或家人遭谋杀等。这些行为或为纳粹所为，或为数年后苏联人所为。</span></p><p><span>研究过程中，达布罗夫斯基注意到一些令人惊异的事情。幸存者中有相当一部分人认为，战争给他们带来了极大的痛苦和创伤，但同时也让他们变得更优秀、更负责任，甚至更幸福了。很多人在描述他们的战前生活时说，那时他们完全不同：忘恩负义、不懂得珍惜家人、懒惰并喜欢斤斤计较，仿佛他们所得到的一切都是理所当然的。战争结束后，他们更加自信自爱和懂得感恩了，也能更加坚定地应对生活中的琐事和烦恼了。</span></p><p><span>他们的经历显然是十分恐怖的，没有人愿意拥有这样的经历。这场残酷战争所带来的情感创伤至今仍让他们中的许多人痛苦不堪。但其中一些人已经设法利用这些创伤让自己变得更加积极和强大起来。</span></p><p><span>需要扭转困局的并非只有他们。对于许多人来说，不挑战最大的逆境就难以获得最引以为豪的成功。往往是痛苦让我们变得更加强大、更有弹性和更脚踏实地。例如，许多癌症幸存者报告说，在战胜癌魔、重获新生后，他们感觉比以前更加强大和更感恩生活了。许多军人报告说，是危险的战争环境磨炼了他们的心理承受能力。</span></p><p><span>达布罗夫斯基认为，恐惧、焦虑和悲伤未必总是不可取或无益的。相反，它们往往是心理成长所必须承受的痛苦。逃避它们就是逃避自己的潜能。就像人必须忍受肉体的疼痛，才能练就强壮的骨骼和发达的肌肉一样，必须经历情感的痛苦才能获得更好的情感恢复能力、更强的自我意识和更多的同情心，并过上更加快乐的生活。</span></p><p><span>观念的剧烈变化往往发生在噩梦即将结束的时刻。只有在感到剧烈疼痛时，我们才愿意去审视自己的价值观和质疑它让我们摔跟头的原因。我们需要某些生存危机来让自己客观地看到，生活的意义究竟来自何方，然后考虑改变方向。</span></p><p><span>这叫&quot;探底&quot;或&quot;经历生存危机&quot;。我更愿意称之为&quot;接受风暴洗礼&quot;。怎么称呼都可以。</span></p><p><span>也许现在你正处于这一时刻。</span></p><p><span>也许你即将走出最重要的挑战，现在正在困惑。因为你从前曾经认为是正确、正常和良好的东西，现在证明恰好相反。</span></p><p><span>很好，这是个起点。我要再三强调：痛苦是过程的一部分。觉察到这一点很重要。因为如果你只是追求刺激、掩盖痛苦，继续沉迷于特权意识和虚妄的积极思维，继续放纵于各种物质享受或活动，那么，你将永远不会产生必要的动力去真正改变自我。</span></p><p><span>小时候，每当家人买来新的录像机或立体音响设备，我都会试着去摆弄上面的每一个按钮，插拔所有的电线和电缆，只想看看会发生什么。久而久之，我慢慢地了解了它的整体工作原理。因此，家里往往就是我一个人在使用这些东西。</span></p><p><span>于是，像许多千禧孩子一样，我成了父母眼里的神童。在他们看来，我不看说明书就能操作录像机，简直就是特斯拉第二。</span></p><p><span>这让人联想到我父母那代人的技术恐惧症。成年后我意识到，像我父母那代人一样，我们都会对生活的某个领域感到手足无措。我们会坐在那儿，神情木然地摇摇头说：&quot;该怎么做呢？&quot;但实际非常简单，去做就是了。</span></p><p><span>总是有人在电子邮件中问我这样的问题。但多年来，我却一直不知该怎么回答他们。</span></p><p><span>有个女孩，父母都是移民。他们一生省吃俭用，为的是把女儿送到医学院去学医。但女孩进了医学院后，却并不喜欢。她不想把当医生作为自己的终身职业。她无论如何都想辍学，但又觉得很难，于是问题卡在了那里。最后她在网上给一个陌生人（我）发了封电子邮件，问了个傻而又简单的问题：&quot;我该如何从医学院退学？&quot;</span></p><p><span>还有个男大学生暗恋他的导师。他给我写了封电子邮件，痛苦而又烦恼地诉说他的一举一动。这封中篇小说式的电子邮件整整二十八页，但他最后的问题却是：&quot;我该怎么把她约出来？&quot;</span></p><p><span>还有位单身母亲，孩子们都已经长大成人，但毕业后游手好闲，赖在她的沙发上不走，吃她的，花她的，而且不尊重她的私人空间或隐私。她希望继续过日子，想继续自己的生活，但又很担心和孩子们闹僵。所以她怯生生地问：&quot;我该怎么让他们搬出去住？&quot;</span></p><p><span>这与摆弄录像机何其相似！表面看来，答案很简单：闭上嘴巴，去做就是了。</span></p><p><span>但从每个人的内心和不同立场来看，却异常复杂和暧昧不清，是一堆埋在肯德基全家桶里的待解谜团。</span></p><p><span>摆弄录像机这件事很有趣，因为对某些人来说它极其困难，但对另外一些人来说又容易得很。</span></p><p><span>这是个痛苦的问题。填好文书从医学院辍学很简单，没什么可大惊小怪的，但让父母伤心却不是这么一回事；同导师约会就像说句话那样容易，但遭遇尴尬和拒绝的风险却要复杂得多；请某人搬出去住毫不费力，但舍弃自己孩子的感觉却并非如此。</span></p><p><span>在青少年时期和成年早期，我大部分时间都在与社交焦虑做斗争。白天玩电子游戏来消磨时光，晚上吸烟喝酒来稳定情绪。多年来，我总想找个陌生人说说话，尤其是找个很有魅力、很有趣、很受欢迎且又十分聪明的陌生人说话，但我觉得这不可能。多年来，我的生活一片茫然。我问了自己一个愚蠢的录像机问题：</span></p><p><span>&quot;该怎么做呢？我该怎么走过去跟陌生人说说话呢？这样做行吗？&quot;</span></p><p><span>在这个问题上，我有些神经质。我觉得如果没什么具体事由，就不该走过去同别人说话。假若我对一名女子说&quot;你好&quot;，那么，她说不定会认为我是个令人毛骨悚然的罪犯。</span></p><p><span>问题在于，我的情感决定了我的现状。因为我总认为人们不愿意跟我说话，所以我就慢慢接受了这一假想。因此我的录像机问题是：&quot;你该如何走过去同别人说话？&quot;</span></p><p><span>皆因我无法区分自己的感觉和现实。我难以走出自我，看不清世界的真实面目。问题其实很简单，不过是在某个时间、某个地点，和某个人走到一起，彼此说说话而已。</span></p><p><span>当某种形式的痛苦、愤怒或悲伤来临时，许多人会不顾一切地去寻求自我麻醉，以使自己尽快&quot;感觉良好&quot;起来，为此不惜去寻求物质刺激、自欺欺人或回到他们那不良的价值观上去。</span></p><p><span>要学会承受自己所选择的痛苦。接受一种全新的价值观同时也就意味着你可能将一种全新的痛苦带入了你的生活。你要去享受它，尽情地享受它。你要张开双臂热烈地欢迎它。然后，忍痛前行。</span></p><p><span>说老实话，刚开始你会感到特别困难，觉得不知该做些什么。但你可以从简单处入手。正如我们已经讨论过的，你的确什么都不知道。即使你认为你知道，你也并不真正知道。所以，那又会损失什么呢？</span></p><p><span>生活本来就是不知该做些什么却仍要去做。任何人的生活皆如此，永远不会改变。即使在你快乐时，或走了桃花运时，或中彩票后买了个小小的喷气滑雪板时，你也仍旧搞不清楚你到底在折腾些什么。要永远记住这一点，也永远不要惧怕这一点。</span></p><h2 id='74--从零到一才是最难的一步'><span>7.4  &quot;从零到一&quot;才是最难的一步 </span></h2><p><span>从简单的事情做起。去倾听他人的烦恼，花时间去帮助他人，并将此作为目标，就去做一次吧。</span></p><p><span>2008年，我放弃了一份做了六个星期的工作，一门心思地投入到了一项互联网业务上。当时我完全不知道我在做什么。但我觉得，即便将来我穷困潦倒，处境悲惨，我也要按照自己的意愿去做事。当时我真正关心的是追女孩，所以我决定开一个博客，并开始疯狂的恋爱生活。</span></p><p><span>第二天早晨醒来后，我开始了自主创业。但恐怖很快就吞噬了我。当我坐在笔记本电脑前时第一次意识到，我必须完全为自己所有的决定及其后果负责。我必须自学网页设计、网络营销、搜索引擎优化等深奥的知识和技能。现在这一切都落在了我的肩上。因此，像任何一个刚刚辞职又不知该做什么的二十四岁男孩都会做的一样，我下载了些电脑游戏，像躲避埃博拉病毒一样逃避着工作。</span></p><p><span>一周又一周过去了，我的银行账户由黑变红。很明显，我需要想些策略来让自己投入到一天十二或十四小时的工作中，以使自己的新业务得以起步。而这个策略竟来自一个意想不到的地方。</span></p><p><span>上高中的时候，我的数学老师帕克伍德先生曾经说过：&quot;遇到难办的问题时，不要只是坐在那儿傻想。要着手去做些什么。即便你不知道究竟该做什么，但只要你开始行动，最终你会想出适当的办法来。&quot;</span></p><p><span>自主创业之初，我每天都在苦苦挣扎，对该做什么毫无头绪，并害怕看到不好的结果（或没有结果）。这时，帕克伍德先生的建议便从我脑海深处跳出来，同我招手。它听上去像个咒语：</span></p><p><span>&quot;不要傻愣愣地坐着。去做些什么，办法会不请自来。&quot;</span></p><p><span>在践行帕克伍德先生建议的过程中，我得到一个非常深刻的教训，是有关动机的。获得这个教训用了我大约八年的时间。在此期间，我曾一连数月从事漫长而又折磨人的轰炸式产品发布、撰写可笑的咨询栏目、晚上在朋友的沙发上随便一躺、透支银行账户，并写过成千上万字的文章（其中大部分没人读）。在此过程中，我收获了此生最为重要的发现：行动不仅是动机的结果，也是它的原因。</span></p><p><span>多数人只有在有了一定程度的动机后才会付诸行动。然而，只有在得到足够的情感激励时，我们才会产生动机。我们认为，这些步骤是以一种连锁反应的形式发生的。比如：</span></p><p><span>情感激励→动机→适当的行动。</span></p><p><span>当你想做点什么而又缺少动机或激励时，你会觉得一筹莫展，无从着手。只有发生某个重大的情感生活事件，你才会产生足够的动力，才会真正从沙发上站起来，去做点什么。</span></p><p><span>动机不只是个三部曲，它是个无穷无尽的循环过程：</span></p><p><span>激励→动机→行动→激励→动机→行动→等等。</span></p><p><span>你的行动创造了进一步的情感反应和激励，并继续刺激你进一步的行动。我们可以利用这些知识来调整我们的心态。方式如下：</span></p><p><span>行动→激励→动机。</span></p><p><span>如果你缺乏让生活发生重要变化的动力，那么就去做些什么吧！不管是什么，然后利用它产生的反应去激励自己。</span></p><p><span>我称此为&quot;做些什么&quot;原则。我不仅用它来拓展自己的业务，还教读者用它来解决让他们感到困惑的录像机问题。如&quot;我该如何求职？&quot;或&quot;我该如何告诉那个家伙我想做他的女朋友？&quot;等。</span></p><p><span>在自主创业的最初几年里，我往往一连数周做不了多少事情。原因在于我总是为必须做什么而感到焦虑和不安，结果就让事情一推再推。但我很快认识到，强迫自己去做某些事情，哪怕是最细微的工作，也很快会让艰巨的任务显得容易起来。如果我需要重新设计整个网站，我会强迫自己坐下来，然后说：&quot;好吧，我只需设计下页眉就可以了。&quot;但当页眉设计好后，我竟发现自己又开始设计网站其他部分了。神不知鬼不觉地，我已经把精力投入到整个项目中去了。</span></p><p><span>作者蒂姆·费里斯讲过一个故事，说曾有位小说家写了七十余本小说，当有人问他是如何一直保持旺盛的创作灵感和动力时，他回答说：&quot;每天随手写二百个单词，仅此而已。&quot;他的意思是，每天强迫自己写二百个单词的行为会激发他的创作灵感。结果往往是，不知不觉中，他已在稿纸上写了成千上万个单词。</span></p><p><span>遵循&quot;做些什么&quot;原则，你会感到失败变得无足轻重。当成功的标准就是去行动时，当任何结果都被视为进步和重要的事情时，当灵感被视为一种奖励而非先决条件时，我们是在推动自己不断前进。我们不介意失败，因为失败会让我们前进。</span></p><p><span>&quot;做些什么&quot;原则不仅会帮我们克服拖延症，而且会帮我们建立新的价值观。如果你遇到了生存危机，感觉一切都毫无意义，如果你衡量自我的所有方法都已用尽，且不知接下来该怎么做，或已因追逐错误的梦想而受伤，或想用更好的衡量标准来评价自我，却不知道该怎么做，那么，答案是相同的：去做些什么。</span></p><p><span>这个&quot;什么&quot;可以是最小的合理行动，可以是任何事情。</span></p><p><span>假如你已经认识到你的特权意识已渗透到所有的关系中，假如你想对其他人多一些同情心，那么，就去做些什么吧！从简单的事情做起。去倾听他人的烦恼，花时间去帮助他人，并将此作为目标，就去做一次吧。或承诺下次伤心失望时，要在自己身上找原因。去尝试一下吧，看看感觉如何。</span></p><p><span>这样做往往是个良好的开端。因为动机需要不断用行动来激发。而灵感的源泉就是你本人，动力的源泉也是你本人。采取行动是件轻而易举的事。你只需把做些什么作为衡量成功的唯一标准。那么，失败便将成为推动你前进的动力。</span></p><h1 id='第八章-告别焦虑说不的重要性'><span>第八章 告别焦虑：说&quot;不&quot;的重要性 </span></h1><p><span>拒绝是一项至关重要的生活技能。没有人愿意困在一种关系中痛苦不堪；没有人愿意困在一家企业，从事不喜欢和不被信任的工作；没有人愿意感觉生活枯燥无味。</span></p><p><span>然而，很多人却都在这么做。历来如此。</span></p><h2 id='81--说-不-的重要性'><span>8.1  说 &quot;不&quot; 的重要性</span></h2><p><span>在俄罗斯，看到愚蠢的东西你就说它愚蠢，看到混蛋你就说他是个混蛋。如果你真的喜欢某个女孩，并和她相处愉快，那你就直言相告好了，不管她是你的朋友、陌生人，还是五分钟前你刚在大街上碰见的任何人。</span></p><p><span>2009年，我将所有财产打包出售或封存，离开家前往拉丁美洲。此时我那小小的恋爱咨询博客已经有了些流量，而实际上我也通过卖pdf和网上课程赚了些钱。未来几年的大部分时间，我计划到国外生活，以体验不同的文化，并利用亚洲和拉丁美洲许多发展中国家较低的生活成本优势进一步拓展自己的业务。对于一个数码游民和二十五岁的冒险者来说，这正是我的梦想和我想要的生活。</span></p><p><span>这听起来是个诱人而又勇敢的计划，但驱使我选择流浪生涯的价值观并非全都是健康的。当然，其中有些值得称道------渴望观察外面的世界，对不同的民族和文化充满好奇心，追求传统的冒险生涯等。但我知道在这一切的背后还隐藏着某个糟糕的价值观------一种隐隐约约的羞愧感。当时我并没意识到这点，也看不清它的真面目。但坦率地讲，当我完全平静下来，并诚实地面对自己时，我能够感觉到它的存在。</span></p><p><span>青少年时期的&quot;实质性创伤&quot;和二十岁出头时的特权意识给我带来了一大堆承诺问题。过去数年中，我一直在对十几岁时的缺憾和社交焦虑做过度补偿，结果让我觉得，只要我愿意，我可以去见任何人，可以和任何人交朋友，可以和任何人交往。因此，我为何非要把承诺交给某一个人、某一个社会群体、某一个城市，甚或某一种文化呢？如果我能够均等地体验这一切，那么我就理应全都去体验，不是吗？</span></p><p><span>胸怀周游世界的宏伟梦想，我在国家与海洋之间来回穿梭，玩起了环球跳房游戏。这个游戏一玩就是五年。我游历了五十五个国家，交了数十位朋友，并将无数恋人揽入怀中------每一个都迅速被另一个所取代。其中一些在我乘坐一个航班到下一个国家的途中就已经忘得一干二净。</span></p><p><span>这是一种神奇、梦幻和不同寻常的生活方式，同时也是一种肤浅的刺激。我以此来麻醉自己潜在的痛苦。这一切看似如此深刻，但又毫无意义。我人生中最大的教训和个性形成都来自于这一时期，但最多的时间和精力浪费也发生在这一时期。</span></p><p><span>我目前定居纽约，有房子、家具、电动汽车和妻子。这没什么值得炫耀或令人兴奋的，但我喜欢这种生活方式。在经历了多年的亢奋和刺激后，我从冒险生涯中得出的最大教训是：绝对自由本身并无多大意义。</span></p><p><span>自由给人创造了机会去做更有意义的事，但它本身并不一定具有意义。最终，想要过上重要和有意义的生活，唯一的方法是通过拒绝一些选项来缩小自由度，承诺对一个地方、一种信念或一个人负责。</span></p><p><span>我是在漫漫旅途中逐渐认识到这一点的。对于生活中一些看似令人向往的行为，有时浸淫其中才会明白，它们不会给你带来快乐，我的旅行生涯便是如此。当我到达第五十三、第五十四和第五十五个国家时，我开始认识到，尽管这些经历令人兴奋，也十分美妙，但没有什么恒久的意义。当朋友们纷纷回国定居、结婚、买房，筹办感兴趣的公司或从政时，我却在一个又一个的刺激中苦苦挣扎。</span></p><p><span>2011年，我旅行到了俄罗斯圣彼得堡。我发现那里的食物糟透了，天气也糟透了（五月份大雪纷飞，这不开玩笑吗？），然而我却很喜欢这里，它是我最喜欢的旅程之一。</span></p><p><span>这里没有虚情假意、阿谀奉承和温婉的礼貌用语。你不必对陌生人微笑，也不必假装喜欢你不喜欢的任何东西。在俄罗斯，看到愚蠢的东西你就说它愚蠢，看到混蛋你就说他是个混蛋。如果你真的喜欢某个女孩，并和她相处愉快，那你就直言相告好了，不管她是你的朋友、陌生人，还是五分钟前你刚在大街上碰见的任何人。</span></p><p><span>刚来的第一周，这让我感觉很不舒服。我约一个俄罗斯女孩到一家咖啡厅见面。她坐在那儿好笑地看了我足足三分钟，然后告诉我，我刚才说的话很愚蠢。我听了差点把嘴里的咖啡喷出来。但她那样说并无恶意，就像是在描述一些常见的事实，如那天天气如何，或她的鞋子尺码多少，但我还是很震惊。毕竟在西方，这样的直言不讳是被视为严重失礼的，尤其是你刚遇见的人说出来的。因此，我那在西方娇生惯养的心灵感受到了全面冲击，多年来未曾有过的不安全感浮上心头。</span></p><p><span>但几周后，我慢慢习惯了这种俄罗斯式的坦率，就像慢慢习惯了午夜日落和像冰水一样随取随用的伏特加酒一样。然后我开始欣赏它的真面目：毫不掩饰地纯粹表达，真正意义上的诚实，不带任何前提和附加条件地沟通和交流，既没有任何不明动机，没有商业推销，也没有哗众取宠的狂妄企图。</span></p><p><span>令人不解的是，在经过了多年的旅行后，反而是这个最不像美国的地方让我首次体验到了一种特殊风格的自由------可以自由表达内心的思想感受，而不必担心会带来什么影响。这种特殊的自由是通过接受拒绝获得的。作为一个一生大多数时间都在寻找畅快表达机会的人，我深深地为之陶醉，就像喝了我从未喝过的最棒的伏特加酒一样，这首先是由于我生活中的情感压抑，其次是后来精心建构的不真实的自信表现。在圣彼得堡的时光转瞬即逝，直到月底我仍不想离开。</span></p><p><span>旅行是我认为自我提升的最佳方式，因为它让你暂时摆脱了自己的文化价值观的所在地，让你知道另一个社会拥有完全不同的价值观，但仍运行良好，且并不自我厌恶。与不同的文化价值观和衡量标准打交道，迫使你重新审视自己生活中的一切，会让你觉得，也许我们的生活方式未必是最好的。因此，俄罗斯之旅让我不得不重新审视英美文化中普遍存在的浮夸、虚伪和精致的交流方式，并质疑它是否在某种程度上加剧了人际交往的不安全感，并使得亲密行为变得更为糟糕了。</span></p><p><span>记得有一天我曾和我的俄语老师讨论过这个问题，他的理论很有趣。他说，俄罗斯曾有几代人生活在文化恐惧中。人们几乎没有任何经济机会。如今俄罗斯社会拥有了最有价值的货币之一。要想建立信任，你就得诚实。也就是说，当你搞砸了事情，你就直说好了，不必道歉。这种让人并不愉悦的直率和诚实其实是生存的需要------你必须搞清楚谁可靠，谁不可靠，而且你必须马上搞清楚才行。</span></p><p><span>这位俄语老师接着说，但&quot;自由&quot;的西方存在大量的经济机会，太多的经济机会使得人们以某种方式表现自我变得更有价值，即使虚情假意也没关系。于是，信任失去了它应有的价值。外表和推销术成了更有优势的表现形式。同很多人浅交比同少数人深交更有利可图。</span></p><p><span>这就是为何在西方文化中，即使不喜欢某个人，你也要面带微笑，也要说些言不由衷的礼貌用语，也要用善意的谎言假装赞同你并不赞同的人。这就是为何人们假装与自己不喜欢的人交朋友，并购买自己并不真正想要的物品。皆因经济体制助长了这种欺骗。</span></p><p><span>可悲的是，在西方，有人同你谈话，你却不知道能否完全信任他。这种情况有时甚至会发生在好朋友或家庭成员之间。可笑的是，在西方，人们经常需要根据同什么人打交道来调整自己的品性。</span></p><h2 id='82--有舍必有得'><span>8.2  有舍必有得 </span></h2><p><span>我们每个人都必须去在乎些什么，并去珍惜它们。想要珍惜某些东西，我们就得拒绝与之相反的事情。想要珍惜X，你就得拒绝非X。</span></p><p><span>作为积极性和消费文化的延展，很多人被&quot;灌输&quot;了这样的理念：我们理应尽可能地去接受和赞成。这是许多所谓积极思想的基石。比如：通过接受向机遇敞开心灵，赞成每个人和每件事，等等。</span></p><p><span>然而，有些东西是需要拒绝的。否则，我们便没有了立场。如果我们觉得任何事物都没有好坏之分，或完全不必加以选择，那么我们便成了没有价值观的白痴，生活便失去了任何目标，变得毫无意义。</span></p><p><span>常常有人教我们通过规避拒绝（包括拒绝和被拒绝）来让自己感觉良好。但规避拒绝只能带给我们暂时的快乐，却会使我们长期失去原则性和方向感。</span></p><p><span>想要真正欣赏某件事情，你必须投身其中。只有当你数几十年如一日地投入到某种关系、某个工艺和某项职业生涯中时，你才会获得某种程度的快乐，并领悟到其中的意义。但若你不拒绝某些选项，你就无法做到这一点。</span></p><p><span>选择某个价值观时，你需要拒绝一些其他选项。假如我把婚姻当作最重要的生活内容，那就意味着我不会纵欲。假如我评价自己的标准是心胸开阔和具有很强的交际能力，就意味着我不能在背后诋毁朋友。这些选择都不错，但每一种都需要拒绝些什么。</span></p><p><span>关键在于：我们每个人都必须去在乎些什么，并去珍惜它们。想要珍惜某些东西，我们就得拒绝与之相反的事情。想要珍惜X，你就得拒绝非X。</span></p><p><span>在保持价值观和自我认同感的过程中，拒绝是固有和不可或缺的一部分。拒绝什么说明了我们是怎样的人。如果什么都不拒绝（可能担心自我拒绝），那么，实际上也就没有了自我认同感。</span></p><p><span>渴望不惜一切地规避拒绝、对抗和冲突，渴望无差别地接受和让一切无差别统一是种深刻且狡诈的特权意识。这是因为持有这种意识的人总是觉得他们理应感觉良好，所以从不拒绝任何事情。他们担心拒绝会让自己或他人感觉不好。正因从不拒绝，所以他们的生活毫无价值可言，纯属自得其乐和自我满足。他们只关心如何将刺激尽可能地延长，以逃避不可避免的失败和痛苦。</span></p><p><span>拒绝是一项至关重要的生活技能。没有人愿意困在一种关系中痛苦不堪；没有人愿意困在一家企业，从事不喜欢和不被信任的工作；没有人愿意感觉生活枯燥无味。</span></p><p><span>然而，很多人却都在这么做。历来如此。</span></p><p><span>诚实是人类的自然渴求。而诚实的一项内容就是习惯于说&quot;不&quot;或听他人说&quot;不&quot;。事实上，拒绝有时会让人际关系更美好，让感情生活更健康。</span></p><h2 id='83--爱情的悲剧在于界限不清'><span>8.3  爱情的悲剧在于界限不清 </span></h2><p><span>在不良关系中，两人之间界限模糊，或根本没有界限。他们常常逃避各自问题所带来的责任，或为对方的问题承担责任。</span></p><p><span>从前有对年轻人，他们的家人都互相仇恨。一天，男孩勇敢地混进了女孩家人举办的一场聚会，女孩看到男孩后一见钟情。又有一天，男孩潜入女孩家的花园，他们决定第二天偷偷成婚。这是个很务实的决定，尤其在双方父母都恨不得杀死对方的情况下。几天后，两家人都知道了这件事，开始横加干涉。男孩的好友因此而死后，女孩很难过，她喝了一种药水，这能让她昏迷两天。但不幸的是，这对年轻夫妇没有学会良好的婚姻沟通技巧。年轻女孩完全忘记了应该对她的新婚丈夫说一声。年轻人不知道他的新婚妻子是暂时昏迷，以为她真的死了。因此完全失去理智的他刎颈自杀，以求来世再续前缘。两天后，女孩从昏迷中醒了过来，发现新婚丈夫已经自尽。于是，她也抱着同样的想法刎剑自尽了。</span></p><p><span>在今天的文化中，《罗密欧与朱丽叶》是&quot;浪漫&quot;的代名词。在英语文化中，它被视为一个爱情故事、一种情感理想。然而，当你真正去分析里面的故事时，你会发现，这俩孩子绝对是疯了。他们用自杀来证明了这点！</span></p><p><span>许多学者怀疑，莎士比亚写《罗密欧与朱丽叶》的目的并非为了渲染浪漫和赞美爱情，而是为了讽刺和表现它的愚蠢。莎士比亚也许在亮起警灯闪烁表示：切莫靠近；拉起黄色警示带表示：禁止穿越。</span></p><p><span>在人类历史的大部分时间里，人们并不像现在这样赞美浪漫的情爱。事实上，直到十九世纪中期，爱情仍被视为一种不必要和有潜在危险的心理障碍，会影响人们去从事更重要的工作------农耕或嫁给一个有很多只羊的男人。人们强迫年轻人回避浪漫的激情，以利于他们结成现实的经济姻缘，让他们及家人过上安稳日子。</span></p><p><span>但今天，人们热衷于追求疯狂的爱情，它主宰了我们的文化。爱情越激动人心，越引人注目越好。无论是科幻片里本·阿弗莱克为他心爱的女孩摧毁小行星以拯救地球，还是战争片里梅尔·吉布森因臆想妻子遭强奸并被折磨致死而杀害数百名英国人；无论电影《指环王》中的精灵女孩为了和阿拉贡在一起宁愿放弃神位，还是浪漫喜剧里吉米·法伦因为德鲁·巴里摩尔需要或喜欢某件东西而放弃他的红袜队季后赛门票，尽皆如此。</span></p><p><span>如果浪漫的爱情是可卡因，那么，作为一种文化，我们就都像《疤面煞星》中的托尼·蒙大拿，把脸藏在岩石后面，大喊：&quot;请代我向朋友问个好！&quot;</span></p><p><span>问题是，我们发现浪漫的情爱与可卡因惊人地相似。它也是刺激人脑中相同的部位，也能让人兴奋和暂时感觉良好。但像可卡因一样，它在解决一些问题的同时，也带来了更多的问题。</span></p><p><span>浪漫爱情中的大多数元素------激动人心和令人神魂颠倒的情感表达、颠鸾倒凤的卿卿我我，有时并非健康和真诚的爱情表达。事实上，它可能会是借用人际关系来展现的另一种特权意识而已。</span></p><p><span>这听起来会让人沮丧。但说真的，到底是哪种人玷污了浪漫的情爱呢？请听我往下说。</span></p><p><span>爱情分为健康和不健康两种形式。在不健康的爱情关系中，两个人都想利用彼此的情感来逃避问题------换句话说，他们都把对方当成了避风港。健康的爱情是两个人相互帮助，承认问题并去解决它们。</span></p><p><span>健康的和不健康的关系差异在于以下两点：（1）是否接受和承担责任；（2）是否愿意拒绝和接受拒绝。</span></p><p><span>在不健康或有害的关系中，双方的责任感很差或存在缺陷，彼此之间无法拒绝或接受拒绝。在健康和互爱的关系中，两个人及其价值观之间有一条清晰的界限，有足够的余地让彼此拒绝和接受拒绝。</span></p><p><span>我所说的&quot;界限&quot;是指两个人承担各自问题责任的描述。在健康关系中，两人之间界限分明，各自为各自的问题和价值观负责，而不必为对方的问题和价值观负责。在不良关系中，两人之间界限模糊，或根本没有界限。他们常常逃避各自问题所带来的责任，或为对方的问题承担责任。</span></p><p><span>模糊不清的界限是怎样的？现举例如下：</span></p><p><span>&quot;你不能瞒着我和你的朋友外出。你知道我有多么嫉妒，你必须在家里陪我。&quot;</span></p><p><span>&quot;这些同事真是些白痴，我每次开会迟到都是因为他们。他们总是让我教他们怎么干活。&quot;</span></p><p><span>&quot;真不敢相信你竟然让我在妹妹面前出丑。别再在她面前跟我唱反调了好不好？&quot;</span></p><p><span>&quot;我很想到密尔沃基去工作，但走这么远，妈妈肯定不会原谅我。&quot;</span></p><p><span>&quot;我可以和你约会，但请你别告诉我的朋友辛迪好吗？如果我有了男朋友，而她没有，那她会没有安全感的。&quot;</span></p><p><span>在以上情景中，当事人要么为别人的问题或感情负责，要么要求别人为自己的问题或情感负责。</span></p><p><span>总的来说，持有特权意识的人陷入了以下两个陷阱之一。他们要么希望别人为他们的问题负责------&quot;我想在家里过个轻松的周末。你早应该知道这点并取消你的计划。&quot;要么过多地为别人的问题担责------&quot;她刚刚丢了工作，这可能是我的错，因为我没有很好地支持她。明天我要帮她重新写一份简历。&quot;</span></p><p><span>持有特权意识的人在爱情关系中采取这种策略，旨在逃避自己的问题的责任。因此，他们的关系是虚假和脆弱的，是为了逃避内心的痛苦，而非真正欣赏和爱慕自己的伴侣。</span></p><p><span>顺便说一下，以上观点并非仅仅适用于爱情关系，也适用于家庭关系和友情。傲慢而又专断的母亲可能会为孩子所有的生活问题负责，从而将自己的特权意识传给了他们，以至于他们长大后总是认为别人应该为自己解决问题。（这就是为何子女爱情关系中出现的问题总是与其父母关系中存在的问题惊人地相似。）</span></p><p><span>当你不清楚情感和行为中的责任，不清楚谁该为哪些事情负责，谁哪里做错了，或你为何做某件事情时，你便无法形成牢固的价值观。你仅有的价值观就成了让对方快乐，或者伴侣让你快乐。</span></p><p><span>当然，这是事与愿违的。这种模糊的关系一旦破裂，就会像兴登堡号飞船那样解体坠落，碎片和烟火散落一地。</span></p><p><span>别人无法解决你的问题，也不应该这么做。因为这不会让你快乐。同样，你也不能解决别人的问题，因为这也不会让他们快乐。在不健康的关系中，两个人都想解决对方的问题，以便自我感觉良好，而健康的关系是两个人都设法解决自己的问题，以对对方感觉良好。</span></p><p><span>设置适当的界限并不意味着你不会帮助或支持你的伴侣或得到他／她的帮助和支持。你们应该互相支持。但支持和被支持都须是你自愿的，而非因为你觉得有义务或有权利这么做。</span></p><p><span>持有特权意识的人常因个人的情感和行为责备他人。他们觉得，只要时常把自己描绘成受害者，迟早会有人来拯救他们，从而让他们得到梦寐以求的爱情。</span></p><p><span>持有特权意识的人常为他人的情感和行为承担过错。他们觉得，只要和对方明确关系并将他／她拯救，就可以得到梦寐以求的爱和感激。</span></p><p><span>任何不良关系都存在阴阳两面：受害者和拯救者。点火的人点火，因为这会让她感觉自己很重要；灭火的人灭火，因为这会让他感觉自己很重要。</span></p><p><span>这两种人相互吸引，常常能够厮守终生。他们的病态是种完美的匹配。他们父母中的一方也通常具有此类特征之一。因此，他们的&quot;幸福&quot;关系是建立在特权意识和模糊不清的界限基础之上的。</span></p><p><span>可悲的是，他们无法满足彼此的真正需要。事实上，过分指责和过分担责的模式会固化其特权意识和低劣的自我价值感，从而从一开始就阻碍了他们获得情感上的满足。受害者会产生越来越多的问题需要解决，不是因为存在额外的问题，而是因为他渴望得到关注和爱。拯救者不停地解决问题，不是因为他真正关心这些问题，而是因为他觉得，不解决对方的问题就无法赢得对方的关注和爱。在这两种情况下，当事者的意图都是自私和有条件的，因此很难体验到真诚和令人满足的爱情。</span></p><p><span>如果受害者真正喜欢拯救者，他会说：&quot;你瞧，这是我自己的问题，你不必帮我解决。你只需支持我就足够了，我自己会去解决。&quot;实际上，这才是真爱的明证：自己的问题自己解决，而不是让伴侣来解决。</span></p><p><span>如果拯救者真想拯救受害者，他会说：&quot;你瞧，你总是让别人来解决你的问题，自己的问题自己解决吧。&quot;从某个非正常的角度来讲，这也是真爱的明证：帮助他人解决问题。</span></p><p><span>与此相反的是，受害者和拯救者都利用对方来获得情感刺激，就像他们通过彼此来满足自己的某种癖好一样。颇有讽刺意味的是，在与情感健康的人约会时，他们往往感到无聊，或彼此之间缺少&quot;化学&quot;反应。因此，他们并不喜欢情绪健康和安全的个体。他们觉得，与持有特权意识的人相比，与安全伴侣之间的清晰界限难以让他们产生足够的&quot;兴奋&quot;，以刺激他们获得持续的高潮。</span></p><p><span>对于受害者来说，世上最难的是对自己的问题负责。他们一生都在认为，别人应该为他们的命运负责。所以迈出自我担责的第一步，他们会胆战心惊。</span></p><p><span>对于拯救者来说，世上最难的是不再为别人的问题担责。他们一生都在认为，只有去拯救别人才有价值和受人爱戴------所以舍弃这种行为，他们同样会感到恐惧。</span></p><p><span>如果你要为所关心的人做出牺牲，那须是你想这么做，而不是因为你觉得有义务这么做，也不是因为你害怕不这么做会产生什么不良后果。如果你的伴侣要为你做出牺牲，那须是他或她真正想要这么做，而不是因为你用愤怒或过失感操纵了对方的行为。只有不带任何条件或期许的示爱行为才是有效的。</span></p><p><span>人们很难分清有义务去做某事和自愿去做某事之间的差别。这里有块试金石。问问你自己：&quot;如果我拒绝了，我们的关系将会发生什么改变？&quot;同时再来问：&quot;如果伴侣拒绝了我的要求，我们的关系将会发生什么改变？&quot;</span></p><p><span>答案是：如果拒绝的后果是天崩地裂、鸡飞狗跳，那么，这对于你们的关系来说是个不好的苗头。它表明，你们的结合是有条件的------基于彼此之间肤浅的利益，而非无条件的相互接受（连同彼此的烦忧）。</span></p><p><span>界限清晰的人之间不会乱发脾气、争吵不休或相互伤害。界限模糊的人之间会发生这种情况，因而他们必须不断调整自己的行为，以适应情感的过山车所带来的跌宕起伏。</span></p><p><span>界限清晰的人心里清楚，期望两个人百分之百地和谐，及满足对方的每一个需要是不切实际的；他们还清楚，他们有时会伤害对方的感情，但却无法最终决定对方的感受；他们更清楚，健康的关系不是控制对方的感情，而是彼此支持对方的个人成长和进步，同时去解决自己的问题。</span></p><p><span>在一段爱情关系中，只去关心他或她就足够了。这才是无条件的爱。</span></p><h2 id='84--如何建立信任'><span>8.4  如何建立信任 </span></h2><p><span>假如我们的最高优先级选项总是让自己感觉良好，或让伴侣感觉良好，那么最终就没人会感觉良好，而爱情关系也会在不知不觉中分崩离析。</span></p><p><span>我妻子是个特别喜欢照镜子的女人。她喜欢自己让人看上去惊艳绝伦的那种感觉，而我也希望她如此（这是很显然的）。</span></p><p><span>晚上出门之前，她在浴室里梳洗打扮、涂脂抹粉、穿衣试镜，足足用了一个小时，出来后她问我她看上去怎么样。她总是光彩照人，但偶尔也有感觉不伦不类的时候。有时是因为在发型上做了点新花样，有时是因为穿了一双由某个米兰前卫设计师设计的色彩艳丽的靴子。不管是哪种原因，总之效果不甚理想。</span></p><p><span>当我如实相告时，她通常会很生气。于是回到卧室或浴室重新梳妆打扮，这又让我们迟到了三十分钟。这时她会说些难听的话，有时甚至直接骂我。</span></p><p><span>在这种情况下，男人通常会撒个谎让女友或妻子开心。但我却不喜欢这样做，为什么？因为在我与他人的关系中，诚实总是比自我感觉良好更重要。对待我最爱的女人，我更不愿违反这一原则。</span></p><p><span>幸运的是，嫁给我的这个女人正好接受和喜欢我这种坦率。当然，她有时也会因我口不择言而雷霆大发，但作为一个伴侣，那是她最显著的特征之一。当然，我的自尊心有时也会受到伤害。我满怀牢骚、抱怨并想与她辩论一番。但几小时后，我的气就消了，并承认她是对的。尽管我总是不爱听她唠叨，但她却让我变得更加优秀了。</span></p><p><span>假如我们的最高优先级选项总是让自己感觉良好，或让伴侣感觉良好，那么最终就没人会感觉良好，而爱情关系也会在不知不觉中分崩离析。</span></p><p><span>没有冲突，就没有信任。冲突向我们展示了谁的存在是无条件的，谁的存在仅仅是为了利益。没有人会相信一个唯唯诺诺的人。如果失望熊猫在此，他会告诉你，为了巩固彼此之间的信任和培养更加亲密的感情，婚姻关系中的痛苦是很有必要的。</span></p><p><span>想要建立起健康的爱情关系，两个人都须愿意且能够说&quot;不&quot;，或听对方说&quot;不&quot;。没有否定，没有偶尔的拒绝，界限将荡然无存。而其中一方的问题和价值观就会操控另一方的问题和价值观。有冲突不仅很正常，而且对于维护健康的关系来说是绝对必要的。爱人之间如果不能坦诚和公开地消除分歧，那么这种关系就是建立在操纵和欺骗的基础之上，久而久之就会变得千疮百孔。</span></p><p><span>在任何关系中，信任都是最重要的因素。原因很简单，没有信任，关系就会失去任何实际意义。假如某个人告诉你，他很爱你，想和你在一起，并愿意为你放弃一切，那么，只有当你真正信任他时，他那些表白才会对你有意义。只有当你相信爱的表达不附带任何条件和负担时，你才会产生被爱的感觉。</span></p><p><span>这就是为何欺骗具有极大的破坏性。这里不是指性，而是指因为性遭到破坏的信任。没有了信任，爱情关系便失去了它应有的功能。因此，要么重建信任，要么分道扬镳。</span></p><p><span>我常常收到朋友们发来的电子邮件，说他们最重要的那一半背叛了他们。但他们不想分手，因此想知道该如何重建信任。他们说，失去了信任，他们的关系已不再是种享受，而是成了负担和威胁，需要时时提防和怀疑。</span></p><p><span>问题是，因不忠而被抓到的大多数人都会认错，并做出像&quot;这种事永远不会再发生&quot;之类的虚假承诺。许多遭背叛的人会在面子上接受这种道歉，而不去质疑伴侣（一语双关）的价值观和兴趣点。他们不去想这些价值观和兴趣点能否让伴侣变成一个可以信赖的好人。他们过分看重婚姻关系，意识不到这种关系早已成了一个消耗他们自尊心的黑洞。</span></p><p><span>有些人背叛婚姻是因为对他们来说某些事比婚姻更重要。那件事占了上风，这可能是用来验证什么，也可能是屈从于冲动。但很显然，无论是哪种情况，背叛者的价值观都不足以支撑起健康的婚姻关系。如果背叛者不承认这点，或原谅了自己，或只是老生常谈地说：&quot;不知怎么搞的。我当时太紧张，且喝醉了酒，而她正好在那里。&quot;那么，他便没有建立起认真和必要的自我意识来解决关系中存在的任何问题。</span></p><p><span>背叛者们需要剥开他们自我意识的洋葱，找出是什么价值观导致他们毁掉了自己的婚姻关系（以及他们是否真的珍惜此关系）。他们必须敢于说：&quot;你知道，我太自私了，我关心自己甚于咱们的婚姻关系。说实话，我的确太不珍惜我们的关系了。&quot;如果他们不愿说出自己那些低劣的价值观，也不愿证明他们已将之放弃，那么就没有理由相信他们是值得信赖的。正因如此，他们的婚姻状况很难获得改善或改变。</span></p><p><span>在重建信任的问题上，另一个很实用的因素是：跟踪记录。某人失信于你后，口头保证当然不错，但你还需听其言，观其行。只有这样你才会相信，背叛者调整了自己的价值观，而他／她真的会发生改变。</span></p><p><span>不幸的是，建立信任跟踪记录需要花费很长时间，肯定要比毁掉信任所用的时间要长。在重建信任期间，情况可能会很糟糕。因此关系双方都必须意识到这点，并做艰苦的努力。</span></p><p><span>爱情关系中的欺骗只是个例子。这一过程适用于任何关系的损毁和重建。重建信任需要经过以下两个步骤：（1）违约者必须认清导致其违约的真正价值观是什么，并承认错误；（2）违约者需建立长期可靠的行为跟踪记录。做不到第一步，其实就是不想和解。</span></p><p><span>信任像个瓷盘。打碎一次，可以凭借耐心和技术重新拼凑起来。第二次打碎，它会裂成更多的碎块，需要用更长的时间来拼凑。打碎的次数越多越难拼凑，直到最后彻底无法修复。因为碎片太多、灰尘太多了。</span></p><h2 id='85--拒绝让你更自由'><span>8.5  拒绝，让你更自由</span></h2><p><span>拒绝那些与我们最重要的价值观和衡量标准不相一致的东西，拒绝追求只有广度而没有深度的东西。</span></p><p><span>消费文化总是在鼓励我们购买更多的东西。所有的产品广告和营销潜台词都是买得越多越好。多年来，我一直存有这样的想法：赚更多的钱、游历更多的国家、增添更多的人生经历，以及结识更多的异性朋友。</span></p><p><span>但更多并不总是意味着更好。事实恰好相反，往往是更少给我们带来了幸福。当机会和选择过多时，我们便会无所适从。心理学家们称之为选择悖论。一般来讲，选项越多，我们就越对所选择的东西不满意。因为我们不得不舍弃所有其他选项。</span></p><p><span>如果在两个住处中选择一个，你会对自己的选择感到自信和舒适，因为你知道你的选择是正确的。你会满意你的决定。</span></p><p><span>但如果你有二十八处住所可供选择，选择悖论会让你一连数年处在痛苦、怀疑和举棋不定中。你不知道你的选择是否真的&quot;正确&quot;，是否最大限度地满足了自己的心愿。这种焦虑和对于确定性、完美和成功的渴求会让你很不开心。</span></p><p><span>那么，我们该怎么做呢？</span></p><p><span>将精力过多地投入在一个人、一个地方、一种工作和一项活动上会限制我们体验的广度，但寻求体验的广度又会让我们丧失深度体验的好处。有些体验，不在同一地区生活五年，不和同一个人相处十多年，不终生从事同一项技能或工艺，你是得不到的。三十多岁时我终于认识到，拒绝以其独有的方式给我带来了大量机会和经历，否则，无论去哪里或做什么，我都难以获得这些东西。</span></p><p><span>追求体验的广度时，你的每次新的冒险、每个新认识的人或每件新做的事情的回报都会有所递减。假如你一直待在国内，那么第一次出国旅行会让你的观念发生巨大转变，因为那时你的体验非常有限。但假如你已去过二十个国家，那么第二十一个国家的旅行就不会让你收获太多。而当你去过五十个国家时，第五十一个国家则几乎可以忽略不计。</span></p><p><span>同样的道理适用于财产、金钱、爱好、工作、朋友，以及爱侣。你年纪越大，经历越多，每一次新的体验对你的影响就越小。第一次在派对上喝酒让我兴奋，第一百次觉得好玩，第五百次感觉像过了个普通周末，第一千次会感到没意思和无所谓。</span></p><p><span>过去几年我重要的人生经历源自于对诱惑的拒绝。除了最值得的人、最好的生活体验和最好的价值观外，我拒绝了其他一切。我关闭了所有业务项目，专注于写作。从那以后，我的网站备受欢迎，程度超出了想象。我发现，长期爱着一个女人比逢场作戏、私密幽会和一夜情更有价值。我在同一地区长期居住，同少数几个人建立起了重要、真诚和健康的友谊。</span></p><p><span>我发现有件事情完全违反直觉：自由和拒绝。拒绝某些选择和干扰让我获得了更多的机会去做我想做的真正重要的事情。</span></p><p><span>拒绝赋予你自由，让你免受琐事的干扰，让你专注于更有效、让你更健康和更快乐的事情。拒绝让决策更容易，且不必担心以后会后悔。既然知道你所拥有的已经足够好了，那何必还要苦苦追寻更多的东西呢？拒绝让你心无旁骛地专注于少数重要的目标，让你实现更大程度的成功。</span></p><p><span>如此一来，拒绝一些选项便使我们获得了解放，拒绝那些与我们最重要的价值观和衡量标准不相一致的东西，拒绝追求只有广度而没有深度的东西。</span></p><p><span>是的，年轻时追求经验的广度是必要和可取的，毕竟你需要走出家门，看看哪些事情值得你付出时间和精力。但金子总是被埋在有深度的地方，你必须将精力集中于某件事情，并深入挖掘才行。这点对一切都适用，人际关系、职业生涯及形成良好的生活方式。</span></p><p><span>在你离去后，世界会变得更好和有所不同吗？你留下了什么痕迹？你带来了什么影响？</span></p><h1 id='第九章-向死而生最好的告别'><span>第九章 向死而生：最好的告别 </span></h1><h2 id='91--最好的告别'><span>9.1  最好的告别 </span></h2><p><span>没有死亡，一切都显得无足轻重，一切体验都可以随意而为，而所有的价值观和衡量标准都将瞬间失去任何意义。</span></p><p><span>&quot;去为自己寻找真理吧，我会在那儿等你。&quot;这是我的好朋友乔什对我说过的最后一句话。他是用讽刺的语气说的，听来让人感觉高深莫测，同时又取笑了那些高深莫测的人。他那天酒喝多了，显得有些兴奋。</span></p><p><span>我的生活在十九岁那年发生了巨大转折。乔什带我到位于得克萨斯州达拉斯以北的一个湖边参加聚会。此处山上有些公寓，山下有个足球场，往下是一处悬崖峭壁，居高临下俯瞰整个湖面。悬崖不算太高，约有三十英尺------当然了，高得让你不敢往下跳。但同时又太低，低得让你在酒精和同辈压力的联合刺激下，很容易想改变主意。</span></p><p><span>到达聚会地点后不久，我和乔什一起坐在足球场上，像所有年轻而又焦虑的男孩子们一样，边喝啤酒边聊天。我们谈到饮酒、乐队、女孩以及乔什那年夏天退出音乐学校后所做的各种趣事。我们谈到一起去某个乐队玩音乐和移居纽约------这在当时还是个遥不可及的梦想。</span></p><p><span>那时我们还是孩子。</span></p><p><span>&quot;可以从那儿往下跳吗？&quot;过了一会儿，我一边问，一边朝湖上面的悬崖点点头。</span></p><p><span>&quot;怎么不可以？&quot;乔什说，&quot;大家一直这么做。&quot;</span></p><p><span>&quot;你也想跳？&quot;</span></p><p><span>他耸了耸肩：&quot;也许吧，我想会的。&quot;</span></p><p><span>后来，我和乔什各忙各的了。我迷上了一个漂亮的亚洲女孩，因为她也喜欢玩电子游戏。对于我这个十几岁的呆瓜来说，这不亚于中了彩票。但她对我没什么兴趣，只是友善而又愉悦地听我闲扯，因此我就扯个不停。几杯啤酒下肚后，我鼓足勇气邀请她到山上的商店里买点东西吃，她同意了。</span></p><p><span>我们上山时，正好碰到乔什下山。我问他是否想要些食物，他谢绝了。我问待会该去哪儿找他，他笑了笑，说：&quot;去为自己寻找真理吧，我会在那儿等你！&quot;</span></p><p><span>我点了点头，做了个严肃的鬼脸，回答道：&quot;好吧，我会在那儿与你碰面。&quot;听上去就好像我俩都知道真理在哪儿，以及该怎么去寻找似的。</span></p><p><span>乔什笑着下了山，朝悬崖走去。我也笑着继续上山，向商店走去。</span></p><p><span>不记得我在商店里待了多久。只记得，当我和那个女孩出来时，人都走光了，而且还听到有警报声。足球场上空空如也，人们纷纷下山，朝悬崖下面的湖边涌去，有些人已经到了湖边。我听到有几个人在游泳，但天色已晚，难以看清。音乐还在单调地播放着，但没有人听。</span></p><p><span>我不清楚发生了什么，也急忙朝湖边跑去，边跑边吃我的三明治。我很是好奇，不知道大家都在看什么。途中，那位漂亮的亚洲女孩对我说：&quot;我觉得发生了什么可怕的事情。&quot;</span></p><p><span>到山脚下后，我问乔什在哪。但没人理我，也没人认识我。大家都盯着水面看，我又问了一遍。这时，一个女孩情不自禁地哭了起来。</span></p><p><span>这时我才明白发生了什么。</span></p><p><span>潜水员花了三个小时才在湖底找到乔什的尸体。验尸报告后来说，受酒精脱水和悬崖高坠的影响，乔什入水后双腿发生了抽搐。那时天色已晚，入夜后湖水会出现分层，一层比一层更黑。没人能听到求救声来自哪里，只能听到水花声，只是听到有些声音。他父母后来告诉我，他水性很差，这点我并不知道。</span></p><p><span>十二个小时后，我才让自己哭出声来。第二天早晨，我开车回到了位于奥斯汀的家中。我打电话给爸爸，说我还在达拉斯，要耽误上班了（那年夏天我给他打工）。他问：&quot;为什么？发生了什么事？一切都还好吗？&quot;我的眼泪顿时成了喷泉。哭泣、尖叫和鼻涕，什么都来了。我把车停在路边，紧握手机，像个小男孩似的对着父亲号啕大哭起来。</span></p><p><span>那年夏天，我变得极度消沉。之前我一直情绪低迷，但这回上升到了全新的无道理的水平------我的悲伤如此之深，让我感到全身疼痛。很多人来安慰我，试图让我振作起来。我坐在那儿，听他们讲各种美好和愉快的事情。我说谢谢他们，他们来安慰我真是太好了。我强颜欢笑，说我会好起来的，但内心却毫无感觉。</span></p><p><span>此后数月，我多次梦见过乔什。梦见我和他畅谈生命及死亡，以及其他的琐碎话题。到那时为止，我还一直是个非常典型的中产阶级后代------懒惰、不负责任并带有交际焦虑和严重的不安全感。在许多方面，乔什都是我敬重的一个人。他比我年长，更有信心和经验，也更能接受和融入社会。在我最近做的一个梦里，我俩坐在一个按摩浴缸里（是的，这很奇怪）。我说：&quot;对你的死我深感抱歉。&quot;他笑了。我记不清他究竟说了些什么，似乎是说：&quot;既然你那么害怕活着，那又何必关心我的死呢？&quot;然后我就哭着醒了。</span></p><p><span>那年夏天，我坐在妈妈的沙发上，凝视所谓的万丈深渊。我看到在无穷无尽和不可思议的虚空中，我和乔什的友谊一如既往。我惊讶地意识到：假如真的没理由去做任何事，那么也就没理由不去做任何事。在不可逃避的死亡面前，人们没有理由因为恐惧、尴尬和羞愧而屈服，因为那样做无济于事。假如把短暂的生命时光大部分用来逃避痛苦和不适，那实际上就等于终结了自己的生命。</span></p><p><span>那年夏天，我放弃了《野草》、香烟和视频游戏。我放弃了摇滚明星梦，退出音乐学校并报名参加了大学课程。我开始去健身房锻炼身体，减掉了一些体重。我交了些新朋友，并遇到了第一个女友。我在人生中首次做课程研究，而且惊人地发现：只要我稍加努力，就能取得好成绩。次年夏天，我挑战自我，在五十天内读完了五十本纪实文学作品。第二年，我转学到了美国另一侧的一个优秀的大学。在那里，我在学术和社交方面均表现突出，这还是头一遭。</span></p><p><span>乔什的离世成了我人生中界限最分明的分水岭。青少年时期的悲剧让我羞怯和谦卑，沉浸在自我想象的社会评价中难以自拔。但之后的悲剧却让我焕然一新，变得负责任、好奇和勤奋了。尽管像往常一样，我的不安全感和压力仍然很大，但我现在开始去关注比不安全感和压力更为重要的事情了，这一点尤其重要。奇怪的是，竟然是他人的死亡让我最终重获新生。人生中最糟糕的时刻反而成了我发生最大改变的时刻。</span></p><p><span>死亡让人恐惧。正因如此，即使它发生在关系密切的人身上，我们也不愿去思考它、谈论它，有时甚至不愿去承认它。</span></p><p><span>然而，令人匪夷所思的是，死亡竟是衡量所有生命意义的一把尺子。没有死亡，一切都显得无足轻重，一切体验都可以随意而为，而所有的价值观和衡量标准都将瞬间失去任何意义。</span></p><h2 id='92--死亡的不朽工程'><span>9.2  死亡的不朽工程</span></h2><p><span>死亡是件坏事，但它是不可避免的。因此，我们不应该回避它，而是要尽可能地正视它。</span></p><p><span>欧内斯特·贝克尔是个学术弃儿。他于1960年获得人类学博士学位，其博士论文是《禅宗和精神分析学的不可能性及非常规做法比较》。当时人们认为，禅宗与嬉皮士和吸毒者有关，而弗洛伊德精神分析是石器时代遗留下来的一种庸医心理学。</span></p><p><span>他的第一份工作是教授助理。贝克尔很快加入了一个团伙，宣称精神病治疗法是一种法西斯主义，是对弱者和无助者的不科学的压迫。</span></p><p><span>但问题是，贝克尔的老板恰好是个精神病学家。这等于刚刚入职就傲慢地将老板当成了希特勒。</span></p><p><span>不出意料，他被解雇了。</span></p><p><span>于是，贝克尔来到了加州伯克利。他觉得也许这儿能容得下他那激进的观点，但这儿他也没能待多久。</span></p><p><span>这次是他的反政府倾向和离奇的教学方式给他带来了麻烦。他借莎士比亚来教心理学，用心理学教科书来教人类学，并援引人类学数据来教社会学。他扮成李尔王在课堂上挥舞长剑，并长期发表与教学毫无关系的政治言论。学生们很崇拜他，但其他教师却对他深恶痛绝。不到一年，他又被解雇了。</span></p><p><span>接着，贝克尔来到了旧金山州立大学，并在那里工作了一年多。越南战争爆发后，学生们开始抗议示威。校方叫来了国民警卫队，于是事件很快演变成一场暴力行为。贝克尔站在学生一边，公开谴责校长的行为（他再次将老板当成了希特勒或其他什么）。他很快再遭开除。</span></p><p><span>贝克尔六年中换了四次工作。在即将第五次被解雇之前，他得了结肠癌，病情不容乐观。此后数年，他卧床不起，基本看不到康复的希望。于是贝克尔决定写一本书，是有关死亡的。</span></p><p><span>贝克尔逝世于1974年。他的著作《拒绝死亡》获得了普利策奖，是二十世纪最具影响力的学术著作之一。该著作在心理学和人类学领域引起强烈反响，使得深奥的哲学主张至今仍具有很大的影响力。</span></p><p><span>《拒绝死亡》一书有两个基本观点：</span></p><p><span>第一，人类是唯一能够对自我进行概念化和抽象化思维的动物。狗不会担心自己的职业生涯；猫不会反思自己的过错，也不会想换种做法将会怎样；猴子不会争论未来的可能性，就像鱼不会想长一点的鱼鳍是否更讨人喜欢一样。</span></p><p><span>人类能够通过假设的情景进行自我想象，沉思过去，展望未来，并联想到完全不同的现实和景象。贝克尔说，独特的思维能力使得人类能够意识到死亡的必然性。由于人类是唯一能够将不同形式的现实存在概念化的动物，所以我们能够假设到一种不包含自我的现实存在。</span></p><p><span>这一点导致人们产生了贝克尔所称的&quot;死亡恐惧&quot;。它是根植于人类一切思想和行为中的一种焦虑。</span></p><p><span>第二，贝克尔的第二个观点有个前提，即我们实际上有两个&quot;自我&quot;。一个是身体自我------用来吃饭、睡觉、打呼噜和排便；另一个是概念自我------我们的自我认同或自我认知。</span></p><p><span>贝克尔的观点是：我们都知道身体会最终消亡，死亡是不可避免的。正是这种必然性，在某种无意识层面上，让人们惊恐万分。为了弥补这种恐惧，我们试图构建一个永恒的概念自我。这就是为何人们把名字雕刻在建筑物和雕像上，或留在书脊上。这就是为何人们花时间陪伴他人，尤其是孩子。因为我们希望让自己的影响、概念自我、超越身体自我继续存在下去。我们希望在身体自我消失很久之后，人们还能记得我们，尊敬并崇拜我们。</span></p><p><span>贝克尔称之为&quot;不朽工程&quot;。他说，所有的人类文明基本上都是不朽工程的产物。今天的城市、政府、建筑物和地方当局都是从前的男男女女所创造的不朽工程。他们是概念自我永存人间的遗留物。很多人名，像耶稣、穆罕默德、拿破仑和莎士比亚等，至今听起来仍像他们在世时那么如雷贯耳。这正是意义所在。无论是掌握一门艺术形式，还是征服一块新领地，还是获取巨额财富，还是建立一个人口众多、其乐融融和香火不断的大家庭，所有的意义都源自于一个与生俱来的愿望：永生不灭。</span></p><p><span>宗教、政治、体育、艺术和技术创新都是不朽工程的产物。贝克尔认为，发生战争、革命和大屠杀的原因在于一群人的不朽工程与另一群人的不朽工程发生了冲突。几个世纪的压迫和数百万人的流血牺牲也是由于一群人为了保卫自己的不朽工程而去摧毁另一群人的不朽工程造成的。</span></p><p><span>然而，不朽工程一旦失败，一旦丧失意义，或概念自我超越身体自我的愿望一旦落空，死亡的恐惧、可怕和令人沮丧的焦虑，便又重新回到我们的思想中。贝克尔指出：创伤、耻辱、社会嘲讽及精神性疾病都会带来此种焦虑。</span></p><p><span>不知你发现了没有，不朽工程其实就是价值观，是人生意义和价值的晴雨表。从心理学意义上讲，价值观失败了，我们也就失败了。贝克尔是说，我们其实是在恐惧感的驱使下过分关注了些什么。因为只有关注些什么，我们才能从死亡的现实和必然中解脱出来。然而，只有真正做到毫不在乎，才是接受生命无常应有的精神状态。保持这种状态，你才不会陷入各种形式的特权意识的危机中。</span></p><p><span>贝克尔临终前得出一个惊人的结论：不朽工程实际上是个问题，而不是解决问题的方案；我们应该质疑概念自我，并接受终将死亡的现实，而不是通过诉诸武力在全球推行概念自我。贝克尔称此为&quot;苦口良药&quot;，并努力用它来同自己的死亡做斗争。死亡是件坏事，但它是不可避免的。因此，我们不应该回避它，而是要尽可能地正视它。因为一旦接受了终将死亡的现实，就消除了使人意志消沉的恐惧根源和潜在焦虑，就能够更加自由地选择自己的价值观，摆脱对永生不灭的不合理要求，并从危险的教条中解放出来。</span></p><h2 id='93--人生只有一次你选择怎样活'><span>9.3  人生只有一次，你选择怎样活 </span></h2><p><span>在你离去后，世界会变得更好和有所不同吗？你留下了什么痕迹？你带来了什么影响？</span></p><p><span>我从一块岩石爬到另一块岩石，克服腿部肌肉难以忍受的酸痛，越爬越高。在即将筋疲力尽时，终于到达了山顶。头顶上方，天空变得辽阔而又高远。山顶上只有我一个人。朋友们都在很远的山脚下，给海洋拍照。</span></p><p><span>又爬过一块巨石后，视野豁然开朗，广袤无垠的地平线尽展眼前。我凝视着地球边缘，极目之处，海空一色，水天相连。风儿呼啸着掠过我的肌肤，抬眼望去，一切明亮而又美丽。</span></p><p><span>我正在南非的好望角。这里曾一度被认为是非洲和全世界的最南端。这是个狂暴之地，充满风暴和变幻莫测的水域。它见证了几个世纪的商贸发展和人类努力。若反过来说，那它就是块失望之地。</span></p><p><span>葡萄牙语中有句反语：他快到好望角了。意思是说：某个人的生命即将终结，或将一事无成。</span></p><p><span>我跨过岩石，走向大海，任无边的浩瀚吞没我的视野，我既兴奋又紧张。这就是它吗？</span></p><p><span>风在我耳旁呼啸，我什么也听不清，但能看到岩石与海水的边界。我停下来，在悬崖边缘站了一会儿。我看到下面的海水卷起波浪，冲向对面绵延数英里的陡岸。潮汐凶猛地抽打着坚硬的崖壁，再往前走就是断崖，距离水面至少五十码。</span></p><p><span>在我右侧下方，游客们像一群群蚂蚁分散在风景区内，纷纷拍照留影。我左边是亚洲，前方是天空，而其后便是我本人，及我所要尝试的一切。</span></p><p><span>假如这就是它，那它是什么？它究竟是什么？</span></p><p><span>我环顾四周，发现就我一个人在这。于是，我朝悬崖边迈出了第一步。</span></p><p><span>人体内似乎有个天然的死亡预警雷达。当走到离悬崖边缘大约十英尺处时，假如没有护栏，你会马上紧张起来。背部变僵硬，浑身起鸡皮疙瘩。眼睛会极度紧张地盯着视野内的每一处细节。双脚变得岩石一般僵硬。仿佛有块看不见的磁铁在轻轻将你拉向安全的地方。</span></p><p><span>但我在抗拒这块磁铁。我拖着岩石般的脚一步一步靠近悬崖。</span></p><p><span>再走五英尺，就可以与同大自然融为一体了。在这里，你不仅能看到悬崖边缘，还能看到悬崖表面。你会不由自主地想到因各种各样的意外跌倒和坠落而导致的惨烈死亡。大脑会提醒你：真高啊！伙计，你要干什么呢？快停下。不要动。</span></p><p><span>我叫我的大脑闭嘴，然后继续向前挪动。</span></p><p><span>在离悬崖三英尺时，身体进入全面警报状态。你现在命悬一线，感觉一阵风就能把你的生命之帆吹进蔚蓝的永恒中去。你双腿颤抖起来，手也在抖。假如你想提醒自己当心坠亡的话，那么，你的声音也会颤抖。</span></p><p><span>对于多数人来说，三英尺是个绝对的极限。这已经近得只需身体前倾，就可以看到悬崖底部，但还不至于让你感觉有坠崖而亡的危险。站得离悬崖边缘如此之近，即使是在美丽迷人如好望角的地方，也足以令你头晕目眩、惊恐万状和狂呕不止。</span></p><p><span>这就是它吗？这真的是它吗？我已明了我想要明了一切了吗？</span></p><p><span>我又稍稍往前挪了一小步，然后又挪了一小步。现在只剩两英尺了。当我身体前倾时，前腿开始抖动起来。我继续向前挪，一边挪，一边对抗磁力、理智和良好的求生本能。</span></p><p><span>只剩一英尺了，已经能直视垂直的悬崖表面了。我突然感觉想哭，我本能地蹲下，以避免胡思乱想和惊慌失措。大风夹杂着冰雹吹过来，恐怖像右勾拳一样猛击过来。</span></p><p><span>在一英尺处，你感觉像漂着，只要不往下看，就感觉自己已是天空的一部分。此时此刻，你很想就这样飞落下去。</span></p><p><span>我屏住呼吸，蹲了一会儿，努力将思绪集中并强迫自己看下面海水撞击岩石的情景。再看右边，蚂蚁般的人群四处游走。有的拍照，有的追赶旅游大巴。也许有人看到了我。但这种渴望得到关注的想法完全是非理性的。想在这儿得到某种回报，怎么可能呢？即便可能，那么，被一些素不相识的人指指点点、说三道四又有什么意义呢？</span></p><p><span>我听到的只有风声。</span></p><p><span>这就是它吗？</span></p><p><span>我浑身颤抖起来，恐惧变成了某种畅快和晕眩。我借助冥想来集中精神，清理思绪。没有什么比接近死亡更能让人感到真切和警觉。我稳定心神，发现自己在微笑。我提醒自己说，死亡没什么了不起的。</span></p><p><span>安于死亡，甚至迎接死亡有着古老的渊源。古代希腊和罗马的禁欲主义者们总是劝导人们要牢记死亡，以便面对逆境更加感恩生活和保持谦卑。在佛教的各种法门中，人们往往在尚年轻时就被教导通过练习冥想为死亡做准备。把自我融入无限的虚无中去，进入开化的涅槃状态，被视作实现生命穿越的试验。就连满身是毛，与哈雷彗星同来同去的马克·吐温也曾说过：&quot;对死亡的恐惧来自于对生活的恐惧，生命圆满之人随时准备赴死。&quot;</span></p><p><span>再回到悬崖上。我弯腰，稍稍后仰，将手放在身后的地面上，轻轻下蹲，坐下。然后，慢慢将一条腿垂在悬崖边上。悬崖边上有块突出的小岩石，我把脚放在上面休息。然后再将另一只脚也挪过去，放在同一块岩石上。我用手掌支撑着，让身体后仰，在那坐了一会儿，任风吹着头发。当我再次注视地平线时，焦虑有所缓解。</span></p><p><span>当我直起身子，再朝下面看时，恐惧立刻沿着脊椎反射回来，并迅速传遍四肢，聚焦于大脑及每一寸肌肤。恐惧总是令人窒息，但每次当它袭来时，我便清空思绪，将注意力集中于悬崖底部，强迫自己面对可能会发生的悲剧，并坦然接受它的存在。</span></p><p><span>此刻，我坐在世界边缘，好望角最南端，通往东方的要道上。这种感觉令人振奋。我感到体内的肾上腺素在汹涌澎湃，我仍然镇静自若，神志清醒，不慌不忙。我耳听风吼，眼观海啸，目极远方，尔后在阳光下开怀大笑。一切如此美好。</span></p><p><span>直面死亡很重要，可以让我们抛却一切低劣、脆弱和肤浅的价值观。当大多数人都在不停追逐金钱、名声和关注度，或让自己更正确、更受欢迎时，死亡把一个更加痛苦和更加重要的问题摆在了他们面前：你给后代留下了什么？</span></p><p><span>在你离去后，世界会变得更好和有所不同吗？你留下了什么痕迹？你带来了什么影响？有人说，一只蝴蝶在非洲扑闪翅膀都可以让佛罗里达刮起飓风。那么你带来的飓风是什么？</span></p><p><span>正如贝克尔所指出的，这大概是生活中唯一真正重要的问题。然而，我们却不愿思考这个问题。原因在于：第一，它很难；第二，它很可怕；第三，我们搞不清自己正在做什么。</span></p><p><span>回避的结果是，琐碎和可憎的价值观左右了人们的心灵，控制了人们的欲望和雄心。不承认死亡是始终存在的事实，会使肤浅变得重要，而重要变得肤浅。死亡是我们唯一可以确定的事实。因此，它必然会成为我们选择其他价值观和做任何决定的指南。它是所有问题的正确答案。我们应该对这些问题做出回答，但我们却从未做过。接受死亡的唯一方法是把自己理解和认知为比自身更重要的东西。要选择那些超越自私自利、简单、直接、可控和包容周围无序世界的价值观，这是幸福的根源。无论是亚里士多德，还是哈佛大学的心理学家，还是耶稣基督或披头士乐队，他们都说：幸福来自于关注某件比自身更重要的东西，要相信你在为某个更重要的实体做贡献，以及你的生命从属于某个了不起的高深莫测的生产过程。人们去教堂、发动战争及建立家庭、储蓄养老金、建造桥梁和发明手机都是为了追求这种转瞬即逝的感觉，即他们从属于某个比自身更重要和更不可知的群体。</span></p><p><span>但特权意识不允许我们这样做。它将所有的注意力引向内部，引向我们自身，让我们觉得自己才是宇宙中所有问题的焦点，我们正在遭受所有的不公，让我们觉得我们才是超越一切的最伟大的存在。</span></p><p><span>特权意识让我们陷入了孤立的境地。不仅失去了对世界的好奇心和兴奋感，而且把自己的偏见和推测反射到每个人和每件事情上。这会让我们意乱情迷，神魂颠倒，可能让我们一段时间感觉良好，并赢得一些关注，但它是种精神毒药。</span></p><p><span>这一现象正困扰着我们中的一些人。我们虽然在物质上富裕了，但心理上仍承受着许多低水平和浅层次的折磨。受此困扰的人们放弃了一切责任，只要求社会迎合自己的感受和情感。他们抓住任意的确定性不放，并以虚假的正义为借口强行施加于他人。他们因担心失败而不敢尝试有价值的东西，最终在虚无缥缈的优越感中变得无所作为和死气沉沉。</span></p><p><span>在现代思想的纵容下，他们不满足于已经得到的东西。他们觉得应该得到这些东西而不必做出任何牺牲。他们宣称自己是专家、企业家、发明家、创造者、持不同政见者和没有任何实际经验的教练。并非他们真的认为自己了不起，而是他们觉得只有这样才能被一个天天倡导非同凡响的世界所接受。</span></p><p><span>当今社会混淆了巨大关注和巨大成功之间的区别，认为它们是同一件事，但这是不对的。</span></p><p><span>不知你或他人是否意识到，你已经足够伟大了。并非因为你发明了一个苹果手机应用程序，或提前一年毕业，或买了一艘游艇，这些东西算不上伟大。</span></p><p><span>说你伟大是因为，面对无休止的混乱和必然的死亡，你仍在选择该在乎什么和不该在乎什么。这一个简单的事实已经让你足够美丽、成功和受人爱戴了，哪怕你还没意识到这点，哪怕你还住在地下室里，哪怕你还在忍饥挨饿。</span></p><p><span>你也将消亡，因为你已经足够幸运地活了一回。当你站在悬崖边上时，你会体会到这点。</span></p><p><span>布可夫斯基曾经写道：&quot;我们都会消亡，人人都会。我们多么像个马戏团！仅此一点就应让我们彼此相爱，但却没有。生活中的琐事把我们吓倒了，打败了，但并没将我们吃掉。&quot;</span></p><p><span>记得那晚看到救护人员将乔什的遗体从湖里打捞上来时，我盯着得克萨斯州漆黑的夜空，感觉我的自我意识在慢慢消解。乔什的死让我意识到很多我从未意识到过的东西。是的，它教我珍惜每一寸光阴，为自己的选择负责，并毫无羞愧和压力地去追求自己的梦想。</span></p><p><span>一个深刻和重要的教训是：没什么可怕的，从来没有。多年来，我反复提醒自己要牢记死亡，无论通过冥想、阅读哲学，还是通过一些疯狂行为，如站在南非悬崖上，唯一的目的就是将对于死亡的领悟保持在大脑的中心位置。接受死亡的事实并理解自己的脆弱会让一切变得简单起来，让我戒掉了癖好、辨别和面对自己的特权意识，为自己的问题承担责任，恐惧、不确定性以及接受失败和拒绝所带来的痛苦，都因正视死亡而减轻。越窥视黑暗，生活就会越光明，世界就会越安静，对于事物的无意识抵抗就会越少。</span></p><p><span>坐在海角悬崖上，一切尽收眼底。几分钟后，我决定站起来。</span></p><p><span>我把手放在身后，支撑着向后撤退。随后，我慢慢站了起来，看了看周围，确保地面上没有石头挡着，意识到安全了，我开始走回现实，五英尺、十英尺，我的身体也随之恢复常态，脚步变得轻盈起来。生活的磁铁把我重又吸了回来。</span></p><p><span>当退回到岩石后面，来到主路上时，我抬头一看，见有名男子正在打量我。我停下脚步，与他做了眼神交流。</span></p><p><span>&quot;嗯。我看见你刚才坐在那边的悬崖上。&quot;说着，他用手指了指南极。听口音我知道他是澳大利亚人，因为他的&quot;那儿&quot;一词的发音显得有些笨拙。</span></p><p><span>&quot;是的。景色太美了，不是吗？&quot;我微笑着说。他没笑，仍旧满脸严肃。</span></p><p><span>我用手摸了下短裤，又拿开。身体还在恐惧的余威中微微颤抖。然后是尴尬的沉默。</span></p><p><span>澳洲人站在那儿，仍旧疑惑不解地望着我，显然还想问我些什么。过了一会儿，他小心翼翼地问：&quot;一切都还好吗？你感觉如何？&quot;</span></p><p><span>停顿片刻后，我面带微笑地说：&quot;很震撼，非常震撼。&quot;他那充满疑惑的脸上终于露出一丝笑意，轻轻点了下头，沿小路下山了。我站在山上，欣赏着眼前的美景，等待朋友们上来跟我会合。</span></p><p>&nbsp;</p><h1 id='鸣谢'><span>鸣谢 </span></h1><hr /><p><span>本书素材多而且凌乱，若不是大家帮助整理，很难让人理解。</span></p><p><span>首先感谢我聪慧而又美丽的妻子费尔南达。她总是在我最需要的时候，不厌其烦地提出建议和忠告。她不仅让我变得更优秀，而且给了我无私的爱。在我的写作过程中，她的建议是不可或缺的。</span></p><p><span>感谢我的父母。这些年来，你们不仅一直容忍我的过错，且给了我恒久的爱。从许多方面来说，理解了本书中的许多观念后，我才觉得终于长大了。从这个意义上说，过去几年中，能够作为一个成年人跟你们交往，我感到很高兴。我要对弟弟说：有时我虽然因你不回短信而生气，但我从未怀疑过我们之间共同的爱和尊重。</span></p><p><span>感谢菲利普·坎伯和德鲁·伯尼。你们过人的聪明才智助我脑洞大开，你们的辛勤努力给了我莫大的帮助。</span></p><p><span>感谢迈克尔·科沃尔为我做了心理研究方面的智力应力测试，并对我的设想提出质疑。感谢我的编辑卢克·邓普西，若没有他对我的作品严格把关，我的言辞会更加污秽。感谢我的经纪人莫莉·格利科，是她帮我确定本书的愿景，并把它推向更广阔的世界。这大大超出了我的预料。感谢泰勒·皮尔逊、丹·安德鲁斯和乔迪·艾登博格一如既往的支持，是你们三人让我神志清醒，不敢松懈。这是每个作家都必须做到的。</span></p><p><span>最后，感谢成千上万的读者。不管出于何种原因，你们读了我这个满口脏话的波士顿人在博客上写的生活感想，我收到了你们洪水般的电子邮件。在其中，你们愿意敞开胸怀，把秘密告诉我这个陌生人，这让我受宠若惊又深受鼓舞。目前我已经花了数千小时来阅读和研究这些资料，我将继续向你们学习。</span></p><p><span>谢谢你们！</span></p><p><span> </span></p></div></div>
+</body>
+</html>
