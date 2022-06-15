@@ -612,27 +612,36 @@ header, .context-menu, .megamenu-content, footer {
 
  /* Font Definitions */
  @font-face
-	{font-family:Helvetica;
-	panose-1:2 11 6 4 2 2 2 2 2 4;}
-@font-face
 	{font-family:宋体;
 	panose-1:2 1 6 0 3 1 1 1 1 1;}
 @font-face
 	{font-family:"Cambria Math";
 	panose-1:2 4 5 3 5 4 6 3 2 4;}
 @font-face
-	{font-family:"PT Serif";}
+	{font-family:"等线 Light";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
 @font-face
-	{font-family:"var\(--monospace\)";
-	panose-1:0 0 0 0 0 0 0 0 0 0;}
+	{font-family:"PT Serif";}
 @font-face
 	{font-family:"\@宋体";
 	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"\@等线 Light";}
  /* Style Definitions */
  p.MsoNormal, li.MsoNormal, div.MsoNormal
 	{margin:0cm;
 	font-size:12.0pt;
 	font-family:宋体;}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{mso-style-link:"标题 字符";
+	margin-top:12.0pt;
+	margin-right:0cm;
+	margin-bottom:3.0pt;
+	margin-left:0cm;
+	text-align:center;
+	font-size:16.0pt;
+	font-family:"等线 Light";
+	font-weight:bold;}
 a:link, span.MsoHyperlink
 	{color:#065588;
 	text-decoration:none none;}
@@ -642,6 +651,11 @@ p
 	margin-left:0cm;
 	font-size:12.0pt;
 	font-family:宋体;}
+span.a
+	{mso-style-name:"标题 字符";
+	mso-style-link:标题;
+	font-family:"等线 Light";
+	font-weight:bold;}
 .MsoChpDefault
 	{font-size:10.0pt;}
 @page WordSection1
@@ -665,7 +679,7 @@ style='word-wrap:break-word'>
 
 <div id=write>
 
-<p style='line-height:18.0pt'><strong><span style='font-family:宋体;color:#1F0909'>听读书籍</span></strong></p>
+<p class=MsoTitle><strong><span style='font-family:"等线 Light";color:#70AD47'>听读书籍</span></strong></p>
 
 <figure>
 
